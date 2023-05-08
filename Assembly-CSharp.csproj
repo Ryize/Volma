@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{e6bdc332-25e1-2831-82c1-25d0441455a3}</ProjectGuid>
+    <ProjectGuid>{cd5e45f4-c742-8301-5cab-277e4390c475}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -47,24 +47,55 @@
      <Compile Include="Assets/Environment/Items/Instruments/Gardening_Tools_Pack_26_PBR_objects/Broom_Skript.cs" />
      <Compile Include="Assets/Environment/Items/TakenPosition.cs" />
      <Compile Include="Assets/FPSController/Scripts/UI_Script.cs" />
+     <Compile Include="Assets/FPSController/Scripts/TextPrint.cs" />
      <Folder Include="Assets" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <Folder Include="Assets/FPSController" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets/Environment/Items/Instruments/Gardening_Tools_Pack_26_PBR_objects/Textures" />
+     <Folder Include="Assets/TextMesh Pro/Sprites" />
      <Folder Include="Assets/Environment" />
+     <Folder Include="Assets/TextMesh Pro/Resources/Sprite Assets" />
      <Folder Include="Assets/Environment/Items/Resources/Bag" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+     <Folder Include="Assets/TextMesh Pro/Resources/Fonts &amp; Materials" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
+     <Folder Include="Assets/TextMesh Pro/Resources" />
      <Folder Include="Assets/FPSController/Scripts" />
      <Folder Include="Assets/Environment/Items/Resources" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
      <Folder Include="Assets/Environment/Items/Instruments/Gardening_Tools_Pack_26_PBR_objects/Meshes" />
      <Folder Include="Assets/Environment/Items/Instruments" />
+     <Folder Include="Assets/TextMesh Pro" />
      <Folder Include="Assets/Environment/Items/Instruments/Gardening_Tools_Pack_26_PBR_objects/Materials" />
      <Folder Include="Assets/Environment/Items/Instruments/Gardening_Tools_Pack_26_PBR_objects/Prefabs" />
      <Folder Include="Assets/Environment/Items/Dirt &amp; Dust" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
+     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
      <Folder Include="Assets/Environment/Items" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
      <Folder Include="Assets/Environment/Items/Instruments/Gardening_Tools_Pack_26_PBR_objects" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
+     <Folder Include="Assets/TextMesh Pro/Shaders" />
+     <Folder Include="Assets/TextMesh Pro/Resources/Style Sheets" />
+     <Folder Include="Assets/TextMesh Pro/Fonts" />
      <Folder Include="Assets/Environment/Items/Dirt &amp; Dust/Materials" />
-     <Folder Include="Assets/Environment/New Folder" />
+     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
      <Folder Include="Assets/Scenes" />
+     <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
+     <Folder Include="Assets/TextMesh Pro/Documentation" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
      <Folder Include="Assets/FPSController/Prefabs" />
+     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -312,10 +343,10 @@
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="ReportGeneratorMerged">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/PackageCache/com.unity.testtools.codecoverage@1.2.2/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/PackageCache/com.unity.testtools.codecoverage@1.2.2/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.18f1/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -684,73 +715,73 @@
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.18f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>/Users/matvejcekasov/Downloads/My project/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+     <HintPath>/Users/matvejcekasov/RiderProjects/Volma/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

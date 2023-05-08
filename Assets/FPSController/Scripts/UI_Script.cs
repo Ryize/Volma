@@ -24,8 +24,6 @@ public class UI_Script : MonoBehaviour
         {
             if (hit.transform.tag == "Item")
             {
-                //line_v.Color = 0;
-                Debug.Log("ishitting");
                 line_h.color = colorOnTarget;
                 line_v.color = colorOnTarget;
             }
