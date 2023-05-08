@@ -23,7 +23,11 @@ public class TakeItem : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, distance))
-        { 
+        {
+            if (hit.distance > 3)
+            {
+                return;
+            }
             if(hit.transform.tag == "Item")
             {
                 if (canToTake) 

@@ -28,6 +28,10 @@ public class Broom_Skript : MonoBehaviour
 
         if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, distance))
         {
+            if (hit.distance > 3)
+            {
+                return;
+            }
             if(hit.transform.tag == "Dirt")
             {
                 xForce = Math.Abs(Input.GetAxis("Mouse X")) * Force;
