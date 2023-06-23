@@ -9,7 +9,7 @@ public class TextPrint : MonoBehaviour
     public TextMeshProUGUI my_text_ui;
     void Update()
     {
-        faucetText()
+        faucetText();
     }
     bool broomText()
     {
