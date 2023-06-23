@@ -32,7 +32,7 @@ public class Broom_Skript : MonoBehaviour
             {
                 return;
             }
-            if(hit.transform.tag == "Dirt")
+            if(hit.transform.tag.ToLower().Contains("dirt"))
             {
                 xForce = Math.Abs(Input.GetAxis("Mouse X")) * Force;
                 yForce = Math.Abs(Input.GetAxis("Mouse Y")) * Force;

@@ -29,7 +29,7 @@ public class TakeItem : MonoBehaviour
                 return;
             }
             Debug.Log(hit.transform.name);
-            if(hit.transform.tag == "Item")
+            if(hit.transform.tag.ToLower().Contains("item"))
             {
                 if (canToTake) 
                     Drop();

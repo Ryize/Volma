@@ -4,16 +4,15 @@ using UnityEngine.UI;
 
 public class TextPrint : MonoBehaviour
 {
-    public Text MyText;
-    public TextMeshPro myText;
-    public TextMeshProUGUI my_text_ui;
     void Update()
     {
         faucetText();
     }
+    
+    // Таск метлы
     bool broomText()
     {
-        var broom = GameObject.FindGameObjectsWithTag("Item")[2];
+        var broom = GameObject.FindGameObjectsWithTag("Item")[3];
         var dirts = GameObject.FindGameObjectsWithTag("Dirt");
         var textTask = GameObject.FindGameObjectWithTag("Task").GetComponent<TMP_Text>();
         var image = GameObject.FindGameObjectWithTag("menuImage").GetComponent<Image>();
@@ -24,27 +23,22 @@ public class TextPrint : MonoBehaviour
             image.rectTransform.position = new Vector2(93, 383);
             return true;
         }
-        else if (broom.GetComponent<TakenPosition>().isTaken)
+        if (broom.GetComponent<TakenPosition>().isTaken)
         {
             textTask.text = "Подойдите к грязи и вытрети её (зажав левую кнопку, и двигая курсором)";
             image.rectTransform.sizeDelta = new Vector2(175, 125);
             image.rectTransform.position = new Vector2(93, 353);
+            return false;
         }
-        else
-        {
-            textTask.text = "Возьмите метлу";
-            image.rectTransform.sizeDelta = new Vector2(175, 45);
-            image.rectTransform.position = new Vector2(93, 393);
-        }
-
+        textTask.text = "Возьмите метлу";
+        image.rectTransform.sizeDelta = new Vector2(175, 45);
+        image.rectTransform.position = new Vector2(93, 393);
         return false;
     }
 
+    // Таск ведра
     bool faucetText()
     {
-        /*
-         * Проверка на исполнение предыдущего квеста.
-         */
         if (broomText() == false)
         {
             return false;
