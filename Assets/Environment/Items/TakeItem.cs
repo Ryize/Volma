@@ -28,6 +28,7 @@ public class TakeItem : MonoBehaviour
             {
                 return;
             }
+            Debug.Log(hit.transform.name);
             if(hit.transform.tag == "Item")
             {
                 if (canToTake) 

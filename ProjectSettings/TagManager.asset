@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Dirt
   - Task
+  - menuImage
   layers:
   - Default
   - TransparentFX
