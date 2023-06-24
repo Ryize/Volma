@@ -12,7 +12,7 @@ public class TextPrint : MonoBehaviour
     // Таск метлы
     bool broomText()
     {
-        var broom = GameObject.FindGameObjectsWithTag("Item")[3];
+        var broom = GameObject.FindGameObjectsWithTag("Item")[2];
         var dirts = GameObject.FindGameObjectsWithTag("Dirt");
         var textTask = GameObject.FindGameObjectWithTag("Task").GetComponent<TMP_Text>();
         var image = GameObject.FindGameObjectWithTag("menuImage").GetComponent<Image>();
