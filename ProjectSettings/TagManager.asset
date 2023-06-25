@@ -9,6 +9,7 @@ TagManager:
   - Dirt
   - Task
   - menuImage
+  - item_broom
   layers:
   - Default
   - TransparentFX
