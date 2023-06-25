@@ -10,6 +10,9 @@ TagManager:
   - Task
   - menuImage
   - item_broom
+  - primer_item
+  - cuvette_item
+  - roller_item
   layers:
   - Default
   - TransparentFX

@@ -41,16 +41,19 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Task_Manager.cs" />
      <Compile Include="Assets\Environment\Items\Dirt &amp; Dust\Dirt_Script.cs" />
      <Compile Include="Assets\FPSController\Scripts\SC_FPSController.cs" />
      <Compile Include="Assets\Environment\Items\TakeItem.cs" />
      <Compile Include="Assets\Environment\Items\Instruments\Gardening_Tools_Pack_26_PBR_objects\Broom_Skript.cs" />
      <Compile Include="Assets\Environment\Items\TakenPosition.cs" />
      <Compile Include="Assets\FPSController\Scripts\UI_Script.cs" />
-     <Compile Include="Assets\FPSController\Scripts\TextPrint.cs" />
      <Compile Include="Assets\Task_Broom.cs" />
-     <Compile Include="Assets\Task_Manager.cs" />
+     <Compile Include="Assets\FPSController\Scripts\TextPrint.cs" />
      <Compile Include="Assets\Task.cs" />
+     <Compile Include="Assets\Task_Primer.cs" />
+     <Compile Include="Assets\Primer_Script.cs" />
+     <Compile Include="Assets\Environment\Items\Instruments\PaintRoller\PaintRoller_Script.cs" />
      <Folder Include="Assets" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\mergetool.ja.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\images.zh-Hans.txt" />
@@ -105,6 +108,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\basecommands.ja.txt" />
      <None Include="Library\PackageCache\com.unity.visualscripting@1.8.0\package.json" />
      <None Include="Library\PackageCache\com.unity.editorcoroutines@1.0.0\package.json" />
+     <Folder Include="Assets\Environment\Items\Instruments\PaintRoller" />
      <None Include="Library\PackageCache\com.unity.timeline@1.6.4\ValidationExceptions.json" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\package.json" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\xdiff.zh-Hans.txt" />
@@ -136,6 +140,8 @@
      <None Include="Library\PackageCache\com.unity.ide.rider@3.0.18\package.json" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\i3.zh-Hans.txt" />
      <Folder Include="Assets\Environment\Items\Instruments\bucket\bucket_no_bucketHandle\textures" />
+     <Folder Include="Assets\Environment\Items\Resources\Primer\Materials" />
+     <Folder Include="Assets\Environment\Items\Resources\Primer" />
      <None Include="Library\PackageCache\com.unity.test-framework@1.1.31\package.json" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Scripts" />
      <Folder Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime" />
@@ -147,6 +153,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\cm-help.en.txt" />
      <Folder Include="Assets\Environment\Items\Instruments\Gardening_Tools_Pack_26_PBR_objects\Prefabs" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\binmergetool.ko.txt" />
+     <Folder Include="Assets\Environment\Items\Instruments\PaintRoller\Model" />
      <Folder Include="Assets\Environment\Items\Dirt &amp; Dust" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\mergetool.en.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\workspaceserver.zh-Hans.txt" />
@@ -189,6 +196,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\clientcommon.en.txt" />
      <Folder Include="Library\PackageCache\com.unity.collab-proxy@2.0.0" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\binmergetool.zh-Hans.txt" />
+     <Folder Include="Assets\Environment\Items\Instruments\PaintCuvette" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\i3.es.txt" />
      <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\mergetool.zh-Hans.txt" />
@@ -208,7 +216,9 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\cm.ja.txt" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\ValidationConfig.json" />
+     <Folder Include="Assets\Environment\Items\Instruments\PaintCuvette\Materials" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\images.ja.txt" />
+     <Folder Include="Assets\Environment\Items\Instruments\PaintRoller\Texture" />
      <Folder Include="Library\PackageCache\com.unity.ide.vscode@1.2.5" />
      <Folder Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Tests" />
      <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_Properties.cginc" />
@@ -256,6 +266,7 @@
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\cm.zh-Hant.txt" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\xdiff.en.txt" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
+     <Folder Include="Assets\Environment\Items\Instruments\PaintRoller\Materials" />
      <Folder Include="Library\PackageCache\com.unity.settings-manager@1.0.3\Tests" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <None Include="Library\PackageCache\com.unity.collab-proxy@2.0.0\Lib\Editor\PlasticSCM\localization\semantic.zh-Hans.txt" />
