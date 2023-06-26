@@ -1,3 +1,4 @@
+
 ###
 # Unity folders and files
 ###
@@ -39,3 +40,9 @@ sysinfo.txt
 Icon?
 ehthumbs.db
 Thumbs.db
+/UserSettings
+/Temp
+/.idea
+/.vs
+/Logs
+/obj
