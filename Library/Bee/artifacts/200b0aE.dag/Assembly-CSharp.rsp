@@ -354,6 +354,7 @@
 "Assets/FPSController/Scripts/TextPrint.cs"
 "Assets/FPSController/Scripts/UI_Script.cs"
 "Assets/Primer_Script.cs"
+"Assets/SitDown.cs"
 "Assets/Task.cs"
 "Assets/Task_Broom.cs"
 "Assets/Task_Manager.cs"

@@ -55,6 +55,7 @@
      <Compile Include="Assets/Task_Broom.cs" />
      <Compile Include="Assets/FPSController/Scripts/TextPrint.cs" />
      <Compile Include="Assets/Task.cs" />
+     <Compile Include="Assets/SitDown.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <Folder Include="Assets/XR/Settings" />
@@ -128,6 +129,7 @@
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
      <Folder Include="Assets/Environment/Items/Instruments/PaintRoller/Materials" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
+     <Folder Include="Assets/Environment/Items/Instruments/gruntovka" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
