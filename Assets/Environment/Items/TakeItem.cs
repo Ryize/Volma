@@ -6,8 +6,8 @@ public class TakeItem : MonoBehaviour
 {
     public GameObject camera;
     public float distance = 15f;
-    GameObject currentItem;
-    bool canToTake = false;
+    public GameObject currentItem;
+    public bool canToTake = false;
 
     // Update is called once per frame
     void Update()
@@ -18,7 +18,7 @@ public class TakeItem : MonoBehaviour
             Drop();
     }
 
-    void Take()
+    public void Take()
     {
         RaycastHit hit;
 
@@ -28,22 +28,23 @@ public class TakeItem : MonoBehaviour
             {
                 return;
             }
-            Debug.Log(hit.transform.name);
             if(hit.transform.tag.ToLower().Contains("item"))
             {
                 if (canToTake) 
                     Drop();
-
+                
                 currentItem = hit.transform.gameObject;
+                
                 currentItem.GetComponent<Rigidbody>().isKinematic = true;
                 currentItem.transform.parent = transform;
+                
                 currentItem.GetComponent<TakenPosition>().Take(currentItem);
                 canToTake = true;
             }
         }
     }
 
-    void Drop()
+    public void Drop()
     {
         currentItem.transform.parent = null;
         currentItem.GetComponent<Rigidbody>().isKinematic = false;

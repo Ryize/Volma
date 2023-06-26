@@ -54,6 +54,7 @@
      <Compile Include="Assets/Task_Broom.cs" />
      <Compile Include="Assets/FPSController/Scripts/TextPrint.cs" />
      <Compile Include="Assets/Task.cs" />
+     <Compile Include="Assets/Environment/Items/Instruments/bucket/bucketQuest.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <Folder Include="Assets/XR/Settings" />
@@ -111,6 +112,7 @@
      <Folder Include="Assets/Environment/Items/Dirt &amp; Dust/Materials" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
      <Folder Include="Assets/Environment/Items/Instruments/bucket/bucket_no_bucketHandle/Materials" />
+     <Folder Include="Assets/Environment/Items/Instruments/bucket/karn" />
      <Folder Include="Assets/Environment/Items/Instruments/PaintCuvette/Materials" />
      <Folder Include="Assets/Environment/Items/Instruments/PaintRoller/Texture" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
