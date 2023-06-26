@@ -351,6 +351,9 @@
 "Assets/FPSController/Scripts/SC_FPSController.cs"
 "Assets/FPSController/Scripts/TextPrint.cs"
 "Assets/FPSController/Scripts/UI_Script.cs"
+"Assets/Task.cs"
+"Assets/Task_Broom.cs"
+"Assets/Task_Manager.cs"
 -langversion:9.0
 
 /deterministic
