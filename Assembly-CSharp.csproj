@@ -48,13 +48,13 @@
      <Compile Include="Assets/Primer_Script.cs" />
      <Compile Include="Assets/Environment/Items/TakeItem.cs" />
      <Compile Include="Assets/Environment/Items/Instruments/Gardening_Tools_Pack_26_PBR_objects/Broom_Skript.cs" />
+     <Compile Include="Assets/Environment/Items/Instruments/bucket/bucketQuest.cs" />
      <Compile Include="Assets/Environment/Items/Instruments/PaintRoller/PaintRoller_Script.cs" />
      <Compile Include="Assets/Environment/Items/TakenPosition.cs" />
      <Compile Include="Assets/FPSController/Scripts/UI_Script.cs" />
      <Compile Include="Assets/Task_Broom.cs" />
      <Compile Include="Assets/FPSController/Scripts/TextPrint.cs" />
      <Compile Include="Assets/Task.cs" />
-     <Compile Include="Assets/Environment/Items/Instruments/bucket/bucketQuest.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <Folder Include="Assets/XR/Settings" />

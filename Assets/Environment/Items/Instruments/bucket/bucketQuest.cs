@@ -22,13 +22,10 @@ public class bucketQuest : MonoBehaviour
             if (CameraLook().Contains("faucet") && Input.GetKeyDown(KeyCode.E))
             {
                 arm.GetComponent<TakeItem>().Drop();
-                Destroy(obj);
-                GameObject gm = GameObject.FindGameObjectWithTag("basket_2_item").GameObject();
-                gm.transform.parent = arm.transform;
-                gm.transform.position = arm.transform.position;
-                gm.GetComponent<Rigidbody>().isKinematic = true;
-                gm.GetComponent<TakenPosition>().Take(gm);
-                arm.GetComponent<TakeItem>().canToTake = false;
+                obj.transform.position = new Vector3(7, 1, 99999);
+                GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(7f, 1f, -2.852f);
+                GameObject.FindGameObjectWithTag("tapHandle").transform.Rotate(new Vector3(0f, 0f, 90f));
+                // GameObject.FindGameObjectWithTag("tapHandle").transform.position = new Vector3(0f, 2.595592f, 0f);
             }
         }
         
