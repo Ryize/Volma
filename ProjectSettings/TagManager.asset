@@ -20,6 +20,9 @@ TagManager:
   - basket_4_item
   - tapHandle
   - effect
+  - playerCamera
+  - cement_item
+  - mixerRotate
   layers:
   - Default
   - TransparentFX
