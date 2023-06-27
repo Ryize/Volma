@@ -9425,9 +9425,25 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3000269591971257617, guid: 0baf4f2aa535b604292ccde915c7a29d, type: 3}
+      propertyPath: EulerAngles.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4868469466006344229, guid: 0baf4f2aa535b604292ccde915c7a29d, type: 3}
       propertyPath: m_RootOrder
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868469466006344229, guid: 0baf4f2aa535b604292ccde915c7a29d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868469466006344229, guid: 0baf4f2aa535b604292ccde915c7a29d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4868469466006344229, guid: 0baf4f2aa535b604292ccde915c7a29d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4868469466006344229, guid: 0baf4f2aa535b604292ccde915c7a29d, type: 3}
       propertyPath: m_LocalPosition.x
