@@ -78,6 +78,7 @@
      <Folder Include="Assets/TextMesh Pro/Resources" />
      <Folder Include="Assets/Environment/Items/Instruments/PaintRoller" />
      <Folder Include="Assets/XR/Loaders" />
+     <Folder Include="Assets/Environment/Items/Instruments/room_2.0" />
      <Folder Include="Assets/FPSController/Scripts" />
      <Folder Include="Assets/Environment/Items/Instruments/bucket/cement-sand/metal" />
      <Folder Include="Assets/Environment/Items/Resources" />
@@ -85,6 +86,7 @@
      <Folder Include="Assets/Environment/Items/Instruments/Gardening_Tools_Pack_26_PBR_objects/Meshes" />
      <Folder Include="Assets/Environment/Items/Instruments" />
      <Folder Include="Assets/TextMesh Pro" />
+     <Folder Include="Assets/Environment/Items/Instruments/pgp" />
      <Folder Include="Assets/Environment/Items/Instruments/Gardening_Tools_Pack_26_PBR_objects/Materials" />
      <Folder Include="Assets/Environment/Items/Instruments/bucket/bucket_no_bucketHandle/textures" />
      <Folder Include="Assets/Environment/Items/Resources/Primer/Materials" />

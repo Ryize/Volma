@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.VFX;
+using Vector3 = UnityEngine.Vector3;
 
 public class bucketQuest : MonoBehaviour
 {
@@ -34,14 +31,44 @@ public class bucketQuest : MonoBehaviour
         GameObject obj = arm.transform.GetChild(0).GameObject();
         
         // проверка на тэг ведра без всего
-        if (CameraLook().Contains("faucet") && Input.GetKeyDown(KeyCode.E) && _isOpen && obj.tag.ToLower().Contains("basket_1"))
+        if (CameraLook().Contains("faucet") && Input.GetKeyDown(KeyCode.E) && _isOpen &&
+            obj.tag.ToLower().Contains("basket_1"))
+        {
+            arm.GetComponent<TakeItem>().Drop();
+            obj.transform.position = new Vector3(7, 1, 99999);
+            GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(7f, 0.1f, -2.852f);
+            GameObject.FindGameObjectWithTag("basket_2_item").GetComponent<Rigidbody>().constraints =
+                RigidbodyConstraints.FreezeAll;
+        }
+        if (CameraLook().Contains("basket_2") && Input.GetMouseButtonDown(0) && obj.tag.ToLower().Contains("cement"))
+        {
+            Vector3 coord = GameObject.FindGameObjectWithTag("basket_2_item").transform.position;
+            GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(999, 999999, 999999);
+            GameObject.FindGameObjectWithTag("basket_3_item").transform.position = new Vector3(coord.x, 0f, coord.z);
+            GameObject.FindGameObjectWithTag("basket_3_item").GetComponent<Rigidbody>().constraints =
+                RigidbodyConstraints.FreezeAll;
+        }
+
+        if (obj.name.ToLower().Contains("mixer") && Input.GetKey(KeyCode.Mouse0))
+        {
+            GameObject[] mixerRotate = GameObject.FindGameObjectsWithTag("mixerRotate");
+            for (int i = 0; i < mixerRotate.Length; i++)
             {
-                arm.GetComponent<TakeItem>().Drop();
-                obj.transform.position = new Vector3(7, 1, 99999);
-                GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(7f, 2f, -2.852f);
-                GameObject.FindGameObjectWithTag("basket_2_item").GetComponent<Rigidbody>().mass = 0;
+                mixerRotate[i].GetComponent<Transform>().Rotate(new Vector3(0, 0, 1) * 2 * Time.deltaTime);
             }
         }
+        if (CameraLook().Contains("basket_3") && Input.GetMouseButtonDown(0) && obj.name.ToLower().Contains("mixer"))
+        {
+            Vector3 coord = GameObject.FindGameObjectWithTag("basket_3_item").transform.position;
+            GameObject.FindGameObjectWithTag("basket_3_item").transform.position = new Vector3(999, 999999, 999999);
+            GameObject.FindGameObjectWithTag("basket_4_item").transform.position = new Vector3(coord.x, 0f, coord.z);
+            GameObject.FindGameObjectWithTag("basket_4_item").GetComponent<Rigidbody>().constraints =
+                RigidbodyConstraints.FreezeAll;
+        }
+        
+        }
+        
+        
     private string CameraLook()
     {
         RaycastHit hit;

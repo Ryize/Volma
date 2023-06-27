@@ -40,6 +40,7 @@ public class TakeItem : MonoBehaviour
                 currentItem.layer = 6;
                 currentItem.GetComponent<TakenPosition>().Take(currentItem);
                 canToTake = true;
+                currentItem.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             }
         }
     }
