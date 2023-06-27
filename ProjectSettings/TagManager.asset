@@ -9,6 +9,20 @@ TagManager:
   - Dirt
   - Task
   - menuImage
+  - item_broom
+  - primer_item
+  - cuvette_item
+  - roller_item
+  - basket_1_item
+  - faucet
+  - basket_2_item
+  - basket_3_item
+  - basket_4_item
+  - tapHandle
+  - effect
+  - playerCamera
+  - cement_item
+  - mixerRotate
   layers:
   - Default
   - TransparentFX
