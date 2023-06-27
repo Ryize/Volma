@@ -11,19 +11,23 @@ public class bucketQuest : MonoBehaviour
     {
         if (CameraLook().Contains("faucet") && Input.GetKeyDown(KeyCode.E) && arm.transform.childCount == 0)
         {
+            // Проверка открыт или закрыт кран
             if (!_isOpen)
             {
                 GameObject.FindGameObjectWithTag("tapHandle").transform.Rotate(new Vector3(0f, 0f, -90f));
                 _isOpen = true;
+                // Если закрыт, открываем (устанавливаем макс. кол-во частиц на 100)
                 GameObject.FindGameObjectWithTag("effect").GetComponent<ParticleSystem>().maxParticles = 100;
             }
             else
             {
                 GameObject.FindGameObjectWithTag("tapHandle").transform.Rotate(new Vector3(0f, 0f, 90f));
                 _isOpen = false;
+                // Если открыт, закрываем (устанавливаем макс. кол-во частиц на 0)
                 GameObject.FindGameObjectWithTag("effect").GetComponent<ParticleSystem>().maxParticles = 0;
             }
         }
+        // Если в руке пусто
         if (arm.transform.childCount == 0)
             return;
         
