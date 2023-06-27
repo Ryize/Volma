@@ -35,6 +35,7 @@ public class TakeItem : MonoBehaviour
                     Drop();
 
                 currentItem = hit.transform.gameObject;
+                currentItem.layer = 6;
                 currentItem.GetComponent<Rigidbody>().isKinematic = true;
                 currentItem.transform.parent = transform;
                 currentItem.GetComponent<TakenPosition>().Take(currentItem);
@@ -46,6 +47,8 @@ public class TakeItem : MonoBehaviour
     void Drop()
     {
         currentItem.transform.parent = null;
+        currentItem.layer = 0;
+        currentItem.transform.eulerAngles = new Vector3(0, 0, 0);
         currentItem.GetComponent<Rigidbody>().isKinematic = false;
         currentItem.GetComponent<TakenPosition>().Drop();
         canToTake = false;
