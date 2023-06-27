@@ -19,6 +19,7 @@ TagManager:
   - basket_3_item
   - basket_4_item
   - tapHandle
+  - effect
   layers:
   - Default
   - TransparentFX

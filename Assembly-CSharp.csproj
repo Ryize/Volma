@@ -53,9 +53,9 @@
      <Compile Include="Assets/Environment/Items/TakenPosition.cs" />
      <Compile Include="Assets/FPSController/Scripts/UI_Script.cs" />
      <Compile Include="Assets/Task_Broom.cs" />
+     <Compile Include="Assets/SitDown.cs" />
      <Compile Include="Assets/FPSController/Scripts/TextPrint.cs" />
      <Compile Include="Assets/Task.cs" />
-     <Compile Include="Assets/SitDown.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <Folder Include="Assets/XR/Settings" />
