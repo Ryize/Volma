@@ -15,6 +15,8 @@
     "io.extendreality.tilia.camerarigs.trackedalias.unity": "2.4.4",
     "io.extendreality.tilia.camerarigs.xrpluginframework.unity": "2.1.8",
     "io.extendreality.tilia.indicators.objectpointers.unity": "2.2.4",
+    "io.extendreality.tilia.input.unityinputsystem": "2.4.5",
+    "io.extendreality.tilia.interactions.interactables.unity": "2.16.3",
     "io.extendreality.tilia.locomotors.teleporter.unity": "2.1.13",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
