@@ -1,7 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System;
-using UnityEngine.UI;
 
 public class PaintRoller_Script : MonoBehaviour
 {

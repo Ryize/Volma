@@ -28,34 +28,41 @@ public class Task_Primer : Task
     // Проверка на выполнение квеста
     public override bool isDone()
     {
-        // Есть ли грунтовка в кюветке
-        if (GameObject.FindGameObjectWithTag("cuvette_item").transform.GetChild(1).GameObject().activeSelf)
+        // Выролнен ли квест
+        if (GameObject.Find("PGPZone").transform.childCount == 0)
         {
-            Debug.Log("Primer in cuvette");
-        }
-        
-        
-
-            //var primer = GameObject.FindGameObjectWithTag("cuvette_item").transform.GetChild(1).GameObject();
-        //primer.SetActive(true);
-
-
-        /*// проверка на выполнение квеста
-        var dirts = GameObject.FindGameObjectsWithTag("Dirt");
-        if (dirts.Length == 0)
-        {
-            task.setTask("Вы справились с первым заданием!");
+            task.setTask("Вы справились с заданием!");
             return true;
         }
-        // метла в пуке
-        if (BroomInHand())
+
+        // Есть ли грунтовка в кюветке нет
+        if (!GameObject.FindGameObjectWithTag("cuvette_item").transform.GetChild(1).GameObject().activeSelf)
         {
-            task.setTask("Подойдите к грязи и вытрети её (зажав левую кнопку, и двигая курсором)");
+            if (arm.transform.childCount == 0 || !arm.transform.GetChild(0).transform.tag.Contains("primer"))
+            {
+                task.setTask("возьмите грунтовку");
+                return false;
+            }
+            
+            task.setTask("налейте грунтовку в кюветку");
             return false;
         }
-        
-        task.setTask("Возьмите метлу");
-        return false;*/
-        return true;
+
+        // Если валика нет в руках
+        if (arm.transform.childCount == 0 || !arm.transform.GetChild(0).transform.tag.Contains("roller"))
+        {
+            task.setTask("Возьмите валик");
+            return false;
+        }
+
+        // Если на валике нет грунтовки
+        if (arm.transform.GetChild(0).transform.GetComponent<PaintRoller_Script>().paintFlowTracker < 0.1)
+        {
+            task.setTask("Обмакните валик в кюветку");
+            return false;
+        }
+
+        task.setTask("Намажте грунтовку на выделенную зону");
+        return false;
     }
 }

@@ -8097,8 +8097,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8208,7 +8208,7 @@ MonoBehaviour:
   tasks:
   - {fileID: 1391319413}
   - {fileID: 993669503}
-  currentTask: 0
+  currentTask: 1
 --- !u!1 &1800606675 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: a0ade5b697d904b24a72cd420418b26d, type: 3}
