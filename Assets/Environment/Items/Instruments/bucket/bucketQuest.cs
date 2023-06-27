@@ -47,7 +47,9 @@ public class bucketQuest : MonoBehaviour
         if (CameraLook().Contains("basket_2") && Input.GetMouseButtonDown(0) && obj.tag.ToLower().Contains("cement"))
         {
             Vector3 coord = GameObject.FindGameObjectWithTag("basket_2_item").transform.position;
+            // Симуляция удаления ведра
             GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(999, 999999, 999999);
+            // Телепортация ведра на место предыдущего ведра
             GameObject.FindGameObjectWithTag("basket_3_item").transform.position = new Vector3(coord.x, 0f, coord.z);
             GameObject.FindGameObjectWithTag("basket_3_item").GetComponent<Rigidbody>().constraints =
                 RigidbodyConstraints.FreezeAll;
@@ -58,6 +60,7 @@ public class bucketQuest : MonoBehaviour
             GameObject[] mixerRotate = GameObject.FindGameObjectsWithTag("mixerRotate");
             for (int i = 0; i < mixerRotate.Length; i++)
             {
+                // Поворачивание миксера при зажатии ЛКМ
                 mixerRotate[i].GetComponent<Transform>().Rotate(new Vector3(0, 0, 1) * 2 * Time.deltaTime);
             }
         }
