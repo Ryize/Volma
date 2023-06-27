@@ -34,7 +34,6 @@ public class TakeItem : MonoBehaviour
                     Drop();
                 
                 currentItem = hit.transform.gameObject;
-                
                 currentItem.GetComponent<Rigidbody>().isKinematic = true;
                 currentItem.transform.parent = transform;
                 currentItem.layer = 6;

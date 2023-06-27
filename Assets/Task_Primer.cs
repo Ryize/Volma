@@ -28,9 +28,17 @@ public class Task_Primer : Task
     // Проверка на выполнение квеста
     public override bool isDone()
     {
-        var primer = GameObject.FindGameObjectWithTag("cuvette_item").transform.GetChild(1).GameObject();
-        primer.SetActive(true);
+        // Есть ли грунтовка в кюветке
+        if (GameObject.FindGameObjectWithTag("cuvette_item").transform.GetChild(1).GameObject().activeSelf)
+        {
+            Debug.Log("Primer in cuvette");
+        }
         
+        
+
+            //var primer = GameObject.FindGameObjectWithTag("cuvette_item").transform.GetChild(1).GameObject();
+        //primer.SetActive(true);
+
 
         /*// проверка на выполнение квеста
         var dirts = GameObject.FindGameObjectsWithTag("Dirt");

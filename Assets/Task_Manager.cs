@@ -6,7 +6,7 @@ using UnityEngine;
 public class Task_Manager : MonoBehaviour
 {
     public Task[] tasks; // список квестов
-    private int currentTask; // текущий квест
+    public int currentTask; // текущий квест
     
     void Start()
     {
