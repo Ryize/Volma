@@ -38,7 +38,8 @@ public class bucketQuest : MonoBehaviour
             {
                 arm.GetComponent<TakeItem>().Drop();
                 obj.transform.position = new Vector3(7, 1, 99999);
-                GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(7f, 3f, -2.852f);
+                GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(7f, 2f, -2.852f);
+                GameObject.FindGameObjectWithTag("basket_2_item").GetComponent<Rigidbody>().mass = 0;
             }
         }
     private string CameraLook()

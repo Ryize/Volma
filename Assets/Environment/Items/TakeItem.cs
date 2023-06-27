@@ -37,7 +37,7 @@ public class TakeItem : MonoBehaviour
                 
                 currentItem.GetComponent<Rigidbody>().isKinematic = true;
                 currentItem.transform.parent = transform;
-                
+                currentItem.layer = 6;
                 currentItem.GetComponent<TakenPosition>().Take(currentItem);
                 canToTake = true;
             }
@@ -47,6 +47,15 @@ public class TakeItem : MonoBehaviour
     public void Drop()
     {
         currentItem.transform.parent = null;
+        currentItem.layer = 0;
+        if (currentItem.tag == "basket_1_item")
+        {
+            currentItem.transform.eulerAngles = new Vector3(-90, 0, 0);
+        }
+        else
+        {
+            currentItem.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
         currentItem.GetComponent<Rigidbody>().isKinematic = false;
         currentItem.GetComponent<TakenPosition>().Drop();
         canToTake = false;
