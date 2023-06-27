@@ -3,7 +3,12 @@ guid: ee5f8fdf69caf2e4c89cb7aac65b5943
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: acg_Metal041A_1K-JPG
+    second: {fileID: 2100000, guid: abd787a31703148268a7a76d0d42799d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

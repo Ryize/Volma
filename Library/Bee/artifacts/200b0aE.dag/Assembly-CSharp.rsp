@@ -345,15 +345,20 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Environment/Items/Dirt & Dust/Dirt_Script.cs"
+"Assets/Environment/Items/Instruments/bucket/bucketQuest.cs"
 "Assets/Environment/Items/Instruments/Gardening_Tools_Pack_26_PBR_objects/Broom_Skript.cs"
+"Assets/Environment/Items/Instruments/PaintRoller/PaintRoller_Script.cs"
 "Assets/Environment/Items/TakeItem.cs"
 "Assets/Environment/Items/TakenPosition.cs"
 "Assets/FPSController/Scripts/SC_FPSController.cs"
 "Assets/FPSController/Scripts/TextPrint.cs"
 "Assets/FPSController/Scripts/UI_Script.cs"
+"Assets/Primer_Script.cs"
+"Assets/SitDown.cs"
 "Assets/Task.cs"
 "Assets/Task_Broom.cs"
 "Assets/Task_Manager.cs"
+"Assets/Task_Primer.cs"
 -langversion:9.0
 
 /deterministic

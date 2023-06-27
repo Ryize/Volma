@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,7 +8,7 @@ using UnityEngine;
 public class Primer_Script : MonoBehaviour
 {
     public Camera playerCamera;
-    public float distance = 10f;
+    public float distance = 3f;
     public GameObject primer;
 
     // Update is called once per frame
