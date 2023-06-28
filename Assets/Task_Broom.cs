@@ -39,6 +39,7 @@ public class Task_Broom : Task
         {
             task.changeDescription("Подойдите к грязи и вытрети её");
             task.changeProgress("1/2");
+            task.changeHint("Зажмите ЛКМ и водите курсором по грязи");
             return false;
         }
         

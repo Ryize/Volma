@@ -36,7 +36,7 @@ public class TextPrint : MonoBehaviour
         Description.text = description;
         
         var image = GameObject.FindGameObjectWithTag("menuImage").GetComponent<Image>();
-        image.rectTransform.sizeDelta = new Vector2(325, 250 + (Description.text.Length / 15) * 30);
+        image.rectTransform.sizeDelta = new Vector2(325, 235 + (Description.text.Length / 15) * 30);
         Vector2 ImagePos = image.rectTransform.position;
         // Размер заднего фона автоматически подстраивается под объём переданного текста
         if (PredLengthDescription > Description.text.Length)
@@ -56,4 +56,10 @@ public class TextPrint : MonoBehaviour
         var Description = GameObject.FindGameObjectsWithTag("Task")[1].GetComponent<TMP_Text>();
         Progress.rectTransform.position = new Vector2(Description.rectTransform.position.x, Description.rectTransform.position.y - 90);
     }
+    
+    public void changeHint(String hint)
+    {
+        var Hint = GameObject.FindGameObjectsWithTag("Task")[3].GetComponent<TMP_Text>();
+        Hint.text = hint;
+        }
 }
