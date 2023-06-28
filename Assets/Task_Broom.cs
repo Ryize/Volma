@@ -15,12 +15,12 @@ public class Task_Broom : Task
         GameObject broom = arm.transform.GetChild(0).GameObject();
 
         // проверка на тэг метлы
-        if (!broom.tag.ToLower().Contains("broom"))
+        if (broom.tag.ToLower().Contains("broom"))
         {
-            return false;
+            return true;
         }
         
-        return true;
+        return false;
     }
 
     // Проверка на выполнение квеста
@@ -30,17 +30,21 @@ public class Task_Broom : Task
         var dirts = GameObject.FindGameObjectsWithTag("Dirt");
         if (dirts.Length == 0)
         {
-            task.setTask("Вы справились с первым заданием!");
+            task.changeDescription("Вы справились с первым заданием!");
+            task.changeProgress("2/2");
             return true;
         }
         // метла в пуке
         if (BroomInHand())
         {
-            task.setTask("Подойдите к грязи и вытрети её (зажав левую кнопку, и двигая курсором)");
+            task.changeDescription("Подойдите к грязи и вытрети её");
+            task.changeProgress("1/2");
+            task.changeHint("Зажмите ЛКМ и водите курсором по грязи");
             return false;
         }
         
-        task.setTask("Возьмите метлу");
+        task.setTask("Чистка пола", "Возьмите метлу");
+        task.changeProgress("0/2");
         return false;
     }
 }

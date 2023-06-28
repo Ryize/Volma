@@ -40,7 +40,7 @@ public class bucketQuest : MonoBehaviour
         {
             arm.GetComponent<TakeItem>().Drop();
             obj.transform.position = new Vector3(7, 1, 99999);
-            GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(7f, 0.1f, -2.852f);
+            GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(-0.138f, 0.642f, -15.08f);
             GameObject.FindGameObjectWithTag("basket_2_item").GetComponent<Rigidbody>().constraints =
                 RigidbodyConstraints.FreezeAll;
         }
@@ -51,6 +51,7 @@ public class bucketQuest : MonoBehaviour
             GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(999, 999999, 999999);
             // Телепортация ведра на место предыдущего ведра
             GameObject.FindGameObjectWithTag("basket_3_item").transform.position = new Vector3(coord.x, 0f, coord.z);
+            // Координаты фризятся, чтобы ведро не проваливалось в пол/стены
             GameObject.FindGameObjectWithTag("basket_3_item").GetComponent<Rigidbody>().constraints =
                 RigidbodyConstraints.FreezeAll;
         }
@@ -69,6 +70,7 @@ public class bucketQuest : MonoBehaviour
             Vector3 coord = GameObject.FindGameObjectWithTag("basket_3_item").transform.position;
             GameObject.FindGameObjectWithTag("basket_3_item").transform.position = new Vector3(999, 999999, 999999);
             GameObject.FindGameObjectWithTag("basket_4_item").transform.position = new Vector3(coord.x, 0f, coord.z);
+            // Координаты фризятся, чтобы ведро не проваливалось в пол/стены
             GameObject.FindGameObjectWithTag("basket_4_item").GetComponent<Rigidbody>().constraints =
                 RigidbodyConstraints.FreezeAll;
         }
