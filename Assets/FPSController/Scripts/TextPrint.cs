@@ -32,7 +32,13 @@ public class TextPrint : MonoBehaviour
         var image = GameObject.FindGameObjectWithTag("menuImage").GetComponent<Image>();
         image.rectTransform.sizeDelta = new Vector2(325, 250 + (Description.text.Length / 15) * 30);
         Vector2 ImagePos = image.rectTransform.position;
-        image.rectTransform.position = new Vector2(ImagePos.x, ImagePos.y - (Description.text.Length / 15) * 15);
-
-            }
+        if (PredLengthDescription > Description.text.Length)
+        {
+            image.rectTransform.position = new Vector2(ImagePos.x, ImagePos.y + ((PredLengthDescription - Description.text.Length) / 15) * 15);
+        }
+        else
+        {
+            image.rectTransform.position = new Vector2(ImagePos.x, ImagePos.y - (Description.text.Length / 15) * 15);
+        }
+          }
 }
