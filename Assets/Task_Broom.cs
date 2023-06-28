@@ -15,12 +15,12 @@ public class Task_Broom : Task
         GameObject broom = arm.transform.GetChild(0).GameObject();
 
         // проверка на тэг метлы
-        if (!broom.tag.ToLower().Contains("broom"))
+        if (broom.tag.ToLower().Contains("broom"))
         {
-            return false;
+            return true;
         }
         
-        return true;
+        return false;
     }
 
     // Проверка на выполнение квеста
@@ -40,7 +40,7 @@ public class Task_Broom : Task
             return false;
         }
         
-        task.setTask("Чистка пола", "Возьмите метлу!");
+        task.setTask("Чистка пола", "Возьмите метлу");
         return false;
     }
 }
