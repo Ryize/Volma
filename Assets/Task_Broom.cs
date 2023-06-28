@@ -30,14 +30,14 @@ public class Task_Broom : Task
         var dirts = GameObject.FindGameObjectsWithTag("Dirt");
         if (dirts.Length == 0)
         {
-            task.setTask("Чистка пола", "Вы справились с первым заданием!");
+            task.changeDescription("Вы справились с первым заданием!");
             task.changeProgress("2/2");
             return true;
         }
         // метла в пуке
         if (BroomInHand())
         {
-            task.setTask("Чистка пола", "Подойдите к грязи и вытрети её");
+            task.changeDescription("Подойдите к грязи и вытрети её");
             task.changeProgress("1/2");
             return false;
         }

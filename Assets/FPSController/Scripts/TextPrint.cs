@@ -27,7 +27,11 @@ public class TextPrint : MonoBehaviour
     public void changeDescription(String description)
     {
         var Description = GameObject.FindGameObjectsWithTag("Task")[1].GetComponent<TMP_Text>();
-        
+        if (description == "" || description == Description.text)
+        {
+            return;
+        }
+
         int PredLengthDescription = Description.text.Length;
         Description.text = description;
         
