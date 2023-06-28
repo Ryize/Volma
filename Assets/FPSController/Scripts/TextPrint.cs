@@ -32,4 +32,10 @@ public class TextPrint : MonoBehaviour
             image.rectTransform.position = new Vector2(ImagePos.x, ImagePos.y - (Description.text.Length / 15) * 15);
         } 
     }
+
+    public void changeTitle(String title)
+    {
+        var Title = GameObject.FindGameObjectsWithTag("Task")[0].GetComponent<TMP_Text>();
+        Title.text = title;
+    }
 }
