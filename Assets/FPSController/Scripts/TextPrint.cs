@@ -44,4 +44,12 @@ public class TextPrint : MonoBehaviour
             image.rectTransform.position = new Vector2(ImagePos.x, ImagePos.y - (Description.text.Length / 15) * 15);
         } 
     }
+    
+    public void changeProgress(String progress)
+    {
+        var Progress = GameObject.FindGameObjectsWithTag("Task")[2].GetComponent<TMP_Text>();
+        Progress.text = progress;
+        var Description = GameObject.FindGameObjectsWithTag("Task")[1].GetComponent<TMP_Text>();
+        Progress.rectTransform.position = new Vector2(Description.rectTransform.position.x, Description.rectTransform.position.y - 90);
+    }
 }

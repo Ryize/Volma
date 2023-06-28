@@ -31,16 +31,19 @@ public class Task_Broom : Task
         if (dirts.Length == 0)
         {
             task.setTask("Чистка пола", "Вы справились с первым заданием!");
+            task.changeProgress("2/2");
             return true;
         }
         // метла в пуке
         if (BroomInHand())
         {
             task.setTask("Чистка пола", "Подойдите к грязи и вытрети её");
+            task.changeProgress("1/2");
             return false;
         }
         
         task.setTask("Чистка пола", "Возьмите метлу");
+        task.changeProgress("0/2");
         return false;
     }
 }
