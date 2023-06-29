@@ -23,6 +23,8 @@ TagManager:
   - playerCamera
   - cement_item
   - mixerRotate
+  - Floor
+  - pgp_item
   layers:
   - Default
   - TransparentFX
