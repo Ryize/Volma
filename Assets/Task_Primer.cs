@@ -5,25 +5,6 @@ public class Task_Primer : Task
 {
     public GameObject arm; // рука
     public TextPrint task; // UI квеста
-    
-    /*private bool BroomInHand()
-    {
-        
-        // проверка на наличие предмета
-        if (arm.transform.childCount == 0)
-            return false;
-        
-        // получение объекта из руки
-        GameObject broom = arm.transform.GetChild(0).GameObject();
-
-        // проверка на тэг метлы
-        if (!broom.tag.ToLower().Contains("broom"))
-        {
-            return false;
-        }
-        
-        return true;
-    }*/
 
     // Проверка на выполнение квеста
     public override bool isDone()

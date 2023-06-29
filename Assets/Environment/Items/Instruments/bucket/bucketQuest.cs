@@ -31,10 +31,10 @@ public class bucketQuest : MonoBehaviour
         if (arm.transform.childCount == 0)
             return;
         
-        // получение объекта из руки
+        // Получение объекта из руки
         GameObject obj = arm.transform.GetChild(0).GameObject();
         
-        // проверка на тэг ведра без всего
+        // Проверка на тэг ведра без всего
         if (CameraLook().Contains("faucet") && Input.GetKeyDown(KeyCode.E) && _isOpen &&
             obj.tag.ToLower().Contains("basket_1"))
         {

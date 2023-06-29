@@ -11,6 +11,7 @@ public class SitDown : MonoBehaviour
     
     void SitDownPls()
     {
+        // Добавляет приседание на клавишу - левый контрол
         if (Input.GetKey(KeyCode.LeftControl))
         {
             if (cameraGood.transform.position.y > 1.35)
