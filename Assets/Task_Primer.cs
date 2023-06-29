@@ -32,8 +32,7 @@ public class Task_Primer : Task
         if (GameObject.Find("PGPZone").transform.childCount == 0)
         {
             task.changeDescription("Вы справились с заданием!");
-            task.clearHint();
-            task.clearProgress();
+            task.clearAuxiliaryLabels();
             return true;
         }
 
@@ -49,8 +48,7 @@ public class Task_Primer : Task
             }
             
             task.changeDescription("Налейте грунтовку в кюветку");
-            task.clearHint();
-            task.clearProgress();
+            task.clearAuxiliaryLabels();
             return false;
         }
 
@@ -58,8 +56,7 @@ public class Task_Primer : Task
         if (arm.transform.childCount == 0 || !arm.transform.GetChild(0).transform.tag.Contains("roller"))
         {
             task.changeDescription("Возьмите валик");
-            task.clearHint();
-            task.clearProgress();
+            task.clearAuxiliaryLabels();
             return false;
         }
 

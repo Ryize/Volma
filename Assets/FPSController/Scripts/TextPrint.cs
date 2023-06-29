@@ -79,4 +79,11 @@ public class TextPrint : MonoBehaviour
         // Устанавливает дефолтную подсказку
         changeHint("Прочитайте подсказки в углу экрана");
     }
+
+    public void clearAuxiliaryLabels()
+    {
+        // Убирает подсказки и прогресс
+        clearHint();
+        clearProgress();
+    }
 }
