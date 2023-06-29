@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class TextPrint : MonoBehaviour
 {
-    // Поставить квест
+    // Установить квест
     public void setTask(String title = "", String description = "")
     {
+        // Устанавливает задачу
         var Title = GameObject.FindGameObjectsWithTag("Task")[0].GetComponent<TMP_Text>();
         var Description = GameObject.FindGameObjectsWithTag("Task")[1].GetComponent<TMP_Text>();
         // Если переданные данные не меняют текст, завершаем выполнение метода
@@ -20,12 +21,14 @@ public class TextPrint : MonoBehaviour
     }
     public void changeTitle(String title)
     {
+        // Изменяет название задачи
         var Title = GameObject.FindGameObjectsWithTag("Task")[0].GetComponent<TMP_Text>();
         Title.text = title;
     }
 
     public void changeDescription(String description)
     {
+        // Изменяет описание задачи
         var Description = GameObject.FindGameObjectsWithTag("Task")[1].GetComponent<TMP_Text>();
         if (description == "" || description == Description.text)
         {
@@ -38,6 +41,7 @@ public class TextPrint : MonoBehaviour
         var image = GameObject.FindGameObjectWithTag("menuImage").GetComponent<Image>();
         image.rectTransform.sizeDelta = new Vector2(325, 235 + (Description.text.Length / 15) * 30);
         Vector2 ImagePos = image.rectTransform.position;
+        
         // Размер заднего фона автоматически подстраивается под объём переданного текста
         if (PredLengthDescription > Description.text.Length)
         {
