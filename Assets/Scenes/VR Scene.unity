@@ -1836,7 +1836,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1084615887}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2964,7 +2964,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1084615887}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3310,6 +3310,50 @@ PrefabInstance:
     - target: {fileID: 3285786929354651562, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: trackDivergence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: divergenceThreshold.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: divergenceThreshold.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: divergenceThreshold.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1163479891}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UngrabAll
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tilia.Interactions.Interactables.Interactables.InteractableFacade, Tilia.Interactions.Interactables.Unity.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289471784814190228, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3607323991379943426, guid: 702caa48c730e92469a1c5144fd8ed46, type: 3}
       propertyPath: grabOffset
@@ -3692,6 +3736,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right.ColliderFollower
       objectReference: {fileID: 0}
+    - target: {fileID: 5317674022107406938, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: trackDivergence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: divergenceThreshold.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: divergenceThreshold.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: divergenceThreshold.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1084615888}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SnapToSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tilia.Trackers.ColliderFollower.ColliderFollowerFacade, Tilia.Trackers.ColliderFollower.Unity.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6434841534626989321, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
       propertyPath: source
       value: 
@@ -3699,6 +3791,18 @@ PrefabInstance:
     - target: {fileID: 6434841534626989321, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
       propertyPath: snapOnEnable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674484898788623824, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674484898788623824, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674484898788623824, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
@@ -3723,13 +3827,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02, z: 0.1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1084615887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5317674022107406938, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
   m_PrefabInstance: {fileID: 1084615883}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1084615888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6434841534626989321, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+  m_PrefabInstance: {fileID: 1084615883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084615887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e00e717edf01a54dbd2d80c00cfe3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1088285660
 GameObject:
   m_ObjectHideFlags: 0
@@ -5492,6 +5607,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   value: 0
+--- !u!114 &1163479891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 785982709505707726, guid: 1bb7642ebf8d0a34aa23fc586ea87e6a, type: 3}
+  m_PrefabInstance: {fileID: 1152332721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906c6376972e44f469330df394172abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1203405965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6308,6 +6434,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1389709779}
     m_Modifications:
+    - target: {fileID: 3601242204351176732, guid: 470bdb8ebbd6086499b3c6e3c58d2a62, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3601242204718771730, guid: 470bdb8ebbd6086499b3c6e3c58d2a62, type: 3}
       propertyPath: m_Name
       value: Visuals.CollisionFader
@@ -7992,6 +8122,12 @@ MonoBehaviour:
   - assemblyQualifiedTypeName: Tilia.Interactions.Interactables.Interactables.InteractableFacade,
       Tilia.Interactions.Interactables.Unity.Runtime, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  - assemblyQualifiedTypeName: Tilia.Trackers.ColliderFollower.ColliderFollowerFacade,
+      Tilia.Trackers.ColliderFollower.Unity.Runtime, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - assemblyQualifiedTypeName: Tilia.Trackers.ColliderFollower.ColliderFollowerTag,
+      Tilia.Trackers.ColliderFollower.Unity.Runtime, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1457533645
 GameObject:
   m_ObjectHideFlags: 0
@@ -8475,6 +8611,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left.ColliderFollower
       objectReference: {fileID: 0}
+    - target: {fileID: 5317674022107406938, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: trackDivergence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: divergenceThreshold.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: divergenceThreshold.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: divergenceThreshold.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1574584137}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SnapToSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Tilia.Trackers.ColliderFollower.ColliderFollowerFacade, Tilia.Trackers.ColliderFollower.Unity.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254300488822751517, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: Diverged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6434841534626989321, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
       propertyPath: source
       value: 
@@ -8482,6 +8666,18 @@ PrefabInstance:
     - target: {fileID: 6434841534626989321, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
       propertyPath: snapOnEnable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674484898788623824, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674484898788623824, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8674484898788623824, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
@@ -8511,8 +8707,19 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02, z: 0.1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1574584137 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6434841534626989321, guid: a8ac9b37a635c2f41bb96ce4c8c10fe0, type: 3}
+  m_PrefabInstance: {fileID: 1574584132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574584133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e00e717edf01a54dbd2d80c00cfe3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1602366863
 GameObject:
   m_ObjectHideFlags: 0
