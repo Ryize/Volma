@@ -31,7 +31,9 @@ public class Task_Primer : Task
         // Выролнен ли квест
         if (GameObject.Find("PGPZone").transform.childCount == 0)
         {
-            task.setTask("Вы справились с заданием!");
+            task.changeDescription("Вы справились с заданием!");
+            task.clearHint();
+            task.clearProgress();
             return true;
         }
 
@@ -40,29 +42,39 @@ public class Task_Primer : Task
         {
             if (arm.transform.childCount == 0 || !arm.transform.GetChild(0).transform.tag.Contains("primer"))
             {
-                task.setTask("возьмите грунтовку");
+                task.setTask("Грунтовка","Возьмите грунтовку");
+                task.changeHint("Грунтовка - это синий квадрат с этикеткой Волма");
+                task.clearProgress();
                 return false;
             }
             
-            task.setTask("налейте грунтовку в кюветку");
+            task.changeDescription("Налейте грунтовку в кюветку");
+            task.clearHint();
+            task.clearProgress();
             return false;
         }
 
         // Если валика нет в руках
         if (arm.transform.childCount == 0 || !arm.transform.GetChild(0).transform.tag.Contains("roller"))
         {
-            task.setTask("Возьмите валик");
+            task.changeDescription("Возьмите валик");
+            task.clearHint();
+            task.clearProgress();
             return false;
         }
 
         // Если на валике нет грунтовки
         if (arm.transform.GetChild(0).transform.GetComponent<PaintRoller_Script>().paintFlowTracker < 0.1)
         {
-            task.setTask("Обмакните валик в кюветку");
+            task.changeDescription("Обмакните валик в кюветку");
+            task.changeHint("Подойдите к кюветке и водите по ней валиком");
+            task.clearProgress();
             return false;
         }
 
-        task.setTask("Намажте грунтовку на выделенную зону");
+        task.changeDescription("Намажте грунтовку на выделенную зону");
+        task.changeHint("Зона выделена зелеными прямоугольниками. Для нанесения водите по области валиком");
+        task.changeProgress((14 - GameObject.Find("PGPZone").transform.childCount).ToString() + "/14");
         return false;
     }
 }
