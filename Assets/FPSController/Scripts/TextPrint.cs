@@ -51,6 +51,7 @@ public class TextPrint : MonoBehaviour
     
     public void changeProgress(String progress)
     {
+        // Изменяет строку прогрессал
         var Progress = GameObject.FindGameObjectsWithTag("Task")[2].GetComponent<TMP_Text>();
         Progress.text = progress;
         var Description = GameObject.FindGameObjectsWithTag("Task")[1].GetComponent<TMP_Text>();
@@ -59,16 +60,19 @@ public class TextPrint : MonoBehaviour
 
     public void clearProgress()
     {
+        // Убирает надпись прогресса
         changeProgress("");
     }
     
     public void changeHint(String hint)
     {
+        // Устанавливает подсказку в правом нижнем углу экрана
         var Hint = GameObject.FindGameObjectsWithTag("Task")[3].GetComponent<TMP_Text>();
         Hint.text = hint;
     }
     public void clearHint()
     {
+        // Устанавливает дефолтную подсказку
         changeHint("Прочитайте подсказки в углу экрана");
     }
 }
