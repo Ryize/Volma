@@ -18,27 +18,27 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: shkafchc_2K_Albedo
-    second: {fileID: 2800000, guid: 6bac1fa1a6731d14593dc58d2b196c16, type: 3}
+    second: {fileID: 2800000, guid: 4acd94b961be12949b923f0256f7dcfc, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: shkafchc_2K_Normal
-    second: {fileID: 2800000, guid: e6e5ee0ab08a8ad449fc94d484defda9, type: 3}
+    second: {fileID: 2800000, guid: 4518ba5a965f3a44cadbfbabb9a0d1a5, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: shkafchc_2K_Roughness
-    second: {fileID: 2800000, guid: 6aaf64dbbaf104e47997cbc0c4d5a1a1, type: 3}
+    second: {fileID: 2800000, guid: 72ce6494521600144ae813aec0844b3d, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: uh4hbijdy_2K_Normal
-    second: {fileID: 2800000, guid: a8853c7d06981c140995cf32fafc5870, type: 3}
+    second: {fileID: 2800000, guid: 3a89138951307024aafdf9f02c49e295, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: uh4hbijdy_2K_Roughness
-    second: {fileID: 2800000, guid: bcd654d2b36791d448ea24dc0e53653d, type: 3}
+    second: {fileID: 2800000, guid: cacc411a3189247498471a2a2ba60272, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
