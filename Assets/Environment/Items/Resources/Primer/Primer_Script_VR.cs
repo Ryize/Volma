@@ -16,28 +16,21 @@ public class Primer_Script_VR : MonoBehaviour
         
         float distance = 1f;
 
-        float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
-        float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
-        Debug.Log(cosX * cosZ);
-
         RaycastHit hit;
 
         if (Physics.Raycast(origin, derection, out hit, distance)) {
             // Если объект не кюветка   
-            //Debug.Log("1");
-            if (!hit.transform.name.Contains("CuvetteVR"))
+            if (!hit.transform.name.Contains("CuvetteVR")) {
+                Debug.Log("Is not cuvette");
                 return;
+            }
+            Debug.Log("Is cuvette");
 
-            
-            //Debug.Log("2");
-            // float cosX = Mathf.Cos(hit.transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
-            // float cosZ = Mathf.Cos(hit.transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
-            // float cosX = Mathf.Cos(transform.rotation.eulerAngles.x);
-            // float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z);
-            // Debug.Log(cosX * cosZ);
+            float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
+            float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
+            Debug.Log("cosX * cosY = " + cosX * cosZ);
 
             if (cosX * cosZ <= 0) {
-                //Debug.Log("3");
                 cuvetteFillAmount.cuvetteFillAmount -= 1;
             }
 
