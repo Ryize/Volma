@@ -12,12 +12,6 @@ public class Kran_Script : MonoBehaviour
         InvokeRepeating("RotatedKran", 1f, 1f);
     }
 
-
-    void Update()
-    {
-        //RotatedKran();
-    }
-
     void RotatedKran ()
     {
         // Если ведро не в зоне
