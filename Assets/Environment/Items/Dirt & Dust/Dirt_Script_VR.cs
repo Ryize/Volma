@@ -14,7 +14,7 @@ public class Dirt_Script_VR : MonoBehaviour
             return;
         //Debug.Log("6");
 
-        float force = broom.velocity.magnitude;
+        float force = broom.velocity.magnitude * 10;
         //Debug.Log("force = " + force);
         //Debug.Log("broom.velocity = " + broom.velocity);
 
