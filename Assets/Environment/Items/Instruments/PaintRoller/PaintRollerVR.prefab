@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2039629134325810494}
+  - component: {fileID: 5543256081049110053}
   m_Layer: 6
   m_Name: PaintRollerVR
   m_TagString: roller_item
@@ -32,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5543256081049110053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143439256878060032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa67b1a2ead8bd45991f7344eb4d5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintFlowTracker: 0
 --- !u!1 &5697509115609862869
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,19 +223,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1393809592064726470, guid: cd659dfb52ae9344bbfb4eb8bb56162b, type: 3}
   m_PrefabInstance: {fileID: 4345951791405538656}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &7851596141845797948
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3393500048670050470}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.03, y: 0.20542441, z: 0.030000001}
-  m_Center: {x: 0, y: 0.022883274, z: 0.0016460009}
 --- !u!65 &2677976739530364960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -235,6 +236,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.879761, y: 0.0374794, z: 0.043753996}
   m_Center: {x: -0.005261481, y: 0.5076504, z: 0.0016460009}
+--- !u!65 &7851596141845797948
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3393500048670050470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03, y: 0.20542441, z: 0.030000001}
+  m_Center: {x: 0, y: 0.022883274, z: 0.0016460009}
 --- !u!65 &8003921973234749047
 BoxCollider:
   m_ObjectHideFlags: 0
