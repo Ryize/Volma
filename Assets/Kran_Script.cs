@@ -5,7 +5,9 @@ public class Kran_Script : MonoBehaviour
     public Bucket_In_Area bucketInArea;
     public GameObject bucketNoWater;
     public GameObject bucketWithWater;
-    public double bucketFillAmount;
+    public float bucketFillAmount;
+    public ParticleSystem water;
+
     private void Start()
     {
         InvokeRepeating("RotatedKran", 1f, 1f);
@@ -13,6 +15,10 @@ public class Kran_Script : MonoBehaviour
 
     void RotatedKran ()
     {
+
+        var waterTrails = water.trails;
+        waterTrails.ratio = Mathf.Sin(transform.eulerAngles.y);
+        
         // Если ведро не в зоне
         if (!bucketInArea)
             return;
@@ -20,10 +26,10 @@ public class Kran_Script : MonoBehaviour
         // Если поставлено не пустое ведро
         if (!bucketNoWater.activeSelf)
             return;
-
+        
         // сила напора
         bucketFillAmount -= Mathf.Sin(transform.eulerAngles.y);
-
+        
         // Если ведро заполнено
         if (bucketFillAmount < 0.1)
         {
