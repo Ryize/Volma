@@ -899,7 +899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &74827531
 Transform:
   m_ObjectHideFlags: 0
@@ -933,7 +933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4496c1f41bec2e44a0c528741e8081c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDone: 0
 --- !u!1 &106528470
 GameObject:
   m_ObjectHideFlags: 0
@@ -5176,7 +5175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4496c1f41bec2e44a0c528741e8081c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDone: 0
 --- !u!1 &714886184 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8606554818086503243, guid: 56a64180bdf017548b0f892c32048b6a, type: 3}
@@ -5337,7 +5335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &731646437
 Transform:
   m_ObjectHideFlags: 0
@@ -5346,7 +5344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731646436}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -2.228}
+  m_LocalPosition: {x: 0, y: 0, z: -2.233}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5371,7 +5369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4496c1f41bec2e44a0c528741e8081c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDone: 0
 --- !u!64 &741486671 stripped
 MeshCollider:
   m_CorrespondingSourceObject: {fileID: 7154417098326251818, guid: 3243bea982df66d479cd40c02baf6880, type: 3}
@@ -14212,7 +14209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4496c1f41bec2e44a0c528741e8081c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDone: 0
 --- !u!114 &1678331625 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2985909222468300842, guid: c83d63619306b0845a841dd3cc213a70, type: 3}
@@ -16327,6 +16323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1927626308}
+  - component: {fileID: 1927626309}
   m_Layer: 0
   m_Name: PGPEvents
   m_TagString: Untagged
@@ -16353,6 +16350,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1927626309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927626307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7669160632bfe4049a38c175263f5db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1936957875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: e5cb734870890854986967c02d298e61, type: 3}

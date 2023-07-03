@@ -55,7 +55,6 @@ public class Shpatel_Script_VR : MonoBehaviour
 
         if (otherName.Contains("horizontalglue") || otherName.Contains("verticalglue")) {
             Destroy(other.transform.gameObject);
-            other.transform.parent.gameObject.GetComponent<PGP_Event_Zone>().isDone = true;
         }
     }
 }
