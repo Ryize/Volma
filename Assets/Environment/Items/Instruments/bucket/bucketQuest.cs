@@ -59,6 +59,7 @@ public class bucketQuest : MonoBehaviour
 
         if (obj.name.ToLower().Contains("mixer") && Input.GetKey(KeyCode.Mouse0))
         {
+            obj.GetComponent<AudioSource>().PlayOneShot(obj.GetComponent<AudioSource>().clip);
             GameObject[] mixerRotate = GameObject.FindGameObjectsWithTag("mixerRotate");
             for (int i = 0; i < mixerRotate.Length; i++)
             {
