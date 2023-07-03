@@ -14,6 +14,6 @@ public class sound : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("effect").GetComponent<AudioSource>().mute = true;
         }
-            
+
     }
 }

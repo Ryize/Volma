@@ -40,7 +40,7 @@ public class bucketQuest : MonoBehaviour
         {
             arm.GetComponent<TakeItem>().Drop();
             obj.transform.position = new Vector3(7, 1, 99999);
-            GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(-0.138f, 0.642f, -15.08f);
+            GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(7.286f, 0, -3.718f);
             GameObject.FindGameObjectWithTag("basket_2_item").GetComponent<Rigidbody>().constraints =
                 RigidbodyConstraints.FreezeAll;
         }
@@ -54,6 +54,7 @@ public class bucketQuest : MonoBehaviour
             // Координаты фризятся, чтобы ведро не проваливалось в пол/стены
             GameObject.FindGameObjectWithTag("basket_3_item").GetComponent<Rigidbody>().constraints =
                 RigidbodyConstraints.FreezeAll;
+            obj.GetComponent<AudioSource>().PlayOneShot(obj.GetComponent<AudioSource>().clip);
         }
 
         if (obj.name.ToLower().Contains("mixer") && Input.GetKey(KeyCode.Mouse0))
