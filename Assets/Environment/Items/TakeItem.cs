@@ -28,6 +28,7 @@ public class TakeItem : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, distance))
         {
+            Debug.Log(hit.transform.tag);
             if (hit.transform.tag.ToLower().Contains("item"))
             {
                 // Если предмет уже взят - бросить текущий
