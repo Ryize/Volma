@@ -48,5 +48,14 @@ public class Shpatel_Script_VR : MonoBehaviour
             Destroy(other.transform.gameObject);
             meshRenderer.enabled = false;
         }
+
+        // Если пгп не активна
+        if (!other.transform.parent.GetChild(0).gameObject.activeSelf)
+            return;
+
+        if (otherName.Contains("horizontalglue") || otherName.Contains("verticalglue")) {
+            Destroy(other.transform.gameObject);
+            other.transform.parent.gameObject.GetComponent<PGP_Event_Zone>().isDone = true;
+        }
     }
 }
