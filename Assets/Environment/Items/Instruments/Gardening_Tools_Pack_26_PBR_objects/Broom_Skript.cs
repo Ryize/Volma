@@ -10,6 +10,12 @@ public class Broom_Skript : MonoBehaviour
 
     private float xForce;
     private float yForce;
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -31,6 +37,10 @@ public class Broom_Skript : MonoBehaviour
             }
             if(hit.transform.tag.ToLower().Contains("dirt"))
             {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(audioSource.clip);
+                }
                 xForce = Math.Abs(Input.GetAxis("Mouse X")) * Force;
                 yForce = Math.Abs(Input.GetAxis("Mouse Y")) * Force;
 

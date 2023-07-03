@@ -6,23 +6,23 @@ public class bucketQuest : MonoBehaviour
 {
     public Camera playerCamera;
     public GameObject arm; // рука
-    private bool _isOpen = false;
+    public bool isOpen = false;
     void Update()
     {
         if (CameraLook().Contains("faucet") && Input.GetKeyDown(KeyCode.E) && arm.transform.childCount == 0)
         {
             // Проверка открыт или закрыт кран
-            if (!_isOpen)
+            if (!isOpen)
             {
                 GameObject.FindGameObjectWithTag("tapHandle").transform.Rotate(new Vector3(0f, 0f, -90f));
-                _isOpen = true;
+                isOpen = true;
                 // Если закрыт, открываем (устанавливаем макс. кол-во частиц на 100)
                 GameObject.FindGameObjectWithTag("effect").GetComponent<ParticleSystem>().maxParticles = 100;
             }
             else
             {
                 GameObject.FindGameObjectWithTag("tapHandle").transform.Rotate(new Vector3(0f, 0f, 90f));
-                _isOpen = false;
+                isOpen = false;
                 // Если открыт, закрываем (устанавливаем макс. кол-во частиц на 0)
                 GameObject.FindGameObjectWithTag("effect").GetComponent<ParticleSystem>().maxParticles = 0;
             }
@@ -35,12 +35,12 @@ public class bucketQuest : MonoBehaviour
         GameObject obj = arm.transform.GetChild(0).GameObject();
         
         // Проверка на тэг ведра без всего
-        if (CameraLook().Contains("faucet") && Input.GetKeyDown(KeyCode.E) && _isOpen &&
+        if (CameraLook().Contains("faucet") && Input.GetKeyDown(KeyCode.E) && isOpen &&
             obj.tag.ToLower().Contains("basket_1"))
         {
             arm.GetComponent<TakeItem>().Drop();
             obj.transform.position = new Vector3(7, 1, 99999);
-            GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(-0.138f, 0.642f, -15.08f);
+            GameObject.FindGameObjectWithTag("basket_2_item").transform.position = new Vector3(7.286f, 0, -3.718f);
             GameObject.FindGameObjectWithTag("basket_2_item").GetComponent<Rigidbody>().constraints =
                 RigidbodyConstraints.FreezeAll;
         }
@@ -54,10 +54,12 @@ public class bucketQuest : MonoBehaviour
             // Координаты фризятся, чтобы ведро не проваливалось в пол/стены
             GameObject.FindGameObjectWithTag("basket_3_item").GetComponent<Rigidbody>().constraints =
                 RigidbodyConstraints.FreezeAll;
+            obj.GetComponent<AudioSource>().PlayOneShot(obj.GetComponent<AudioSource>().clip);
         }
 
         if (obj.name.ToLower().Contains("mixer") && Input.GetKey(KeyCode.Mouse0))
         {
+            obj.GetComponent<AudioSource>().PlayOneShot(obj.GetComponent<AudioSource>().clip);
             GameObject[] mixerRotate = GameObject.FindGameObjectsWithTag("mixerRotate");
             for (int i = 0; i < mixerRotate.Length; i++)
             {
