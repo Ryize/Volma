@@ -3,8 +3,7 @@ using UnityEngine;
 public class Kran_Script : MonoBehaviour
 {
     public Bucket_In_Area bucketInArea;
-    public GameObject bucketNoWater;
-    public GameObject bucketWithWater;
+    public GameObject bucket;
     public float bucketFillAmount;
     public ParticleSystem water;
 
@@ -15,7 +14,6 @@ public class Kran_Script : MonoBehaviour
 
     void RotatedKran ()
     {
-
         var waterTrails = water.trails;
         waterTrails.ratio = Mathf.Sin(transform.eulerAngles.y);
         
@@ -23,8 +21,10 @@ public class Kran_Script : MonoBehaviour
         if (!bucketInArea)
             return;
 
+        GameObject empty = bucket.transform.GetChild(bucket.transform.childCount - 1).gameObject;
+        
         // Если поставлено не пустое ведро
-        if (!bucketNoWater.activeSelf)
+        if (!empty.activeSelf)
             return;
         
         // сила напора
@@ -33,8 +33,8 @@ public class Kran_Script : MonoBehaviour
         // Если ведро заполнено
         if (bucketFillAmount < 0.1)
         {
-            bucketNoWater.SetActive(false);
-            bucketWithWater.SetActive(true);
+            bucket.transform.GetChild(1).gameObject.SetActive(true);
+            empty.SetActive(false);
         }
     }
 }
