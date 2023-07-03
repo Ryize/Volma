@@ -26,14 +26,15 @@ public class TakeItem : MonoBehaviour
     {
         // Позволяет взять предмет
         RaycastHit hit;
-
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, distance))
         {
-            if (hit.transform.CompareTag("Item"))
+            if (hit.transform.tag.ToLower().Contains("item"))
             {
                 // Если предмет уже взят - бросить текущий
                 if (canTake)
                     Drop();
+                
+                camera.GetComponent<AudioSource>().PlayOneShot(camera.GetComponent<AudioSource>().clip);
 
                 currentItem = hit.transform.gameObject;
                 currentItem.GetComponent<Rigidbody>().isKinematic = true;
