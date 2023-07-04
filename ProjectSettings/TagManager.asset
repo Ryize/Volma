@@ -25,6 +25,7 @@ TagManager:
   - mixerRotate
   - Floor
   - pgp_item
+  - pgp_half_item
   layers:
   - Default
   - TransparentFX

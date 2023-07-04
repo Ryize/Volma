@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 2314448219645165173}
   m_Layer: 0
   m_Name: Interactions.Interactable_pgpFrontVR
-  m_TagString: Untagged
+  m_TagString: pgp_half_item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

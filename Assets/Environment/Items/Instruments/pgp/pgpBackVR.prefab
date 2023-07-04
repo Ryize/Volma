@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e1459ddcf86b0564e8e924587c99fef9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 16733bc6e77b33a4ea7498167f986505, type: 2}
+      objectReference: {fileID: 2100000, guid: d6dabb5008f6f3544a7b850ef738dfb2, type: 2}
     - target: {fileID: 919132149155446097, guid: e1459ddcf86b0564e8e924587c99fef9, type: 3}
       propertyPath: m_Name
       value: pgp(1_2 s vpadinoy)

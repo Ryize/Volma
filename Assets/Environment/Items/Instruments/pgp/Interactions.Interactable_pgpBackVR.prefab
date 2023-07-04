@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8896336150923800061}
   m_Layer: 0
   m_Name: Interactions.Interactable_pgpBackVR
-  m_TagString: Untagged
+  m_TagString: pgp_half_item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
