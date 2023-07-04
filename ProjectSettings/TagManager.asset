@@ -26,6 +26,7 @@ TagManager:
   - Floor
   - pgp_item
   - pgp_half_item
+  - rasporka_item
   layers:
   - Default
   - TransparentFX
