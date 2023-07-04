@@ -13,7 +13,7 @@ public class PGP_Event_VR : MonoBehaviour
 
     private void Update()
     {
-        if (transform.childCount > pgpCounter+1 && transform.GetChild(pgpCounter).gameObject.GetComponent<PGP_Event_Zone>().isDone()) {
+        if (transform.childCount > pgpCounter+1 && transform.GetChild(pgpCounter).gameObject.GetComponent<PGP_Event_Zone>().GetQuestStatus()) {
             transform.GetChild(++pgpCounter).gameObject.SetActive(true);
         }
     }

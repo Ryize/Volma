@@ -6,19 +6,25 @@ public class Kran_Script : MonoBehaviour
     public GameObject bucket;
     public float bucketFillAmount;
     public ParticleSystem water;
-
-    private void Start()
-    {
-        InvokeRepeating("RotatedKran", 1f, 1f);
+    //private ParticleSystem.Trails waterTrails;
+    
+    private void Update() {
+        RotatedKran();
     }
 
     void RotatedKran ()
     {
-        var waterTrails = water.trails;
-        waterTrails.ratio = Mathf.Sin(transform.eulerAngles.y);
+        /*// напор воды
+        var trailsData = new ParticleSystem.Trails(true);
+        trailsData.
+        waterTrails.ratio = Mathf.Sin(transform.eulerAngles.y * Mathf.Deg2Rad); 
+        //water.emission = _emissionModule;
+        water.SetEmissionRateOverTime(_emissionModule.rateOverTime);
+        //water.SetEmissionRateOverTime(_emissionModule)
+        water.set*/
         
         // Если ведро не в зоне
-        if (!bucketInArea)
+        if (!bucketInArea.isInArea)
             return;
 
         GameObject empty = bucket.transform.GetChild(bucket.transform.childCount - 1).gameObject;
@@ -28,7 +34,7 @@ public class Kran_Script : MonoBehaviour
             return;
         
         // сила напора
-        bucketFillAmount -= Mathf.Sin(transform.eulerAngles.y);
+        bucketFillAmount -= Mathf.Sin(transform.eulerAngles.y) * Time.deltaTime;
         
         // Если ведро заполнено
         if (bucketFillAmount < 0.1)

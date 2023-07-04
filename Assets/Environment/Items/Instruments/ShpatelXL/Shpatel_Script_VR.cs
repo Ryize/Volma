@@ -8,6 +8,9 @@ public class Shpatel_Script_VR : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!(other.tag.ToLower().Contains("task") || other.tag.ToLower().Contains("basket")))
+            return;
+        
         string otherName = other.transform.name.ToLower();
         MeshRenderer meshRenderer = transform.gameObject.GetComponent<MeshRenderer>();
 
@@ -39,8 +42,12 @@ public class Shpatel_Script_VR : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (!other.tag.ToLower().Contains("task"))
+            return;
+        
         string otherName = other.transform.name.ToLower();
         MeshRenderer meshRenderer = transform.gameObject.GetComponent<MeshRenderer>();
+        Transform eventZone = other.transform.parent;
 
         // Если объект event
         if (meshRenderer.enabled && 
@@ -50,11 +57,14 @@ public class Shpatel_Script_VR : MonoBehaviour
         }
 
         // Если пгп не активна
-        if (!other.transform.parent.GetChild(0).gameObject.activeSelf)
+        if (!eventZone.GetChild(0).gameObject.activeSelf)
             return;
 
         if (otherName.Contains("horizontalglue") || otherName.Contains("verticalglue")) {
             Destroy(other.transform.gameObject);
         }
+        
+        /*if (eventZone.childCount <= 2)
+            eventZone.GetComponent<PGP_Event_Zone>().CompleteQuest();*/
     }
 }

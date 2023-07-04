@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 798874573976731271}
   m_Layer: 0
   m_Name: EventZone
-  m_TagString: Untagged
+  m_TagString: Task
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EventZoneCounter: 0
+  glue: {fileID: 0}

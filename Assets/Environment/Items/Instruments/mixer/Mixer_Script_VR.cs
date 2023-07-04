@@ -6,6 +6,7 @@ public class Mixer_Script_VR : MonoBehaviour
 {
     public GameObject mixerAuger;
     public float bucketMixing = 10;
+    public GameObject pgpEvents;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +24,7 @@ public class Mixer_Script_VR : MonoBehaviour
         {
             transform.parent.GetChild(3).gameObject.SetActive(true);
             transform.GameObject().SetActive(false);
+            pgpEvents.SetActive(true);
         }
     }
 }

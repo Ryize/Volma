@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class PGP_Event_Zone : MonoBehaviour
 {
-    public bool isDone()
+    private bool questStatus = false;
+
+    public void CompleteQuest()
     {
-        return transform.childCount <= 2;
+        questStatus = true;
+    }
+
+    public bool GetQuestStatus()
+    {
+        return questStatus;
     }
 }
