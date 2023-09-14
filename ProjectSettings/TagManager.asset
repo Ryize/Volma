@@ -23,6 +23,10 @@ TagManager:
   - playerCamera
   - cement_item
   - mixerRotate
+  - Floor
+  - pgp_item
+  - pgp_half_item
+  - rasporka_item
   layers:
   - Default
   - TransparentFX
