@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-09-20T13:09:57.555Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 YaBrowser/23.7.0.2604 Yowser/2.5 Safari/537.36" etag="LJURylSTynVotWwaiydJ" version="21.7.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-09-20T13:35:57.161Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 YaBrowser/23.7.0.2604 Yowser/2.5 Safari/537.36" etag="u3MsJTAFsT8bAIOlddOB" version="21.7.5" type="github">
   <diagram name="Страница — 1" id="DdJtUq3L_0oEUzeU_RWa">
     <mxGraphModel dx="2558" dy="497" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -159,7 +159,7 @@
             <mxPoint x="-360" y="900" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="pSJ06roWzF_WPL-AcX-k-27" value="Грунтовка&lt;br&gt;3&lt;br&gt;12ч (Petya)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="pSJ06roWzF_WPL-AcX-k-27" value="Грунтовка&lt;br&gt;3&lt;br&gt;12ч (Petya)&lt;br&gt;+" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-420" y="780" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="pSJ06roWzF_WPL-AcX-k-29" value="Доработать&lt;br&gt;3&lt;br&gt;36ч (3)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -170,7 +170,7 @@
             <mxPoint x="-580" y="660" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="pSJ06roWzF_WPL-AcX-k-32" value="Калькулятор&lt;br&gt;4&lt;br&gt;12ч" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="pSJ06roWzF_WPL-AcX-k-32" value="Калькулятор&lt;br&gt;4&lt;br&gt;12ч&lt;br&gt;+" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-640" y="540" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="pSJ06roWzF_WPL-AcX-k-34" value="Сделать два режима игры&lt;br&gt;5&lt;br&gt;36 (2)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -190,7 +190,7 @@
         <mxCell id="pSJ06roWzF_WPL-AcX-k-40" value="" style="shape=stencil(fZbdcgIhDIWfZm8zQAg/17Z9j85U606tdqz9e/tmZ0c0uJ47xP0I5JwEBl59bp8/1kNwn6fj4W39M76ctgM/DCGM++36OJ50NPDjwKvN4bh+PR6+9i/z74/n6ctp9H74nlb4nbmSKZeJCu5vngmZ6jzzNAO7cX8FVKEsBuBKrgKg9oAE8gkCbLeUhEoEQKSUDZDLeWYRKIl8MEDRmHwfyBrBG6Amyu4+kDxxMoB3jhwgYu7TVAsVkFcWCs4CTBEoF4RctKeOxHIf8IXYpikHikAIf+MNUW94AGSSaoAoFIE3AlOyeWU+p2E5S9yfQZcQILVuQOwZdJNoS9Ls3wA5u2XZTIHECqeJ9kDpSaauRiNVcAY1QhdBzeLBli5WazpkSsBLV25uRaqWRyFawTQzRRIQYirJzq5atkBqLfouwqUxLBepthWb10vrWZY6UOAeyKCCtDV625mm9gmUC4Wc3VLJMMIE1BsA2FW9JraVlQB7n3c9oMKhCLEvIM1zBPZ25/umNQ1tVEC2G+fFCC8g398O2hNQuQlVu752DBfA+q0ptnqO5JFmeuIuo9DY7KjY71UxdJV4EntifPWorW++R/dC4t7V3DlIB5cHx2bc7eb3yvX//QNFp+bHDT/+Aw==);lineShape=1;" parent="1" vertex="1">
           <mxGeometry x="-714.504854591396" y="643.6036637644961" width="3.222441222148424" height="3.21740428714324" as="geometry" />
         </mxCell>
-        <mxCell id="rAZ-XMyjvD6v0UAwtqQ3-2" value="Распил ПГП по параметрам&lt;br&gt;6&lt;br&gt;12ч" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="rAZ-XMyjvD6v0UAwtqQ3-2" value="Распил ПГП по параметрам&lt;br&gt;6&lt;br&gt;12ч&lt;br&gt;+" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-420" y="900" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
