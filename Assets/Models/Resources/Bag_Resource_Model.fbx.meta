@@ -3,22 +3,7 @@ guid: f617dc4432771ac45b90b5227bcf1f07
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 34905c553ee7d3540b48025476801f51, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.004
-    second: {fileID: 2100000, guid: 41a3380f0d214814b89b0d5b3ca6cdc9, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: volma-3
-    second: {fileID: 2800000, guid: a8e8cbc6cd3d6364dbd1caa64d84952e, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

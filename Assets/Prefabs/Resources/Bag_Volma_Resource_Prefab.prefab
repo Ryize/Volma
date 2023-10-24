@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3451513124926443983}
   m_Layer: 0
-  m_Name: BagVR
+  m_Name: Bag_Volma_Resource_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

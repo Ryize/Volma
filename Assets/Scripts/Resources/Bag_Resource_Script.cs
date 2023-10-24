@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cement_Script_VR : MonoBehaviour
+public class Bag_Resource_Script : MonoBehaviour
 {
     public float bucketFillAmount;
     public GameObject bucket;
