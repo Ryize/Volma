@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5d035f83be16c74890b578162234117, type: 2}
+  - {fileID: 2100000, guid: f4e55ce8de037f143a8b9e5b6b2a3685, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9a558cec643b87442b7a772f27357ad3, type: 2}
+  - {fileID: 2100000, guid: 145a4e97e7961004fab2b7bbfd5c4739, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 3375540413476912517}
   - component: {fileID: -5046250032249188861}
   m_Layer: 0
-  m_Name: Saw
+  m_Name: Saw_Instrument_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5d035f83be16c74890b578162234117, type: 2}
+  - {fileID: 2100000, guid: f4e55ce8de037f143a8b9e5b6b2a3685, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

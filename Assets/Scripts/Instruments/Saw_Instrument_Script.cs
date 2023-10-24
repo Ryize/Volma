@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zinnia;
 
-public class Saw_Script_VR : MonoBehaviour
+public class Saw_Instrument_Script : MonoBehaviour
 {
     public GameObject pgpFrontVR; // Ссылка на префаб pgpFrontVR
     public GameObject pgpBackVR; // Ссылка на префаб pgpBackVR
