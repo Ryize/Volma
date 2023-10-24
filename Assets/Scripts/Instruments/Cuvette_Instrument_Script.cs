@@ -3,7 +3,7 @@ using UnityEngine;
 public class Cuvette_Instrument_Script : MonoBehaviour
 {
     public Rigidbody paintRoller;
-    public PaintRoller_Script_VR brush;
+    public Roller_Instrument_Script brush;
     private void OnTriggerEnter(Collider other)
     {
         // Касаться должен именно валик
