@@ -67,9 +67,41 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: 8a5c405b34316c84689a4ee8ee52fb13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4e55ce8de037f143a8b9e5b6b2a3685, type: 2}
+    - target: {fileID: -4010980779470094544, guid: 8a5c405b34316c84689a4ee8ee52fb13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4e55ce8de037f143a8b9e5b6b2a3685, type: 2}
+    - target: {fileID: -4010980779470094544, guid: 8a5c405b34316c84689a4ee8ee52fb13, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c73f6ef78dbeb314aa4d358f1e1ca402, type: 2}
+    - target: {fileID: -1439730007547781893, guid: 8a5c405b34316c84689a4ee8ee52fb13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4e55ce8de037f143a8b9e5b6b2a3685, type: 2}
     - target: {fileID: 919132149155446097, guid: 8a5c405b34316c84689a4ee8ee52fb13, type: 3}
       propertyPath: m_Name
       value: pena_pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 1129496810705857465, guid: 8a5c405b34316c84689a4ee8ee52fb13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 145a4e97e7961004fab2b7bbfd5c4739, type: 2}
+    - target: {fileID: 7071182760956848314, guid: 8a5c405b34316c84689a4ee8ee52fb13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4e55ce8de037f143a8b9e5b6b2a3685, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 8a5c405b34316c84689a4ee8ee52fb13, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 145a4e97e7961004fab2b7bbfd5c4739, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 8a5c405b34316c84689a4ee8ee52fb13, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4e55ce8de037f143a8b9e5b6b2a3685, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a5c405b34316c84689a4ee8ee52fb13, type: 3}
