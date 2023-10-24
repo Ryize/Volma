@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Dirt_Script : MonoBehaviour
+public class Dirt_Quest_Script : MonoBehaviour
 {
     public float dirtCounter = 1000f;
 

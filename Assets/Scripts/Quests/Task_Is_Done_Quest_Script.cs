@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Task : MonoBehaviour
+public class Task_Is_Done_Quest_Script : MonoBehaviour
 {
     public virtual bool isDone()
     {

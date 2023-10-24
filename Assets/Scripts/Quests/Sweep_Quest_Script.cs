@@ -1,8 +1,12 @@
 using UnityEngine;
 
-public class Dirt_Script_VR : MonoBehaviour
+public class Sweep_Quest_Script : MonoBehaviour
 {
-    public Dirt_Script ds;
+    /*
+     * Исправить этот скрипт
+     */
+    
+    //public Dirt_Script ds;
     public Rigidbody broom;
 
     private void OnTriggerEnter(Collider other) {
@@ -20,7 +24,7 @@ public class Dirt_Script_VR : MonoBehaviour
         // {
         //     force += contact.normalImpulse;
         // }
-
-        ds.dirtCounter -= force;
+        
+        //ds.dirtCounter -= force;
     }
 }

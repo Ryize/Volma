@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 798874573976731270}
   - component: {fileID: 798874573976731271}
   m_Layer: 0
-  m_Name: Horizontal_Zone Quest Prefab
+  m_Name: Horizontal_Zone_Quest_Prefab
   m_TagString: Task
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

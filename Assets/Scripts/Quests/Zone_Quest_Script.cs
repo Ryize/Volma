@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EventZone_Script : MonoBehaviour
+public class Zone_Quest_Script : MonoBehaviour
 {
     public float EventZoneCounter = 10;
     public GameObject glue;

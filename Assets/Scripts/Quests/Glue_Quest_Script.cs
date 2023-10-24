@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Glue_Event : MonoBehaviour
+public class Glue_Quest_Script : MonoBehaviour
 {
     private void OnDestroy()
     {

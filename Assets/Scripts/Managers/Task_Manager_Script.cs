@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Task_Manager : MonoBehaviour
+public class Task_Manager_Script : MonoBehaviour
 {
-    public Task[] tasks; // список квестов
+    public Task_Is_Done_Quest_Script[] tasks; // список квестов
     public int currentTask; // текущий квест
     
     void Start()

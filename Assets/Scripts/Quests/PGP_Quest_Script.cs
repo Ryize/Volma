@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PGP_Event_VR : MonoBehaviour
+public class PGP_Quest_Script : MonoBehaviour
 {
     private int pgpCounter;
 

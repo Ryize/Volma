@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Kran_Script : MonoBehaviour
+public class Faucet_Room_Script : MonoBehaviour
 {
-    public Bucket_In_Area bucketInArea;
+    public Bucket_In_Area_Quest_Script bucketInArea;
     public GameObject bucket;
     public float bucketFillAmount;
     public ParticleSystem water;
