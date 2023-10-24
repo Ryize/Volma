@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Primer_Script_VR : MonoBehaviour
+public class Primer_Resource_Script : MonoBehaviour
 {
     public CuvetteFillAmount cuvetteFillAmount;
     public GameObject primerPaint;
