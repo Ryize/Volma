@@ -10,7 +10,7 @@ public class Saw_Script_VR : MonoBehaviour
     public GameObject pgpBackVR; // Ссылка на префаб pgpBackVR
     public Rigidbody sawRigidbody; // Rigidbody пилы
     private float velocity; // Скорость пилы
-    private pgp_Strength pgpStatus; // Начальная прочность объекта
+    private PGP_Strength_Resource_Script pgpStatus; // Начальная прочность объекта
 
     private void OnTriggerStay(Collider other)
     {
@@ -18,7 +18,7 @@ public class Saw_Script_VR : MonoBehaviour
             return;
 
         velocity = sawRigidbody.velocity.magnitude;
-        pgpStatus = other.transform.root.gameObject.GetComponent<pgp_Strength>();
+        pgpStatus = other.transform.root.gameObject.GetComponent<PGP_Strength_Resource_Script>();
         pgpStatus.strength -= velocity;
         
         if (pgpStatus.hasSliced)
