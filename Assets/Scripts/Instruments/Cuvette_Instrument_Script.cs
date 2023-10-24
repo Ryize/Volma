@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CuvettePrimer_Script_VR : MonoBehaviour
+public class Cuvette_Instrument_Script : MonoBehaviour
 {
     public Rigidbody paintRoller;
     public PaintRoller_Script_VR brush;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Primer_Resource_Script : MonoBehaviour
 {
-    public CuvetteFillAmount cuvetteFillAmount;
+    public Cuvette_Fill_Amount_Instrument_Script cuvetteFillAmount;
     public GameObject primerPaint;
 
     private void Start()
