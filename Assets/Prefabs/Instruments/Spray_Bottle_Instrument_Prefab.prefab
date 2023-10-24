@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 908351507184649974}
   m_Layer: 6
-  m_Name: Spray Bottle
+  m_Name: Spray_Bottle_Instrument_Prefab
   m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
