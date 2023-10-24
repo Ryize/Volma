@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rasporka_Event : PGP_Event_Zone
+public class Spacer_Instrument_Script : PGP_Event_Zone
 {
     public bool done = false;
 
