@@ -912,7 +912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 599621839023929054}
   m_Layer: 0
-  m_Name: Ladder
+  m_Name: Ladder_Instrumnet_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
