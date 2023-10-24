@@ -160,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5d035f83be16c74890b578162234117, type: 2}
+  - {fileID: 2100000, guid: f4e55ce8de037f143a8b9e5b6b2a3685, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -239,7 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3996216658227715116}
   m_Layer: 0
-  m_Name: shpatelVR
+  m_Name: Pallet_Instrumnet_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,7 +281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3386852786925133861
 Transform:
   m_ObjectHideFlags: 0

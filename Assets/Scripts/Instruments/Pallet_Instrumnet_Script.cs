@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Shpatel_Script_VR : MonoBehaviour
+public class Pallet_Instrumnet_Script : MonoBehaviour
 {
     //public EventZone_Script counter;
     public Rigidbody shpatel;
