@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Mixer_Script_VR : MonoBehaviour
+public class Mixer_Instrument_Script : MonoBehaviour
 {
     public GameObject mixerAuger;
     public float bucketMixing = 10;
@@ -16,7 +16,7 @@ public class Mixer_Script_VR : MonoBehaviour
         if (other.transform.parent.GameObject() != mixerAuger)
             return;
         
-        float speed = mixerAuger.GetComponent<Mixer_Animation>().GetSpeed();
+        float speed = mixerAuger.GetComponent<Mixer_Animation_Instrument_Script>().GetSpeed();
 
         bucketMixing -= speed;
 

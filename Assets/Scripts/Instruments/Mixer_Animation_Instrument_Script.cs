@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Mixer_Animation : MonoBehaviour
+public class Mixer_Animation_Instrument_Script : MonoBehaviour
 {
     private float speed = 0;
     
