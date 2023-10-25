@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PGP_Event_Zone : MonoBehaviour
+public class PGP_Zone_Quest_Script : MonoBehaviour
 {
     private bool questStatus = false;
 

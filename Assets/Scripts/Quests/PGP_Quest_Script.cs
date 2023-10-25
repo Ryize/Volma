@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PGP_Quest_Script : MonoBehaviour
@@ -13,7 +11,7 @@ public class PGP_Quest_Script : MonoBehaviour
 
     private void Update()
     {
-        if (transform.childCount > pgpCounter+1 && transform.GetChild(pgpCounter).gameObject.GetComponent<PGP_Event_Zone>().GetQuestStatus()) {
+        if (transform.childCount > pgpCounter+1 && transform.GetChild(pgpCounter).gameObject.GetComponent<PGP_Zone_Quest_Script>().GetQuestStatus()) {
             transform.GetChild(++pgpCounter).gameObject.SetActive(true);
         }
     }
