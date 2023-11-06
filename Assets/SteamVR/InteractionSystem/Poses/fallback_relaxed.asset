@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand:
     inputSource: 1
-    thumbFingerMovementType: 0
+    thumbFingerMovementType: 1
     indexFingerMovementType: 0
     middleFingerMovementType: 0
     ringFingerMovementType: 0
