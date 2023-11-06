@@ -3,28 +3,33 @@ using UnityEngine;
 public class Sweep_Quest_Script : MonoBehaviour
 {
     /*
-     * Исправить этот скрипт
+     * Класс грязи
+     *
+     * Реализует логику подметания грязи.
      */
     
-    //public Dirt_Script ds;
-    public Rigidbody broom;
+    // Счетчик отвечающий за кол-во подметаний
+    private int _Counter = 4;
 
+    /*
+     * Метод подметания
+     *
+     * Отвечает за обработку соприкосания колайдеров метлы и глрязи
+     *
+     * Args:
+     *  other: Collider (коллайдер вошедший в коллайдер грязи)
+     */
     private void OnTriggerEnter(Collider other) {
-        //Debug.Log("5");
-        // Если взаимодействует не метла
+        // Объектом должна быть метла
         if (!other.transform.name.ToLower().Contains("broom"))
             return;
-        //Debug.Log("6");
-
-        float force = broom.velocity.magnitude * 10;
-        //Debug.Log("force = " + force);
-        //Debug.Log("broom.velocity = " + broom.velocity);
-
-        // foreach (ContactPoint contact in other.contacts)
-        // {
-        //     force += contact.normalImpulse;
-        // }
         
-        //ds.dirtCounter -= force;
+        _Counter--;
+
+        // Удаление грязи при обнулении счетчика
+        if (_Counter < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
