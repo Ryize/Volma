@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Test_2 : Base
+public class Main_Quest : Base
 {
     /*
-     * Тестовый класс.
+     * Класс квестов
      *
-     * Реализует логику телепортации куба.
+     * Реализует логику работы квестов.
      */
+
+    // Квест грязи
+    public Dirt_Quest_Script DirtQuestScript;
     
-    // Куб который телепортируется
-    public GameObject cube;
-    
+    // Репозиторий предеметов
+    public Item_Repository repa;
+        
     // Менеджер объектов
     public Item_Manager manager;
 
@@ -32,29 +34,24 @@ public class Test_2 : Base
             manager.subscribe(type, this);
         }
     }
+
     
     /*
      * Метод уведомления о событии.
      *
      * Отслеживается событие падения кубика.
-     * 
+     *
      * Args:
      *  a: string (тип события)
      *  status: bool (состояние кубика)
      */
     public override void Notify(string a, bool status)
     {
-        TeleportCube();
+        QuestComplete();
     }
-
-    /*
-     * Метод телепортации куба
-     *
-     * Телепортирует куб
-     */
-    private void TeleportCube()
+    
+    public void QuestComplete()
     {
-        cube.transform.position = new Vector3(0, 2, 0);
-        cube.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        Debug.Log("Main_Quest: QuestComplete");
     }
 }

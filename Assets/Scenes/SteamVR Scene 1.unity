@@ -1309,6 +1309,8 @@ Transform:
   - {fileID: 919041906}
   - {fileID: 603328801}
   - {fileID: 1782396871}
+  - {fileID: 2079241343}
+  - {fileID: 967958544}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1460,6 +1462,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6349740960897812684, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: repa
+      value: 
+      objectReference: {fileID: 1611535456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
 --- !u!4 &603328801 stripped
@@ -1650,6 +1656,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6349740960897812684, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: repa
+      value: 
+      objectReference: {fileID: 1611535456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
 --- !u!4 &897884138 stripped
@@ -1716,6 +1726,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6349740960897812684, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: repa
+      value: 
+      objectReference: {fileID: 1611535456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
 --- !u!4 &919041906 stripped
@@ -1814,6 +1828,55 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7052716876110742381, guid: 3c7891ff813a341908c62d34c15d4750, type: 3}
   m_PrefabInstance: {fileID: 955370440}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &967958543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967958544}
+  - component: {fileID: 967958545}
+  m_Layer: 0
+  m_Name: Main Quest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &967958544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967958543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 423206506}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967958545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967958543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e51c414d881374cbb8678200ebd422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DirtQuestScript: {fileID: 2079241344}
+  repa: {fileID: 1611535456}
+  manager: {fileID: 1611535457}
+  subTypes:
+  - completed
 --- !u!1001 &1003980900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3127,6 +3190,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6349740960897812684, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: repa
+      value: 
+      objectReference: {fileID: 1611535456}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
 --- !u!4 &1782396871 stripped
@@ -3561,11 +3628,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1029209941}
   - {fileID: 1311483693}
   - {fileID: 57290594}
-  - {fileID: 2057315873}
+  - {fileID: 1029209941}
   - {fileID: 943674286}
+  - {fileID: 2057315873}
   - {fileID: 1188176459}
   - {fileID: 1053374371}
   - {fileID: 1239716460}
@@ -4238,6 +4305,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88cd37a2d202d87408e0be02c4133eda, type: 3}
+--- !u!1 &2079241342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2079241343}
+  - component: {fileID: 2079241344}
+  m_Layer: 0
+  m_Name: Dirt Quest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2079241343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079241342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 423206506}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2079241344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079241342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5493e93ab41b242af32b2bf8060f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2107933892
 PrefabInstance:
   m_ObjectHideFlags: 0
