@@ -1411,7 +1411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbf9b2a9300fb74e8ef52d501498105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newText: 123123123123ffgdfgdafass
   currentText: {fileID: 205465062}
 --- !u!1 &627828590
 GameObject:
