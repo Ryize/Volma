@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Pallet_Instrumnet_Script : MonoBehaviour

@@ -1,18 +1,12 @@
 using UnityEngine;
 
-public class Faucet_Room_Script : MonoBehaviour
+public class Faucet_Room_Script : Base
 {
-    public Bucket_In_Area_Quest_Script bucketInArea;
+    //public Bucket_In_Area_Quest_Script bucketInArea;
     public GameObject bucket;
     public float bucketFillAmount;
-    public ParticleSystem water;
     //private ParticleSystem.Trails waterTrails;
-    
-    private void Update() {
-        RotatedKran();
-    }
-
-    void RotatedKran ()
+    void Notify(string type, bool status)
     {
         /*// напор воды
         var trailsData = new ParticleSystem.Trails(true);
@@ -24,9 +18,12 @@ public class Faucet_Room_Script : MonoBehaviour
         water.set*/
         
         // Если ведро не в зоне
-        if (!bucketInArea.isInArea)
+        // if (!bucketInArea.isInArea)
+        //     return;
+        if (type != "bucketInArea")
+        {
             return;
-
+        }
         GameObject empty = bucket.transform.GetChild(bucket.transform.childCount - 1).gameObject;
         
         // Если поставлено не пустое ведро

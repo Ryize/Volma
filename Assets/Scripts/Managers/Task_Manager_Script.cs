@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class Task_Manager_Script : MonoBehaviour
+public class Task_Manager_Script : Managers
 {
     public Task_Is_Done_Quest_Script[] tasks; // список квестов
     public int currentTask; // текущий квест
