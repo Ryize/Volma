@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Main_Quest : Base
+public class Main_Quest : Quest
 {
     /*
      * Класс квестов
      *
      * Реализует логику работы квестов.
      */
-
-    // Квест грязи
-    public Dirt_Quest_Script DirtQuestScript;
     
     // Репозиторий предеметов
     public Item_Repository repa;
@@ -21,6 +18,9 @@ public class Main_Quest : Base
 
     // Тип событий, который отслеживается 
     public List<string> subTypes;
+    
+    // Доска с квестами
+    public TextChange_Script desk;
     
     /*
      * Стартовый метод
@@ -39,19 +39,24 @@ public class Main_Quest : Base
     /*
      * Метод уведомления о событии.
      *
-     * Отслеживается событие падения кубика.
+     * Уведомление о завершении квеста
      *
      * Args:
-     *  a: string (тип события)
+     *  questType: string (тип события)
      *  status: bool (состояние кубика)
      */
-    public override void Notify(string a, bool status)
+    public override void Notify(string questType, bool status)
     {
-        QuestComplete();
+        // Квест грязи
+        if (questType == "dirt_completed")
+        {
+            QuestComplete();
+        }
     }
     
     public void QuestComplete()
     {
         Debug.Log("Main_Quest: QuestComplete");
+        desk.QuestCompleted();
     }
 }

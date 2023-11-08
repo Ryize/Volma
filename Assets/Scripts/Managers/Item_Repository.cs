@@ -9,7 +9,7 @@ public class Item_Repository : Repository
      */
     
     // Статус положения ведра
-    private bool _Bucket_In_Area_isInArea;
+    private bool _Bucket_Quest_isComplete;
     // Статус тестового квеста
     private bool _Test_fallStatus = false;
     // Статус квеста грязи
@@ -22,19 +22,19 @@ public class Item_Repository : Repository
     public Item_Manager manager; 
     
     // Получение и установка статуса положения ведра
-    public bool Bucket_In_Area_isInArea
+    public bool Bucket_Quest_isComplete
     {
         get
         {
-            return _Bucket_In_Area_isInArea;
+            return _Bucket_Quest_isComplete;
         }
         set
         {
-            _Bucket_In_Area_isInArea = value;
+            _Bucket_Quest_isComplete = value;
 
             if (value)
             {
-                // manager.Notify_Bucket_In_Area_isInArea(value);
+                manager.Notify_BucketQuestComplete(value);
             }
         }
     }
@@ -68,12 +68,12 @@ public class Item_Repository : Repository
             _Dirt_Quest_isComplete = value;
             if (value)
             {
-                manager.Notify_QuestComplete(value);
+                manager.Notify_DirtQuestComplete(value);
             }
         }
     }
     
-    // Получение и установка кол-ва грзи
+    // Получение и установка кол-ва грязи
     public int DirtsAmount
     {
         get

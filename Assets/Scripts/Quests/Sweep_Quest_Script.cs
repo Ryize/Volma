@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Sweep_Quest_Script : Base
+public class Sweep_Quest_Script : Quest
 {
     /*
      * Класс грязи

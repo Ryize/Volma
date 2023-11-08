@@ -1,11 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
 
-public class TextChange_Script : MonoBehaviour
+public class TextChange_Script : Base
 {
     public string newText;
     public TextMeshProUGUI currentText;
@@ -15,14 +12,13 @@ public class TextChange_Script : MonoBehaviour
 
     private void Start()
     {
-        int k = 0;
+        
+        
         for (int i = 0; i < 5; i++)
         {
-            Quests.Add(k.ToString());
-            k++;
-            Debug.Log(Quests[i]); 
+            Quests.Add(i.ToString());
+            Debug.Log("TextChange_Script Quests[i]: " + Quests[i]); 
         }
-        Debug.Log(Quests);   
     }
     public void ChangeTextNext()
     {
@@ -36,5 +32,11 @@ public class TextChange_Script : MonoBehaviour
             currentQuest--;
             currentText.text = Quests[currentQuest];
         }
+    }
+
+    public void QuestCompleted()
+    {
+        currentText.color = Color.green; 
+        //ChangeTextNext();
     }
 }

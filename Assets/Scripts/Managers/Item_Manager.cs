@@ -38,13 +38,32 @@ public class Item_Manager : Managers
      * Args:
      *  status: bool (статус квеста)
      */
-    public void Notify_QuestComplete(bool status)
+    public void Notify_DirtQuestComplete(bool status)
     {
         foreach (var observer in _observers)
         {
-            if (observer.Key == "completed")
+            if (observer.Key == "dirt_completed")
             {
-                observer.Value.Notify("completed", status);
+                observer.Value.Notify("dirt_completed", status);
+            }
+        }
+    }
+    
+    /*
+     * Метод уведомления о завершении квеста
+     *
+     * Уведовляет всех подписчкиков о событии завершения квеста
+     *
+     * Args:
+     *  status: bool (статус квеста)
+     */
+    public void Notify_BucketQuestComplete(bool status)
+    {
+        foreach (var observer in _observers)
+        {
+            if (observer.Key == "bucket_completed")
+            {
+                observer.Value.Notify("bucket_completed", status);
             }
         }
     }
