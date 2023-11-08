@@ -2,45 +2,50 @@ using UnityEngine;
 
 public class Pallet_Instrumnet_Script : MonoBehaviour
 {
-    //public EventZone_Script counter;
-    public Rigidbody shpatel;
-
+    /*
+     * Отвечает за нанесения клея на ПГП
+    */
     private void OnTriggerEnter(Collider other)
     {
+        /*
+         * Метод вызывающийся автоматически, при касании клея с объектом.
+         *
+         * Отслеживается именно ведро с клеем.
+         *
+         * Args:
+         *  other: Collider (объект, которого мы коснулись)
+        */
+        
+        // Если объект не ведро с клеем, то заканчиваем функцию
         if (!(other.tag.ToLower().Contains("task") || other.tag.ToLower().Contains("basket")))
             return;
         
         string otherName = other.transform.name.ToLower();
         MeshRenderer meshRenderer = transform.gameObject.GetComponent<MeshRenderer>();
-
-        Debug.Log("Shpatel: " + meshRenderer.enabled + " name: " + otherName);
-        // Если на шпателе есть клей
-        if (!meshRenderer.enabled) {
-            Debug.Log("shpatel1");
-            // Если объект ведро, жижа замешена и на шпателе нет клея
-            if (otherName.Contains("basket") && 
-            other.transform.parent.GetChild(3).gameObject.activeSelf) {
-                meshRenderer.enabled = true;
-                Debug.Log("shpatel2");
-            }
+        
+        // Если на шпателе есть клей, то но заканчиваем функцию
+        if (meshRenderer.enabled) {
+            return;
         }
-        // else {
-        //     // Если объект event
-        //     if (otherName.Contains("horizontalzone") || otherName.Contains("verticalzone")) {
-        //         Debug.Log("shpatel3");
-        //         EventZone_Script counter = other.transform.gameObject.GetComponent<EventZone_Script>();
-        //         counter.EventZoneCounter -= shpatel.velocity.magnitude;
-
-        //         if (counter.EventZoneCounter < 0.1) {
-        //             Destroy(other.transform.gameObject);
-        //             meshRenderer.enabled = false;
-        //         }
-        //     }
-        // }
+        // Если объект ведро, раствор замешен и на шпателе нет клея, то на шпателе появится клей
+        if (otherName.Contains("basket") && 
+            other.transform.parent.GetChild(3).gameObject.activeSelf) {
+            meshRenderer.enabled = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        /*
+         * Метод вызывающийся автоматически, при выходе клея из колайдера объекта.
+         *
+         * Отслеживаются именно квестовые объекты.
+         *
+         * Args:
+         *  other: Collider (объект, из которого мы вышли)
+        */
+        
+        // Если объект не квестовый, то заканчиваем функцию
         if (!other.tag.ToLower().Contains("task"))
             return;
         
@@ -48,7 +53,9 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
         MeshRenderer meshRenderer = transform.gameObject.GetComponent<MeshRenderer>();
         Transform eventZone = other.transform.parent;
 
-        // Если объект event
+        // Если на шпателе есть клей и объект горизонтальная или вертикальная зона
+        // (зона, куда наносится клей, чтобы закрепить ПГП).
+        // То удаляем зону нанесения клея и убираем клей со шпателя.
         if (meshRenderer.enabled && 
         (otherName.Contains("horizontalzone") || otherName.Contains("verticalzone"))) {
             Destroy(other.transform.gameObject);
@@ -59,11 +66,11 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
         if (!eventZone.GetChild(0).gameObject.activeSelf)
             return;
 
+        // Объект горизонтальная или вертикальная зона
+        // (зона, куда наносится клей, чтобы закрепить ПГП).
+        // То удаляем зону нанесения клея.
         if (otherName.Contains("horizontalglue") || otherName.Contains("verticalglue")) {
             Destroy(other.transform.gameObject);
         }
-        
-        /*if (eventZone.childCount <= 2)
-            eventZone.GetComponent<PGP_Event_Zone>().CompleteQuest();*/
     }
 }
