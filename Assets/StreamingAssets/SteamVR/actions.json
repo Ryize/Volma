@@ -6,8 +6,7 @@
     },
     {
       "name": "/actions/default/in/Teleport",
-      "type": "boolean",
-      "requirement": "optional"
+      "type": "boolean"
     },
     {
       "name": "/actions/default/in/GrabPinch",
@@ -158,7 +157,7 @@
   ],
   "localization": [
     {
-      "language_tag": "ru_RU",
+      "language_tag": "en_US",
       "/actions/default/in/GrabGrip": "Grab Grip",
       "/actions/default/in/GrabPinch": "Grab Pinch",
       "/actions/default/in/HeadsetOnHead": "Headset on head (proximity sensor)",
