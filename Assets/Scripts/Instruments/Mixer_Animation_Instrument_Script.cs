@@ -1,46 +1,42 @@
 using UnityEngine;
+using Valve.VR;
 
 public class Mixer_Animation_Instrument_Script : MonoBehaviour
 {
-    /*
-     * Нужен для создания анимации миксера (вращение)
-    */
-    
-    // По умолчанию миксер не вращается
-    private float speed = 0;
+    //���������� � ��������� ����������
+    public float speed = 10;
+    private AudioSource mixerMovementSound;
+    private SteamVR_Action_Single buttonTrigger = SteamVR_Input.GetSingleAction("Squeeze");
     
     void Update()
     {
-        /*
-         * Метод для "кручения" миксера
-         *
-         * Работает путём изменении координаты Z, которая и добавляет анимацию вращения
-        */
+        speed = buttonTrigger.axis * 10;
+        
         float x = transform.eulerAngles.x;
         float y = transform.eulerAngles.y;
         float z = transform.eulerAngles.z + speed;
         transform.eulerAngles = new Vector3(x, y, z);
+        mixerMovementSound = this.GetComponentInParent<AudioSource>();
+        if(speed > 0f && !mixerMovementSound.isPlaying)
+        {
+            
+            mixerMovementSound.Play();
+        }
+
+        if(speed <= 0f && mixerMovementSound.isPlaying)
+        {
+            
+            mixerMovementSound.Pause();
+        }
     }
 
     public void SetSpeed(float speed)
     {
-        /*
-         * Метод для установки скорости
-         *
-         * Args:
-         *  speed: float (скорость, которую мы устанавливаем)
-        */
         this.speed = speed * 10;
     }
 
     public float GetSpeed()
     {
-        /*
-         * Метод для получения скорости
-         *
-         * Return:
-         *  float (скорость миксера)
-        */
         return speed;
     }
 }
