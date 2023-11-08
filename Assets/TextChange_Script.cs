@@ -25,8 +25,11 @@ public class TextChange_Script : MonoBehaviour
     }
     public void ChangeTextNext()
     {
-        currentQuest++;
-        currentText.text = Quests[currentQuest];
+        if (currentQuest <= 3)
+        {
+            currentQuest++;
+            currentText.text = Quests[currentQuest];
+        }
     }
     public void ChangeTextPrevious()
     {
