@@ -44,7 +44,6 @@ public class TextChange_Script : Base
 
     public void QuestCompleted()
     {
-        currentText.color = Color.green; 
-        //ChangeTextNext();
+        currentText.color = Color.green;
     }
 }
