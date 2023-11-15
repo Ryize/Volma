@@ -4,12 +4,12 @@ using UnityEngine;
 public class PGP_Strength_Resource_Script : MonoBehaviour
 {
     /*
-     * Класс для логики распила ПГП.
+     * Класс для логики распила ПГП
      *
      * Позволяет распилить ПГП
     */
     
-    // Сила/Прочность?
+    // Прочность
     public float strength;
     
     // Статус "распилености"
@@ -17,6 +17,9 @@ public class PGP_Strength_Resource_Script : MonoBehaviour
 
     private void OnDestroy()
     {
+        /*
+         * Запускается при потере прочности (до 0)
+        */
         transform.gameObject.GetComponent<InteractableFacade>().UngrabAll();
     }
 }

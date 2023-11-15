@@ -7,6 +7,7 @@ public class Roller_Instrument_Script : MonoBehaviour
     */
     // Сколько осталось краски
     public float paintFlowTracker = 0;
+    
     // Колайдер валика
     public Collider roller;
 }
