@@ -8,6 +8,7 @@ public class Cuvette_Instrument_Script : MonoBehaviour
     
     // Для нахождения скорости валика
     public Rigidbody paintRoller;
+    
     // Для установки краски на валик
     public Roller_Instrument_Script brush;
     private void OnTriggerEnter(Collider other)
