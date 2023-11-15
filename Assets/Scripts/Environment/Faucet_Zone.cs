@@ -1,21 +1,25 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR.InteractionSystem;
 
 public class Faucet_Zone : MonoBehaviour
 {
+    /*
+     * Скрипт для проверки зашло ли ведро в зону крана
+    */
+    // Объект руки
     public GameObject handle;
 
     private void OnTriggerStay(Collider other)
     {
+        /*
+         * Метод отслеживает прикосновение к объекту
+        */
+        
+        // Если объект который мы коснулись не ведро, выходим из метода
         if (!other.transform.name.ToLower().Contains("bucket"))
         {
             return;
         }
-        Debug.Log("handle angle: " + Mathf.Abs(Mathf.Sin(handle.transform.eulerAngles.y)));
-        
+
         other.transform.parent.GetComponent<CounterTracker>().tracker 
             += (Mathf.Sin(handle.transform.eulerAngles.y)) * Time.deltaTime;
     }

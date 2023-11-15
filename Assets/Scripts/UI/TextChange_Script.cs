@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using TMPro;
-using System;
 using UnityEngine;
 
 public class TextChange_Script : Base
@@ -45,7 +44,6 @@ public class TextChange_Script : Base
 
     public void QuestCompleted()
     {
-        currentText.color = Color.green; 
-        //ChangeTextNext();
+        currentText.color = Color.green;
     }
 }

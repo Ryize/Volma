@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Sweep_Quest_Script : Quest
@@ -38,8 +37,23 @@ public class Sweep_Quest_Script : Quest
         }
     }
 
-    private void OnDestroy()
+    /*
+     * Метод отключения объекта
+     *
+     * При отключении объекта уменьшает кол-во грязи в репозитории
+     */
+    private void OnDisable()
     {
         repa.DirtsAmount -= 1;
+    }
+
+    /*
+     * Метод включения объекта
+     *
+     * При включении объекта увеличивает кол-во грязи в репозитории
+     */
+    private void OnEnable()
+    {
+        repa.DirtsAmount += 1;
     }
 }
