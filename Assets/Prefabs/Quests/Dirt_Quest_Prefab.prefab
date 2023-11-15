@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6349740960897812684}
   m_Layer: 0
   m_Name: Dirt_Quest_Prefab
-  m_TagString: Untagged
+  m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a3752e0d599144796f7cd3aec1a6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  repa: {fileID: 0}
