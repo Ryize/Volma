@@ -6,6 +6,9 @@ public class Item_Repository : Repository
      * Реализует логику работы и сохраниния данных.
      */
     
+    // Менеджер предметов
+    public Item_Manager manager; 
+    
     // Статус положения ведра
     private bool _Bucket_Quest_isComplete;
     // Статус тестового квеста
@@ -15,10 +18,7 @@ public class Item_Repository : Repository
     
     // Кол-во грязи
     private int _DirtsAmount = 4;
-    
-    // Менеджер предметов
-    public Item_Manager manager; 
-    
+
     // Получение и установка статуса положения ведра
     public bool Bucket_Quest_isComplete
     {
