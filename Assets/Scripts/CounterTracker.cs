@@ -10,6 +10,7 @@ public class CounterTracker : MonoBehaviour
     
     // Счетчик
     public float tracker;
+    
     // Уничтожать ли объект, при обнулении
     public bool destroyEmpty;
     
