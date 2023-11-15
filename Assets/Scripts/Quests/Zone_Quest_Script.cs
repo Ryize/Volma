@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Zone_Quest_Script : MonoBehaviour
 {
-    public float EventZoneCounter = 10;
     public GameObject glue;
 
     private void OnDestroy()
