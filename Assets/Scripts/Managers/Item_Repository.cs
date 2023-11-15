@@ -22,9 +22,6 @@ public class Item_Repository : Repository
     // Кол-во грязи
     private int _DirtsAmount;
     
-    // Менеджер предметов
-    public Item_Manager manager;
-
     /*
      * Стартовый метод
      *
