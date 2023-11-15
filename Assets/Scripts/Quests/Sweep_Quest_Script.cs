@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Sweep_Quest_Script : Quest

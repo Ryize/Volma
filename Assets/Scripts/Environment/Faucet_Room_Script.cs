@@ -2,12 +2,27 @@ using UnityEngine;
 
 public class Faucet_Room_Script : Base
 {
+    /*
+     * Скрипт для набирания воды в ведро
+     *
+     * При набирании воды выключает пустое ведро, и включает ведро с водой
+    */
     //public Bucket_In_Area_Quest_Script bucketInArea;
+    
+    // Объект ведра
     public GameObject bucket;
+    
+    // Сколько осталось набрать воды
     public float bucketFillAmount;
     //private ParticleSystem.Trails waterTrails;
     void Notify(string type, bool status)
     {
+        /*
+         * Метод уведомления о событии
+         *
+         * Отслеживается событие bucketInArea.
+         * И в зависимости от успешности проверок ведро набирается 
+        */
         /*// напор воды
         var trailsData = new ParticleSystem.Trails(true);
         trailsData.
@@ -17,9 +32,7 @@ public class Faucet_Room_Script : Base
         //water.SetEmissionRateOverTime(_emissionModule)
         water.set*/
         
-        // Если ведро не в зоне
-        // if (!bucketInArea.isInArea)
-        //     return;
+        // Если событие не установка ведра, выходим из метода
         if (type != "bucketInArea")
         {
             return;
@@ -28,8 +41,10 @@ public class Faucet_Room_Script : Base
         
         // Если поставлено не пустое ведро
         if (!empty.activeSelf)
+        {
             return;
-        
+        }
+
         // сила напора
         bucketFillAmount -= Mathf.Sin(transform.eulerAngles.y) * Time.deltaTime;
         
