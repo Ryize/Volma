@@ -30,11 +30,11 @@ public class Mixer_Animation_Instrument_Script : MonoBehaviour
             
             Debug.Log("[Mixer_Animation_Instrument_Script] Mixer in hand");
             Debug.Log("[Mixer_Animation_Instrument_Script] _buttonTrigger = " + _buttonTrigger.GetAxis(hand));
-            _speed = _buttonTrigger.axis * 10;
+            _speed = _buttonTrigger.axis;
         
             _augerX = _auger.eulerAngles.x;
             _augerY = _auger.eulerAngles.y;
-            _augerZ = _auger.eulerAngles.z + _speed;
+            _augerZ = _auger.eulerAngles.z + _speed * 10;
             _auger.eulerAngles = new Vector3(_augerX, _augerY, _augerZ);
         }
         else
@@ -46,6 +46,7 @@ public class Mixer_Animation_Instrument_Script : MonoBehaviour
         {
             
             _mixerMovementSound.Play();
+            _mixerMovementSound.volume = _speed;
         }
 
         if(_speed <= 0f && _mixerMovementSound.isPlaying)
