@@ -1801,6 +1801,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2026805807}
     m_Modifications:
+    - target: {fileID: -5477749408508380018, guid: e5cb734870890854986967c02d298e61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.97
+      objectReference: {fileID: 0}
     - target: {fileID: -5205872794763007693, guid: e5cb734870890854986967c02d298e61, type: 3}
       propertyPath: showLeftPreview
       value: 0
@@ -1825,13 +1829,21 @@ PrefabInstance:
       propertyPath: poseNames.Array.data[0]
       value: MixerPose (MAIN)
       objectReference: {fileID: 0}
+    - target: {fileID: 3046857950175233304, guid: e5cb734870890854986967c02d298e61, type: 3}
+      propertyPath: setRangeOfMotionOnPickup
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046857950175233304, guid: e5cb734870890854986967c02d298e61, type: 3}
+      propertyPath: activateActionSetOnAttach.actionSetPath
+      value: /actions/buggy
+      objectReference: {fileID: 0}
     - target: {fileID: 3893570183880018744, guid: e5cb734870890854986967c02d298e61, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3893570183880018744, guid: e5cb734870890854986967c02d298e61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.218
+      value: 0.892
       objectReference: {fileID: 0}
     - target: {fileID: 3893570183880018744, guid: e5cb734870890854986967c02d298e61, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1839,7 +1851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3893570183880018744, guid: e5cb734870890854986967c02d298e61, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.006
+      value: -0.159
       objectReference: {fileID: 0}
     - target: {fileID: 3893570183880018744, guid: e5cb734870890854986967c02d298e61, type: 3}
       propertyPath: m_LocalRotation.w
