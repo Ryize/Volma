@@ -12,23 +12,19 @@ public class Primer_Resource_Script : MonoBehaviour
 
     void Primer() {
         Vector3 origin = transform.position;
-        Vector3 derection = Vector3.down;
+        Vector3 direction = Vector3.down;
         
         float distance = 1f;
 
         RaycastHit hit;
 
-        if (Physics.Raycast(origin, derection, out hit, distance)) {
+        if (Physics.Raycast(origin, direction, out hit, distance)) {
             // Если объект не кюветка   
             if (!hit.transform.name.Contains("CuvetteVR")) {
-                Debug.Log("Is not cuvette");
                 return;
             }
-            Debug.Log("Is cuvette");
-
             float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
             float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
-            Debug.Log("cosX * cosY = " + cosX * cosZ);
 
             if (cosX * cosZ <= 0) {
                 cuvetteFillAmount.cuvetteFillAmount -= 1;
