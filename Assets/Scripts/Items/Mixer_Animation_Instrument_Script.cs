@@ -14,7 +14,7 @@ public class Mixer_Animation_Instrument_Script : MonoBehaviour
     // Звук при вращении миксера
     private AudioSource _mixerMovementSound;
     
-    private SteamVR_Action_Single _buttonTrigger;
+    private SteamVR_Action_Single _buttonTrigger = SteamVR_Input.GetAction<SteamVR_Action_Single>("buggy", "Throttle");
     private Interactable _interactable;
     
     // Двигаящаяся часть у миксера
@@ -22,6 +22,9 @@ public class Mixer_Animation_Instrument_Script : MonoBehaviour
     
     // Плоскость в которой вращается миксер
     private float _augerX, _augerY, _augerZ;
+    
+    // Кнопка миксера
+    private Transform _button;
 
     private void Start()
     {
@@ -29,9 +32,10 @@ public class Mixer_Animation_Instrument_Script : MonoBehaviour
          * Метод для задания начальных значений
         */
         _auger = transform.GetChild(2);
+        _button = transform.GetChild(0);
+        
         _interactable = GetComponent<Interactable>();
         _mixerMovementSound = GetComponentInParent<AudioSource>();
-        _buttonTrigger = SteamVR_Input.GetAction<SteamVR_Action_Single>("buggy", "Throttle");
     }
 
     void Update()
@@ -39,14 +43,19 @@ public class Mixer_Animation_Instrument_Script : MonoBehaviour
         /*
          * Метод для вращения и вопроизведения звуков миксера.
          */
+        
 
         // Если миксер в руке
         if (_interactable.attachedToHand)
         {
             SteamVR_Input_Sources hand = _interactable.attachedToHand.handType;
+            _speed = _buttonTrigger.GetAxis(hand);
             
-            _speed = _buttonTrigger.axis;
-        
+            // Нажатие кнопки
+            //_button.position = new Vector3(0, 2.97f,0.1f + _speed / 10);
+            
+            
+            // Вращение миксера
             _augerX = _auger.eulerAngles.x;
             _augerY = _auger.eulerAngles.y;
             _augerZ = _auger.eulerAngles.z + _speed * 10;
