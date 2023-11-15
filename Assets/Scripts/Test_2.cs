@@ -29,7 +29,7 @@ public class Test_2 : Base
     {
         foreach (var type in subTypes)
         {
-            manager.subscribe(this, type);
+            manager.subscribe(type, this);
         }
     }
     

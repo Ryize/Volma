@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
 
 public class Subsription : Base
 {
@@ -12,7 +9,7 @@ public class Subsription : Base
     // Start is called before the first frame update
     void Start()
     { 
-        manager.subscribe(this, subTypes[1]);
+        manager.subscribe(subTypes[1], this);
         
     }
 }

@@ -1,13 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Test : Base
 {
-    public GameObject cube;
-    public Item_Repository repa;
+    /*
+     * Тестовый класс.
+     *
+     * Реализует логику квеста.
+     */
     
-    void Update()
+    // Предмет(ы)
+    public GameObject cube;
+    // Репозиторий предеметов
+    public Item_Repository repa;
+
+    /*
+     * Стартовый метод
+     *
+     * Следит за положением предмета каждую секунду
+     */
+    private void Start()
+    {
+        InvokeRepeating("FallStatus", 0f, 1f);
+    }
+
+    /*
+     * Квестовый метод
+     *
+     * Следит за тем, чтобы предмет был выше определенной позиции
+     */
+    private void FallStatus()
     {
         if (cube.transform.position.y < 1)
         {

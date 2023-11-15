@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class Sweep_Quest_Script : MonoBehaviour
+public class Sweep_Quest_Script : Quest
 {
     /*
      * Класс грязи
@@ -10,6 +11,9 @@ public class Sweep_Quest_Script : MonoBehaviour
     
     // Счетчик отвечающий за кол-во подметаний
     private int _Counter = 4;
+    
+    // Репозиторий предеметов
+    public Item_Repository repa;
 
     /*
      * Метод подметания
@@ -29,7 +33,13 @@ public class Sweep_Quest_Script : MonoBehaviour
         // Удаление грязи при обнулении счетчика
         if (_Counter < 0)
         {
-            Destroy(gameObject);
+            repa.DirtsAmount -= 1;
+            gameObject.SetActive(false);
         }
+    }
+
+    private void OnDestroy()
+    {
+        repa.DirtsAmount -= 1;
     }
 }
