@@ -2,49 +2,64 @@ using UnityEngine;
 
 public class Bag_Resource_Script : MonoBehaviour
 {
+    /*
+     * Класс отвечающий за засыпание цемента в ведро с водой.
+    */
+    // Сколько осталось цемента для заполнения ведра
     public float bucketFillAmount;
+    
+    // Объект ведрв
     public GameObject bucket;
 
     private void Start()
     {
-        InvokeRepeating("Primer", 1f, 1f);
+        /*
+         * Запускаем скрипт проверки на засыпания раз в секунду
+        */
+        InvokeRepeating("FallingCement", 1f, 1f);
     }
 
-    void Primer() {
+    void FallingCement() {
+        /*
+         * Метод позволяющий засыпать цемент.
+         *
+         * Запускается раз в секунду и при выполнении условий засыпает цемент.
+        */
+        
+        // Если текущее ведро, не ведро с водой, то заканчиваем выполнение метода
         if (!bucket.transform.GetChild(1).gameObject.activeSelf)
             return;
-        
-        Debug.Log("Bucket has water");
-        
+
         Vector3 origin = transform.position;
         Vector3 derection = Vector3.down;
         
+        // Максимальная дистанция для засыпания
         float distance = 10f;
 
         RaycastHit hit;
 
-        if (Physics.Raycast(origin, derection, out hit, distance)) {
-            // Если объект не ведро
-            Debug.Log("hit object: " + hit.transform.name);
-            
-            if (!hit.transform.name.Contains("bucketVR")) {
-                return;
-            }
-            
-            Debug.Log("Bucket hit");
+        // Если дистанция слишком большая
+        if (!Physics.Raycast(origin, derection, out hit, distance))
+        {
+            return;
+        }
+        // Если объект не ведро
+        if (!hit.transform.name.Contains("bucketVR")) {
+            return;
+        }
 
-            float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
-            float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
+        float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
+        float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
             
-            if (cosX * cosZ <= 0) {
-                bucketFillAmount -= transform.GetComponent<Rigidbody>().velocity.magnitude;
-            }
+        if (cosX * cosZ <= 0) {
+            bucketFillAmount -= transform.GetComponent<Rigidbody>().velocity.magnitude;
+        }
 
-            if (bucketFillAmount < 0.1)
-            {
-                bucket.transform.GetChild(2).gameObject.SetActive(true);
-                bucket.transform.GetChild(1).gameObject.SetActive(false);
-            }
+        // Меняем ведро с водой, на ведро с цементом
+        if (bucketFillAmount < 0.1)
+        {
+            bucket.transform.GetChild(2).gameObject.SetActive(true);
+            bucket.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 }

@@ -1,16 +1,16 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class Mixer_Animation_Instrument_Script : MonoBehaviour
 {
+    /*
+     * Скрипт анимации вращения и воспроизведение звука миксера
+     */
     private float _speed;
     private AudioSource _mixerMovementSound;
     private SteamVR_Action_Single _buttonTrigger = 
         SteamVR_Input.GetAction<SteamVR_Action_Single>("buggy", "Throttle");
-    //SteamVR_Input.GetSingleAction("Throttle");
     private Interactable _interactable;
     private Transform _auger;
     private float _augerX, _augerY, _augerZ;
