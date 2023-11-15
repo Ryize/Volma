@@ -43,6 +43,7 @@ public class Bag_Resource_Script : MonoBehaviour
         else 
         {
             _bagMovementSound.Pause();
+            return;
         }
 
         // Если текущее ведро, не ведро с водой, то заканчиваем выполнение метода
