@@ -10,7 +10,7 @@ public class Sweep_Quest_Script : Quest
     
     // Счетчик отвечающий за кол-во подметаний
     private int _Counter = 4;
-    
+    public GameObject dustEffectPrefab; // Префаб частиц пыли
     // Репозиторий предеметов
     public Item_Repository repa;
 
@@ -29,6 +29,9 @@ public class Sweep_Quest_Script : Quest
         
         _Counter--;
 
+        // старт эффета пыли
+        GameObject DustEffect = Instantiate(dustEffectPrefab, transform.position, Quaternion.identity); // Создаем частицы пыли 
+
         // Удаление грязи при обнулении счетчика
         if (_Counter < 0)
         {
@@ -45,6 +48,7 @@ public class Sweep_Quest_Script : Quest
     private void OnDisable()
     {
         repa.DirtsAmount -= 1;
+
     }
 
     /*
