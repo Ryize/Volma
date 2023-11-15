@@ -7,9 +7,12 @@ public class Bag_Resource_Script : MonoBehaviour
     */
     // Сколько осталось цемента для заполнения ведра
     public float bucketFillAmount;
-    
-    // Объект ведрв
+
+    // Объект ведра
     public GameObject bucket;
+
+    //звук высыпания из мешка
+    private AudioSource _bagMovementSound;
 
     private void Start()
     {
@@ -17,22 +20,38 @@ public class Bag_Resource_Script : MonoBehaviour
          * Запускаем скрипт проверки на засыпания раз в секунду
         */
         InvokeRepeating("FallingCement", 1f, 1f);
+        _bagMovementSound = GetComponent<AudioSource>();
     }
 
-    void FallingCement() {
+    void FallingCement()
+    {
         /*
          * Метод позволяющий засыпать цемент.
          *
          * Запускается раз в секунду и при выполнении условий засыпает цемент.
         */
-        
+
+        // Если мешок перевернут
+        float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
+        float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
+
+        if (cosX * cosZ <= 0)
+        {
+            // звук высыпания из мешка
+            _bagMovementSound.Play();
+        }
+        else 
+        {
+            _bagMovementSound.Pause();
+        }
+
         // Если текущее ведро, не ведро с водой, то заканчиваем выполнение метода
         if (!bucket.transform.GetChild(1).gameObject.activeSelf)
             return;
 
         Vector3 origin = transform.position;
         Vector3 derection = Vector3.down;
-        
+
         // Максимальная дистанция для засыпания
         float distance = 10f;
 
@@ -44,16 +63,13 @@ public class Bag_Resource_Script : MonoBehaviour
             return;
         }
         // Если объект не ведро
-        if (!hit.transform.name.Contains("bucketVR")) {
+        if (!hit.transform.name.Contains("bucketVR"))
+        {
             return;
         }
 
-        float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
-        float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
-            
-        if (cosX * cosZ <= 0) {
-            bucketFillAmount -= transform.GetComponent<Rigidbody>().velocity.magnitude;
-        }
+        // звук насыпания в ведро
+        bucketFillAmount -= transform.GetComponent<Rigidbody>().velocity.magnitude;
 
         // Меняем ведро с водой, на ведро с цементом
         if (bucketFillAmount < 0.1)
