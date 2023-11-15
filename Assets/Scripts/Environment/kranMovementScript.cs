@@ -11,12 +11,12 @@ public class VRBladeSpin : MonoBehaviour
     private AudioSource audioSource;
     
     // Пороговое значение для определения поворота
-    private float spinThreshold1 = 180f;
+    private float _spinThreshold1 = 180f;
     
     // Пороговое значение для определения поворота
-    private float spinThreshold2 = 270f;
+    private float _spinThreshold2 = 270f;
 
-    private Vector3 lastRotation;
+    private Vector3 _lastRotation;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class VRBladeSpin : MonoBehaviour
          * Объявление стандратных переменных
         */
         audioSource = GetComponent<AudioSource>();
-        lastRotation = transform.eulerAngles;
+        _lastRotation = transform.eulerAngles;
     }
 
     void Update()
@@ -32,14 +32,14 @@ public class VRBladeSpin : MonoBehaviour
         /*
          * Метод для поворота и воспроизведения звука поворота крана
         */
-        float spinMagnitude = Quaternion.Angle(Quaternion.Euler(lastRotation), transform.rotation);
+        float spinMagnitude = Quaternion.Angle(Quaternion.Euler(_lastRotation), transform.rotation);
 
-        if (spinMagnitude > spinThreshold1)
+        if (spinMagnitude > _spinThreshold1)
         {
             audioSource.clip = spinSound;
             audioSource.Play();
         }
 
-        lastRotation = transform.eulerAngles;
+        _lastRotation = transform.eulerAngles;
     }
 }
