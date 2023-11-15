@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Item_Repository : Repository
@@ -8,6 +9,9 @@ public class Item_Repository : Repository
      * Реализует логику работы и сохраниния данных.
      */
     
+    // Менеджер предметов
+    public Item_Manager manager; 
+    
     // Статус положения ведра
     private bool _Bucket_Quest_isComplete;
     // Статус тестового квеста
@@ -16,11 +20,19 @@ public class Item_Repository : Repository
     private bool _Dirt_Quest_isComplete;
     
     // Кол-во грязи
-    private int _DirtsAmount = 4;
+    private int _DirtsAmount;
     
-    // Менеджер предметов
-    public Item_Manager manager; 
-    
+    /*
+     * Стартовый метод
+     *
+     * Собирает всю информацию о предметах на сцене
+     */
+    private void Start()
+    {
+        // Получение кол-ва грязи
+        _DirtsAmount = GameObject.FindGameObjectsWithTag("Dirt").Length;
+    }
+
     // Получение и установка статуса положения ведра
     public bool Bucket_Quest_isComplete
     {
