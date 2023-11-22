@@ -25,11 +25,6 @@ public class Bag_Resource_Script : MonoBehaviour
         _bagMovementSound = GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
-    stats.GetComponent<Stats>().cement += 1.257f;
-    }
-
     void FallingCement()
     {
         /*
