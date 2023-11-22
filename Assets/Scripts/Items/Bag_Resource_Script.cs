@@ -11,6 +11,8 @@ public class Bag_Resource_Script : MonoBehaviour
     // Объект ведра
     public GameObject bucket;
 
+    public GameObject stats;
+
     //звук высыпания из мешка
     private AudioSource _bagMovementSound;
 
@@ -21,6 +23,11 @@ public class Bag_Resource_Script : MonoBehaviour
         */
         InvokeRepeating("FallingCement", 1f, 1f);
         _bagMovementSound = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+    stats.GetComponent<Stats>().cement += 1.257f;
     }
 
     void FallingCement()
@@ -75,6 +82,7 @@ public class Bag_Resource_Script : MonoBehaviour
         // Меняем ведро с водой, на ведро с цементом
         if (bucketFillAmount < 0.1)
         {
+            stats.GetComponent<Stats>().cement += 1f;
             bucket.transform.GetChild(2).gameObject.SetActive(true);
             bucket.transform.GetChild(1).gameObject.SetActive(false);
         }
