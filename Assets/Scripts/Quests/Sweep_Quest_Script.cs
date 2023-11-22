@@ -26,17 +26,18 @@ public class Sweep_Quest_Script : Quest
         // Объектом должна быть метла
         if (!other.transform.name.ToLower().Contains("broom"))
             return;
-        
+
         _Counter--;
 
-        // старт эффета пыли
-        GameObject DustEffect = Instantiate(dustEffectPrefab, transform.position, Quaternion.identity); // Создаем частицы пыли 
 
+
+        // старт эффекта пыли
+        GameObject DustEffect = Instantiate(dustEffectPrefab, transform.position, Quaternion.identity); // Создаем частицы пыли
         // Удаление грязи при обнулении счетчика
         if (_Counter < 0)
         {
             repa.DirtsAmount -= 1;
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); // отключаем объект грязи
         }
     }
 
