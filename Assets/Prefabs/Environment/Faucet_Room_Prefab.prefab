@@ -106,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2525642524019253720}
+  - component: {fileID: -3862893983457612835}
   m_Layer: 0
   m_Name: Faucet_Room_Prefab
   m_TagString: faucet
@@ -132,6 +133,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3862893983457612835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2902344362849057634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86288979b32e31348a03e7f4943fd363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3285952268119220175
 GameObject:
   m_ObjectHideFlags: 0
