@@ -27,6 +27,7 @@ TagManager:
   - pgp_item
   - pgp_half_item
   - rasporka_item
+  - ButtonUI
   layers:
   - Default
   - TransparentFX
