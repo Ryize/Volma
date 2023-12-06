@@ -10,7 +10,10 @@ public class Sweep_Quest_Script : Quest
     
     // Счетчик отвечающий за кол-во подметаний
     private int _Counter = 4;
-    
+
+    // Pвук подметания
+    private AudioSource _sweepSound;
+
     // Репозиторий предеметов
     public Item_Repository repa;
 
@@ -23,11 +26,14 @@ public class Sweep_Quest_Script : Quest
      *  other: Collider (коллайдер вошедший в коллайдер грязи)
      */
     private void OnTriggerEnter(Collider other) {
+        _sweepSound = GetComponent<AudioSource>();
         // Объектом должна быть метла
         if (!other.transform.name.ToLower().Contains("broom"))
             return;
         
         _Counter--;
+
+        _sweepSound.Play();
 
         // Удаление грязи при обнулении счетчика
         if (_Counter < 0)
