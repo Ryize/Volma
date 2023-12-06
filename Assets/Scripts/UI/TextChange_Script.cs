@@ -1,25 +1,31 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class TextChange_Script : MonoBehaviour
 {
-    // Класс реализующий смену страниц текста на панели
-    //
-    // Используется ТОЛЬКО для панели с квестами
+    /* Класс реализующий смену страниц текста на панели  
+     * Используется ТОЛЬКО для панели с квестами
+    */
     
+    // Переменная с текущим текстом на доске
     public TMP_Text currentText;
+    
+    // Список со всеми квестами
     private List<string> _quests = new List<string>();
+    
+    // Список завершённых квестов
     private List<bool> _completedQuests = new List<bool>();
+    
+    // Индекс текущего квеста для вывода
     private int currentQuest = 0;
 
 
     private void Start()
     {
-        // Первый квест
+        /* Метод с стартовыми данными
+         *Первый квест
+         * */
         _quests.Add("Подготовка основания:\n\t" +
                    "1.Взять метлу\n\t" +
                    "2.Подойти к загрязненному месту\n\t" +
@@ -51,13 +57,14 @@ public class TextChange_Script : MonoBehaviour
     }
     public void ChangeTextNext()
     {
+        // Метод для переключения на следующий квест
         if (currentQuest <2)
         {
             currentQuest++;
             currentText.text = _quests[currentQuest];
         }
 
-        // меняет цвет текста в зависимости от завершенности квеста
+        // Меняет цвет текста в зависимости от завершенности квеста
         if (_completedQuests[currentQuest])
         {
             currentText.color = Color.green;
@@ -69,13 +76,14 @@ public class TextChange_Script : MonoBehaviour
     }
     public void ChangeTextPrevious()
     {
+        // Метод для переключения на предыдущий квест
         if(currentQuest!=0)
         {
             currentQuest--;
             currentText.text = _quests[currentQuest];
         }
         
-        // меняет цвет текста в зависимости от завершенности квеста
+        // Меняет цвет текста в зависимости от завершенности квеста
         if (_completedQuests[currentQuest])
         {
             currentText.color = Color.green;
@@ -88,6 +96,7 @@ public class TextChange_Script : MonoBehaviour
 
     public void QuestCompleted()
     {
+        // Метод для обозначения квеста как выполненого
         _completedQuests[currentQuest] = true;
         currentText.color = Color.green;
     }
