@@ -53,7 +53,7 @@ public class TextChange_Script : MonoBehaviour
                    "9.После возведения залить место стыка стены с потолком монтажной пеной\n");
         _completedQuests.Add(false);
         
-        currentText.text = _quests[currentQuest];
+        //currentText.text = _quests[currentQuest];
     }
     public void ChangeTextNext()
     {
