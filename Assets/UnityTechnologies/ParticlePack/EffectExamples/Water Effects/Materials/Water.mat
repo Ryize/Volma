@@ -59,7 +59,7 @@ Material:
     - _FlipbookMode: 0
     - _Glossiness: 1
     - _LightingEnabled: 1
-    - _Metallic: 0.299
+    - _Metallic: 0.9
     - _Mode: 4
     - _SoftParticlesEnabled: 1
     - _SoftParticlesFarFadeDistance: 0.05

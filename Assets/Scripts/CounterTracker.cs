@@ -25,4 +25,20 @@ public class CounterTracker : MonoBehaviour
             Destroy(this);
         }
     }
+
+    /*
+     * Метод реализующий увеличение трекера
+     */
+    public void Add(float value)
+    {
+        tracker += value;
+    }
+
+    /*
+     * Метод возвращающий значение
+     */
+    public float Get()
+    {
+        return tracker;
+    }
 }
