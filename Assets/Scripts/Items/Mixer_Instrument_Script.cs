@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,13 +8,18 @@ public class Mixer_Instrument_Script : MonoBehaviour
      * Класс отвечающий за логику замешивания раствора в ведре
     */
     // Объект миксера
-    public GameObject mixerAuger;
+    private GameObject mixerAuger;
     // Показывает, сколько осталось смешивать. Аналог ХП замешивания
-    public float bucketMixing = 10;
+    private CounterTracker bucketMixing;
     // ПГП
-    public GameObject pgpEvents;
-    
-    private void OnTriggerEnter(Collider other)
+    //public GameObject pgpEvents;
+
+    private void Start()
+    {
+        mixerAuger = transform.GetChild(2).gameObject;
+    }
+
+    private void OnTriggerEnter(Collider bucket)
     {
         /*
          * Метод вызывающийся автоматически, при касании миксера с объектом.
@@ -24,21 +30,31 @@ public class Mixer_Instrument_Script : MonoBehaviour
          *  other: Collider (объект, которого мы коснулись)
         */
         
-        // Если не миксер завершаем функцию
-        if (other.transform.parent.GameObject() != mixerAuger)
+        // Если объект не ведро
+        if (!bucket.transform.name.ToLower().Contains("bucket") &&
+            !bucket.transform.name.ToLower().Contains("sand"))
+        {
             return;
+        }
+        
+        // Если текущее ведро, не ведро с цементом, то заканчиваем выполнение метода
+        if (!bucket.transform.GetChild(2).gameObject.activeSelf)
+            return;
+
+        bucketMixing = bucket.GetComponent<CounterTracker>();
         
         // Получаем скорость замешивания
         float speed = mixerAuger.GetComponent<Mixer_Animation_Instrument_Script>().GetSpeed();
 
-        bucketMixing -= speed;
+        
+        bucketMixing.tracker += speed;
 
         // Если мы замешали раствор
-        if (bucketMixing < 0.1)
+        if (bucketMixing.tracker > 10)
         {
             transform.parent.GetChild(3).gameObject.SetActive(true);
             transform.GameObject().SetActive(false);
-            pgpEvents.SetActive(true);
+            //pgpEvents.SetActive(true);
         }
     }
 }
