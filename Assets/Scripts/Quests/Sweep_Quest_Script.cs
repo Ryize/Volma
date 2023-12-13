@@ -23,7 +23,7 @@ public class Sweep_Quest_Script : Quest
      *  other: Collider (коллайдер вошедший в коллайдер грязи)
      */
     private void OnTriggerEnter(Collider other) {
-        // Объектом должна быть метла
+        // Объектом должна быть метлаS
         if (!other.transform.name.ToLower().Contains("broom"))
             return;
 
@@ -38,6 +38,7 @@ public class Sweep_Quest_Script : Quest
         {
             repa.DirtsAmount -= 1;
             gameObject.SetActive(false); // отключаем объект грязи
+            //gameObject.SetAcrive(false); // отключаем объект эффекта грязи....
         }
     }
 
