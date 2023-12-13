@@ -18,7 +18,6 @@ public class Primer_Resource_Script : MonoBehaviour
         Vector3 direction = Vector3.down;
         
         float distance = 1f;
-
         RaycastHit hit;
 
         if (Physics.Raycast(origin, direction, out hit, distance)) {
@@ -30,6 +29,7 @@ public class Primer_Resource_Script : MonoBehaviour
             {
                 // воспроизведение звука выливания из канистры
                 _bottleMovementSound.Play();
+                cuvetteFillAmount.tracker += 0.5f;
 
                 // Если объект не кюветка   
                 if (!hit.transform.name.Contains("Cuvette"))
@@ -40,7 +40,6 @@ public class Primer_Resource_Script : MonoBehaviour
             else
             {
                 _bottleMovementSound.Pause();
-                cuvetteFillAmount.tracker += 0.5f;
             }
 
             if (cuvetteFillAmount.tracker > 1f)

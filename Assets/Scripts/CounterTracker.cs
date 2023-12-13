@@ -7,7 +7,7 @@ public class CounterTracker : MonoBehaviour
      *
      * Реализует логику подсчета чего-нибудь
      */
-    
+
     // Счетчик
     public float tracker;
     
