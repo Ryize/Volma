@@ -82,6 +82,7 @@ public class Faucet_Room_Script : Base
         {
             bucket.transform.GetChild(1).gameObject.SetActive(true);
             empty.SetActive(false);
+            bucket.transform.GetComponent<CounterTracker>().tracker = 0f;
         }
     }
     

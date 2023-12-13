@@ -5,11 +5,8 @@ public class Bag_Resource_Script : MonoBehaviour
     /*
      * Класс отвечающий за засыпание цемента в ведро с водой.
     */
-    // Сколько осталось цемента для заполнения ведра
-    public float bucketFillAmount;
-
-    // Объект ведра
-    public GameObject bucket;
+    
+    private CounterTracker bucketFillAmount;
 
     public GameObject stats;
 
@@ -47,39 +44,53 @@ public class Bag_Resource_Script : MonoBehaviour
             _bagMovementSound.Pause();
             return;
         }
-
-        // Если текущее ведро, не ведро с водой, то заканчиваем выполнение метода
-        if (!bucket.transform.GetChild(1).gameObject.activeSelf)
-            return;
-
+        
+        Debug.Log("[Bag_Script] 1");
+        stats.GetComponent<Stats>().cement += transform.GetComponent<Rigidbody>().velocity.magnitude * 6;
+ 
         Vector3 origin = transform.position;
         Vector3 derection = Vector3.down;
 
         // Максимальная дистанция для засыпания
         float distance = 10f;
 
-        RaycastHit hit;
+        RaycastHit bucket;
 
         // Если дистанция слишком большая
-        if (!Physics.Raycast(origin, derection, out hit, distance))
+        if (!Physics.Raycast(origin, derection, out bucket, distance))
         {
             return;
         }
+        
+        Debug.Log("[Bag_Script] 2");
+        
         // Если объект не ведро
-        if (!hit.transform.name.Contains("bucketVR"))
+        if (!bucket.transform.name.ToLower().Contains("bucket") &&
+            !bucket.transform.name.ToLower().Contains("water"))
         {
             return;
         }
+        
+        Debug.Log("[Bag_Script] 3");
+        
+        // Если текущее ведро, не ведро с водой, то заканчиваем выполнение метода
+        if (!bucket.transform.GetChild(1).gameObject.activeSelf)
+            return;
+        
+        Debug.Log("[Bag_Script] 4");
 
-        // звук насыпания в ведро
-        bucketFillAmount -= transform.GetComponent<Rigidbody>().velocity.magnitude;
+        bucketFillAmount = bucket.transform.GetComponent<CounterTracker>();
+        
+        bucketFillAmount.tracker += transform.GetComponent<Rigidbody>().velocity.magnitude;
+        
+        Debug.Log("[Bag_Script] bucketFillAmount: " + bucketFillAmount.tracker);
 
         // Меняем ведро с водой, на ведро с цементом
-        if (bucketFillAmount < 0.1)
+        if (bucketFillAmount.tracker > 1f)
         {
-            stats.GetComponent<Stats>().cement += 1f;
             bucket.transform.GetChild(2).gameObject.SetActive(true);
             bucket.transform.GetChild(1).gameObject.SetActive(false);
+            bucketFillAmount.tracker = 0;
         }
     }
 }

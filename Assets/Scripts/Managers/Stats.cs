@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class Stats : Repository
 {
@@ -34,7 +36,7 @@ public class Stats : Repository
              *
              * Цемент должен идти с кг и разделяться тире (переменная dash).
             */
-            _cement = value;
+            _cement = (float) Math.Round(value, 2);
             
             List<string> statsEl = text.currentText.text.Split(dash).ToList();
             List<string> cementList = statsEl[0].Replace("кг", "").Split(" ").ToList();

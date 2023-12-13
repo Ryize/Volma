@@ -46,16 +46,32 @@ public class Main_Quest : Quest
      */
     public override void Notify(string questType, bool status)
     {
-        // Квест грязи
-        if (questType == "dirt_completed")
-        {
-            QuestComplete();
-        }
+        QuestComplete(questType);
     }
     
-    public void QuestComplete()
+    public void QuestComplete(string quest)
     {
-        Debug.Log("Main_Quest: QuestComplete");
-        desk.QuestCompleted();
+        Debug.Log("[Main_Quest] QuestComplete: " + quest);
+
+        switch (quest)
+        {
+            // Квест грязи
+            case "dirt_completed":
+                desk.QuestCompleted(0);
+                break;
+            // Квест ведра
+            case "bucket_completed":
+                desk.QuestCompleted(1);
+                break;
+            // Квест грунтовки
+            case "primer_completed":
+                desk.QuestCompleted(2);
+                break;
+            // Обработка неизвестного квеста
+            default:
+                Debug.Log("Неизвестный квест");
+                break;
+        }
+        
     }
 }

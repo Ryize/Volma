@@ -94,10 +94,12 @@ public class TextChange_Script : MonoBehaviour
         }
     }
 
-    public void QuestCompleted()
+    public void QuestCompleted(int questNumber)
     {
         // Метод для обозначения квеста как выполненого
-        _completedQuests[currentQuest] = true;
+        _completedQuests[questNumber] = true;
+        currentText.text = _quests[questNumber];
         currentText.color = Color.green;
+        currentText.text = _quests[currentQuest];
     }
 }
