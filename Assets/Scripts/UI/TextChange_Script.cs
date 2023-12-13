@@ -10,7 +10,8 @@ public class TextChange_Script : MonoBehaviour
     // Класс реализующий смену страниц текста на панели
     //
     // Используется ТОЛЬКО для панели с квестами
-    
+
+    private AudioSource _questCompleteSound;
     public TMP_Text currentText;
     private List<string> _quests = new List<string>();
     private List<bool> _completedQuests = new List<bool>();
@@ -48,6 +49,8 @@ public class TextChange_Script : MonoBehaviour
         _completedQuests.Add(false);
         
         currentText.text = _quests[currentQuest];
+
+        _questCompleteSound = GetComponent<AudioSource>();
     }
     public void ChangeTextNext()
     {
@@ -90,5 +93,6 @@ public class TextChange_Script : MonoBehaviour
     {
         _completedQuests[currentQuest] = true;
         currentText.color = Color.green;
+        _questCompleteSound.Play();
     }
 }
