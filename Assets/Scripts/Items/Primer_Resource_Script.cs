@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Primer_Resource_Script : MonoBehaviour
 {
-    public Cuvette_Fill_Amount_Instrument_Script cuvetteFillAmount;
+    public CounterTracker cuvetteFillAmount;
     public GameObject primerPaint;
     //звук выливания из канистры
     private AudioSource _bottleMovementSound;
@@ -28,7 +28,7 @@ public class Primer_Resource_Script : MonoBehaviour
 
             if (cosX * cosZ <= 0)
             {
-                // звук высыпания из мешка
+                // воспроизведение звука выливания из канистры
                 _bottleMovementSound.Play();
 
                 // Если объект не кюветка   
@@ -40,9 +40,10 @@ public class Primer_Resource_Script : MonoBehaviour
             else
             {
                 _bottleMovementSound.Pause();
+                cuvetteFillAmount.tracker += 0.5f;
             }
 
-            if (cuvetteFillAmount.cuvetteFillAmount < 0.1)
+            if (cuvetteFillAmount.tracker > 1f)
                 primerPaint.SetActive(true);
         }
     }
