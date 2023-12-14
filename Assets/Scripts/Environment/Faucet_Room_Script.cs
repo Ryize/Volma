@@ -15,6 +15,8 @@ public class Faucet_Room_Script : Base
     
     //private ParticleSystem.Trails waterTrails;
 
+    public GameObject stats;
+
     private void Start()
     {
         InvokeRepeating("FaucetWork", 1f, 1f);
@@ -27,6 +29,12 @@ public class Faucet_Room_Script : Base
      */
     private void FaucetWork()
     {
+        // напор крана
+        float faucetHandleAngle = transform.GetChild(3).localRotation.eulerAngles.y;
+        float faucetForce = Mathf.Abs(Mathf.Sin(faucetHandleAngle) * 0.5f);
+
+        stats.GetComponent<Stats>().water += faucetForce;
+        
         Vector3 origin = transform.position;
         Vector3 derection = Vector3.down;
         Debug.Log("[Faucet_Room_Script] FaucetWork derection: " + derection);
@@ -61,10 +69,6 @@ public class Faucet_Room_Script : Base
 
         // получаем трекер количества воды в ведре
         
-        // увеличиваем кол-во воды в ведре
-        float faucetHandleAngle = transform.GetChild(3).eulerAngles.y - 180;
-        float faucetForce = Mathf.Sin(faucetHandleAngle);
-        
         bucket.transform.GetComponent<CounterTracker>().tracker += faucetForce;
         float bucketCounter = bucket.transform.GetComponent<CounterTracker>().tracker;
         /*
@@ -78,10 +82,11 @@ public class Faucet_Room_Script : Base
         Debug.Log("[Faucet_Room_Script] FaucetWork bucketCounter: " + bucket);
         
         // Если ведро заполнено
-        if (bucketCounter > 10)
+        if (bucketCounter > 6)
         {
             bucket.transform.GetChild(1).gameObject.SetActive(true);
             empty.SetActive(false);
+            bucket.transform.GetComponent<CounterTracker>().tracker = 0f;
         }
     }
     

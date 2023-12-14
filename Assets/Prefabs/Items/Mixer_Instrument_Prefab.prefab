@@ -638,7 +638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b52a3285cf90284aba080768a6ae8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
 --- !u!1 &2800250516343163423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1045,7 @@ GameObject:
   - component: {fileID: -5205872794763007693}
   - component: {fileID: -3110244828189166474}
   - component: {fileID: 7445066861119179290}
+  - component: {fileID: -5796792762912868019}
   m_Layer: 0
   m_Name: Mixer_Instrument_Prefab
   m_TagString: Untagged
@@ -1255,7 +1255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b52a3285cf90284aba080768a6ae8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
 --- !u!82 &7445066861119179290
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1352,6 +1351,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5796792762912868019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607565377592004899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8452f47893450f41a4a51c555d2f593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerAuger: {fileID: 0}
+  bucketMixing: 10
+  pgpEvents: {fileID: 0}
 --- !u!1 &6977696255811256015
 GameObject:
   m_ObjectHideFlags: 0
