@@ -76,7 +76,7 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
         // (зона, куда наносится клей, чтобы закрепить ПГП).
         // То удаляем зону нанесения клея.
         if (otherName.Contains("horizontal_glue") || otherName.Contains("vertical_glue")) {
-            Destroy(other.transform.gameObject);
+            Destroy(task.gameObject);
         }
     }
 }
