@@ -8,6 +8,9 @@ public class TextChange_Script : MonoBehaviour
      * Используется ТОЛЬКО для панели с квестами
     */
     
+    // Звук выполнения квеста
+    private AudioSource _questCompleteSound;
+    
     // Переменная с текущим текстом на доске
     public TMP_Text currentText;
     
@@ -21,11 +24,13 @@ public class TextChange_Script : MonoBehaviour
     private int currentQuest = 0;
 
 
+    /* Метод с стартовыми данными
+     *
+     * Задаёт сами квесты
+     */
     private void Start()
     {
-        /* Метод с стартовыми данными
-         *Первый квест
-         * */
+        // Первый квест
         _quests.Add("Подготовка основания:\n\t" +
                    "1.Взять метлу\n\t" +
                    "2.Подойти к загрязненному месту\n\t" +
@@ -53,7 +58,9 @@ public class TextChange_Script : MonoBehaviour
                    "9.После возведения залить место стыка стены с потолком монтажной пеной\n");
         _completedQuests.Add(false);
         
-        //currentText.text = _quests[currentQuest];
+        currentText.text = _quests[currentQuest];
+
+        _questCompleteSound = GetComponent<AudioSource>();
     }
     public void ChangeTextNext()
     {
@@ -94,12 +101,20 @@ public class TextChange_Script : MonoBehaviour
         }
     }
 
+    /* Метод выполнения квеста
+     *
+     * Окрашивает текст выполненного квеста в зеленный цвет и проигрывает звук
+     * args:
+     *  questNumber (int): номер выполненного квеста 
+     */
     public void QuestCompleted(int questNumber)
     {
-        // Метод для обозначения квеста как выполненого
         _completedQuests[questNumber] = true;
+        
         currentText.text = _quests[questNumber];
         currentText.color = Color.green;
         currentText.text = _quests[currentQuest];
+        
+        _questCompleteSound.Play();
     }
 }
