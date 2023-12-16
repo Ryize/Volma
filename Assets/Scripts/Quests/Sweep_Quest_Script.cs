@@ -18,6 +18,11 @@ public class Sweep_Quest_Script : Quest
     // Репозиторий предеметов
     public Item_Repository repa;
 
+    private void Start()
+    {
+        _sweepSound = GetComponent<AudioSource>();
+    }
+    
     /*
      * Метод подметания
      *
@@ -27,7 +32,6 @@ public class Sweep_Quest_Script : Quest
      *  other: Collider (коллайдер вошедший в коллайдер грязи)
      */
     private void OnTriggerEnter(Collider other) {
-        _sweepSound = GetComponent<AudioSource>();
         // Объектом должна быть метла
         if (!other.transform.name.ToLower().Contains("broom"))
             return;
@@ -44,6 +48,7 @@ public class Sweep_Quest_Script : Quest
         {
             repa.DirtsAmount -= 1;
             gameObject.SetActive(false); // отключаем объект грязи
+            //gameObject.SetAcrive(false); // отключаем объект эффекта грязи....
         }
     }
 
