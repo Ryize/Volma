@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class Spacer_Instrument_Script : PGP_Zone_Quest_Script
 {
@@ -8,17 +10,14 @@ public class Spacer_Instrument_Script : PGP_Zone_Quest_Script
      * Класс распорки над дверным проёмом (при ПГП квесте)
     */
 
-    private MeshRenderer meshRenderer;
-
     protected override void Start()
     {
+        
         canBeSet = false;
-        meshRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
-        Debug.Log("[Spacer_Instrument_Script] target: " + other.name);
         
         // Объектом должна быть распорка
         if (!other.transform.parent.name.ToLower().Contains("spacer"))
@@ -31,17 +30,7 @@ public class Spacer_Instrument_Script : PGP_Zone_Quest_Script
 
     protected override void OnTriggerExit(Collider other)
     {
-        // Объектом должна быть распорка
-        if (!other.transform.parent.name.ToLower().Contains("spacer"))
-        {
-            return;
-        }
-        
         canBeSet = false;
-
-        other.transform.parent.GetComponent<Rigidbody>().isKinematic = false;
-        
-        meshRenderer.enabled = true;
     }
 
     public override void SetPgp(GameObject obj)
@@ -49,12 +38,15 @@ public class Spacer_Instrument_Script : PGP_Zone_Quest_Script
         if (canBeSet)
         {
             obj.GetComponent<Rigidbody>().isKinematic = true;
+            
             obj.transform.position = transform.position;
             obj.transform.rotation = transform.rotation;
 
-            meshRenderer.enabled = false;
-            
+            obj.GetComponent<Interactable>().enabled = false;
+
             CompleteQuest();
+            
+            gameObject.SetActive(false);
         }
     }
 }
