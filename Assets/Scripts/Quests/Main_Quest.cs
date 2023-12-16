@@ -10,7 +10,7 @@ public class Main_Quest : Quest
      */
     
     // Репозиторий предеметов
-    public Item_Repository repa;
+    //public Item_Repository repository;
         
     // Менеджер объектов
     public Item_Manager manager;

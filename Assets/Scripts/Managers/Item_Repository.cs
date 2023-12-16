@@ -33,7 +33,7 @@ public class Item_Repository : Repository
         _DirtsAmount = GameObject.Find("Dirts").transform.childCount;
     }
 
-    // Получение и установка статуса положения ведра
+    // Квест ведра
     public bool Bucket_Quest_isComplete
     {
         get
