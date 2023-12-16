@@ -107,6 +107,25 @@ public class Item_Manager : Managers
     }
     
     /*
+     * Метод уведомления о завершении квеста ПГП
+     *
+     * Уведовляет всех подписчкиков о событии завершении квеста ПГП
+     *
+     * Args:
+     *  status: bool (статус квеста)
+     */
+    public void Notify_PGP_Quest(bool status)
+    {
+        foreach (var observer in _observers)
+        {
+            if (observer.Key == "pgp_completed")
+            {
+                observer.Value.Notify("pgp_completed", status);
+            }
+        }
+    }
+    
+    /*
      * Метод подписки
      *
      * Реализует механизм подписки

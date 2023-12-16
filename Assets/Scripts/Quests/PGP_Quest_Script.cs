@@ -33,6 +33,10 @@ public class PGP_Quest_Script : Quest
         {
             transform.GetChild(++pgpCounter).gameObject.SetActive(true);
         }
+        else
+        {
+            manager.Notify_PGP_Quest(true);
+        }
     }
 
     public void SetPpg()

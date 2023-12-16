@@ -64,7 +64,7 @@ public class Main_Quest : Quest
                 desk.QuestCompleted(1);
                 break;
             // Квест грунтовки
-            case "primer_completed":
+            case "pgp_completed":
                 desk.QuestCompleted(2);
                 break;
             // Обработка неизвестного квеста

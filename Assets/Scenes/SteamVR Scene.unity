@@ -1821,8 +1821,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 635936176}
   - {fileID: 967958544}
+  - {fileID: 635936176}
   - {fileID: 1159749868}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2570,7 +2570,7 @@ Transform:
   - {fileID: 603328801}
   - {fileID: 1782396871}
   m_Father: {fileID: 423206506}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &641794238
 PrefabInstance:
@@ -3227,7 +3227,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 423206506}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &967958545
 MonoBehaviour:
@@ -3245,6 +3245,7 @@ MonoBehaviour:
   subTypes:
   - dirt_completed
   - bucket_completed
+  - pgp_completed
   desk: {fileID: 1900507}
 --- !u!1001 &990247785
 PrefabInstance:
