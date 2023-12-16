@@ -30,7 +30,7 @@ public class Item_Repository : Repository
     private void Start()
     {
         // Получение кол-ва грязи
-        _DirtsAmount = GameObject.FindGameObjectsWithTag("Dirt").Length;
+        _DirtsAmount = GameObject.Find("Dirts").transform.childCount;
     }
 
     // Получение и установка статуса положения ведра

@@ -10,7 +10,9 @@ public class Sweep_Quest_Script : Quest
     
     // Счетчик отвечающий за кол-во подметаний
     private int _Counter = 4;
-    public GameObject dustEffectPrefab; // Префаб частиц пыли
+    
+    // Частицы пыли
+    private ParticleSystem _dustEffect; 
 
     // Звук подметания
     private AudioSource _sweepSound;
@@ -21,6 +23,7 @@ public class Sweep_Quest_Script : Quest
     private void Start()
     {
         _sweepSound = GetComponent<AudioSource>();
+        _dustEffect = GetComponent<ParticleSystem>();
     }
     
     /*
@@ -38,17 +41,16 @@ public class Sweep_Quest_Script : Quest
 
         _Counter--;
 
-        // старт эффекта пыли
-        GameObject DustEffect = Instantiate(dustEffectPrefab, transform.position, Quaternion.identity); // Создаем частицы пыли
-
+        // Старт эффекта пыли
+        _dustEffect.Play();
+        
+        // Старт звука подметания
         _sweepSound.Play();
 
         // Удаление грязи при обнулении счетчика
         if (_Counter < 0)
         {
-            repa.DirtsAmount -= 1;
             gameObject.SetActive(false); // отключаем объект грязи
-            //gameObject.SetAcrive(false); // отключаем объект эффекта грязи....
         }
     }
 
