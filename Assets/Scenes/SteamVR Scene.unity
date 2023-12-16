@@ -3236,7 +3236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e51c414d881374cbb8678200ebd422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repa: {fileID: 1611535456}
   manager: {fileID: 1611535457}
   subTypes:
   - dirt_completed
@@ -8741,6 +8740,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2026805807}
     m_Modifications:
+    - target: {fileID: -5796792762912868019, guid: e5cb734870890854986967c02d298e61, type: 3}
+      propertyPath: repository
+      value: 
+      objectReference: {fileID: 1611535456}
     - target: {fileID: -5477749408508380018, guid: e5cb734870890854986967c02d298e61, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.97
@@ -9294,9 +9297,13 @@ PrefabInstance:
       propertyPath: hideSkeletonOnAttach
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2695493853720319571, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
+    - target: {fileID: 1934333114086242768, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2695493853720319571, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3701137197923413803, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
       propertyPath: m_RootOrder
@@ -9354,7 +9361,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1111214531577588062, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
 --- !u!1 &1726575306
 GameObject:

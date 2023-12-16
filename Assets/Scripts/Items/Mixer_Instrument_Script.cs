@@ -1,25 +1,34 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class Mixer_Instrument_Script : MonoBehaviour
 {
     /*
      * Класс отвечающий за логику замешивания раствора в ведре
     */
-    // Объект миксера
-    private GameObject mixerAuger;
+    
     // Показывает, сколько осталось смешивать. Аналог ХП замешивания
     private CounterTracker bucketMixing;
-    // ПГП
-    //public GameObject pgpEvents;
+
+    // Скрипт анимации миксера
+    private Mixer_Animation_Instrument_Script mixerAnimation;
+
+    private Rigidbody handRigidbody;
+
+    private Interactable mixerInteractable;
+
+    public Item_Repository repository;
 
     private void Start()
     {
-        mixerAuger = transform.GetChild(2).gameObject;
+        mixerAnimation = transform.GetComponent<Mixer_Animation_Instrument_Script>();
+        mixerInteractable = transform.GetComponent<Interactable>();
     }
 
-    private void OnTriggerEnter(Collider bucket)
+    private void OnTriggerEnter(Collider sand)
     {
         /*
          * Метод вызывающийся автоматически, при касании миксера с объектом.
@@ -30,31 +39,38 @@ public class Mixer_Instrument_Script : MonoBehaviour
          *  other: Collider (объект, которого мы коснулись)
         */
         
+        if (!mixerInteractable.attachedToHand)
+            return;
+        
         // Если объект не ведро
-        if (!bucket.transform.name.ToLower().Contains("bucket") &&
-            !bucket.transform.name.ToLower().Contains("sand"))
+        if (!sand.transform.name.ToLower().Contains("sand"))
         {
             return;
         }
         
-        // Если текущее ведро, не ведро с цементом, то заканчиваем выполнение метода
-        if (!bucket.transform.GetChild(2).gameObject.activeSelf)
-            return;
-
-        bucketMixing = bucket.GetComponent<CounterTracker>();
+        // Получаем Rigidbody руки, в которой лежит мискер
+        if (mixerInteractable.attachedToHand.handType == SteamVR_Input_Sources.LeftHand)
+        {
+            handRigidbody = GameObject.Find("HandColliderLeft(Clone)").GetComponent<Rigidbody>();
+        }
+        else
+        {
+            handRigidbody = GameObject.Find("HandColliderRight(Clone)").GetComponent<Rigidbody>();
+        }
         
         // Получаем скорость замешивания
-        float speed = mixerAuger.GetComponent<Mixer_Animation_Instrument_Script>().GetSpeed();
-
+        float speed = mixerAnimation.GetSpeed() * Mathf.Min(handRigidbody.velocity.magnitude, 1);
         
+        // Увеличиваем трекер
+        bucketMixing = sand.GetComponent<CounterTracker>();
         bucketMixing.tracker += speed;
 
         // Если мы замешали раствор
         if (bucketMixing.tracker > 10)
         {
-            transform.parent.GetChild(3).gameObject.SetActive(true);
-            transform.GameObject().SetActive(false);
-            //pgpEvents.SetActive(true);
+            sand.transform.parent.GetChild(3).gameObject.SetActive(true);
+            sand.transform.GameObject().SetActive(false);
+            repository.Bucket_Quest_isComplete = true;
         }
     }
 }

@@ -11,7 +11,7 @@ public class Faucet_Room_Script : Base
     */
     
     // Сколько осталось набрать воды
-    //private float bucketCounter;
+    private CounterTracker bucketCounter;
     
     //private ParticleSystem.Trails waterTrails;
 
@@ -69,8 +69,8 @@ public class Faucet_Room_Script : Base
 
         // получаем трекер количества воды в ведре
         
-        bucket.transform.GetComponent<CounterTracker>().tracker += faucetForce;
-        float bucketCounter = bucket.transform.GetComponent<CounterTracker>().tracker;
+        bucketCounter = bucket.transform.GetComponent<CounterTracker>();
+        bucketCounter.tracker += faucetForce;
         /*
          * 
         float bucketCounter = bucket.transform.GetComponent<CounterTracker>().Get();
@@ -82,11 +82,11 @@ public class Faucet_Room_Script : Base
         Debug.Log("[Faucet_Room_Script] FaucetWork bucketCounter: " + bucket);
         
         // Если ведро заполнено
-        if (bucketCounter > 6)
+        if (bucketCounter.tracker > 6)
         {
             bucket.transform.GetChild(1).gameObject.SetActive(true);
             empty.SetActive(false);
-            bucket.transform.GetComponent<CounterTracker>().tracker = 0f;
+            bucketCounter.tracker = 0f;
         }
     }
     

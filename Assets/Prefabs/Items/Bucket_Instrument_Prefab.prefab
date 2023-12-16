@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8889345033510239488}
   - component: {fileID: 9010599445277964290}
   - component: {fileID: 2031740740502893899}
+  - component: {fileID: 2591565572164410582}
   m_Layer: 0
   m_Name: SandMixed
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2591565572164410582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794315756433942599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7157459d65ef641b156d48852083f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: 0
+  destroyEmpty: 0
 --- !u!1 &1934333114086242768
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,13 +110,14 @@ GameObject:
   - component: {fileID: 7037699657260951377}
   - component: {fileID: 3417077332286858941}
   - component: {fileID: 7784323691424117613}
+  - component: {fileID: 6058875248643625902}
   m_Layer: 0
   m_Name: Sand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4441411345176634871
 Transform:
   m_ObjectHideFlags: 0
@@ -178,8 +194,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999976, y: 2364.67, z: 1.0000001}
-  m_Center: {x: 0, y: -333.24506, z: 0}
+  m_Size: {x: 1, y: 1000, z: 1.0000001}
+  m_Center: {x: 0, y: 500, z: 0}
+--- !u!114 &6058875248643625902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934333114086242768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7157459d65ef641b156d48852083f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: 0
+  destroyEmpty: 0
 --- !u!1 &2695493853720319571
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &160335447657277881
 Transform:
   m_ObjectHideFlags: 0
@@ -204,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2695493853720319571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -335,7 +365,7 @@ GameObject:
   - component: {fileID: 1405582479826929330}
   - component: {fileID: -1516809822501904754}
   - component: {fileID: 4634072034255966734}
-  - component: {fileID: -8994343260041604496}
+  - component: {fileID: 4334762073427397566}
   m_Layer: 0
   m_Name: Bucket_Instrument_Prefab
   m_TagString: basket_1_item
@@ -485,7 +515,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
---- !u!114 &-8994343260041604496
+--- !u!114 &4334762073427397566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
