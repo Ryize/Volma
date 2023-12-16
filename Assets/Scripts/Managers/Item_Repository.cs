@@ -21,6 +21,7 @@ public class Item_Repository : Repository
     
     // Кол-во грязи
     private int _DirtsAmount;
+    // Кол-во зон ПГП
     
     /*
      * Стартовый метод

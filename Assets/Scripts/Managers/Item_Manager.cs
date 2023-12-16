@@ -88,6 +88,25 @@ public class Item_Manager : Managers
     }
     
     /*
+     * Метод уведомления о завершении зоны ПГП
+     *
+     * Уведовляет всех подписчкиков о событии завершении зоны ПГП
+     *
+     * Args:
+     *  status: bool (статус квеста)
+     */
+    public void Notify_PGP_Zone_Quest(bool status)
+    {
+        foreach (var observer in _observers)
+        {
+            if (observer.Key == "pgp_zone_completed")
+            {
+                observer.Value.Notify("pgp_zone_completed", status);
+            }
+        }
+    }
+    
+    /*
      * Метод подписки
      *
      * Реализует механизм подписки

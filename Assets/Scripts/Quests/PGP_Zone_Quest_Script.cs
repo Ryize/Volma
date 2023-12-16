@@ -4,16 +4,16 @@ using Valve.VR.InteractionSystem;
 
 public class PGP_Zone_Quest_Script : MonoBehaviour
 {
-    private bool questStatus;
     private Vector3 standardPgpZone;
     private GameObject PGP;
     private GameObject originalPGP;
     private GameObject PgpZone;
     private bool canBeSet;
     
+    public Item_Manager manager;
+    
     private void Start()
     {
-        questStatus = false;
         standardPgpZone = new Vector3(-2.31900001f, 0.254000306f, 1.29499996f);
         PGP = transform.GetChild(0).gameObject;
         PgpZone = transform.GetChild(5).gameObject;
@@ -22,13 +22,9 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
 
     public void CompleteQuest()
     {
-        questStatus = true;
+        manager.Notify_PGP_Zone_Quest(true);
+        
         Debug.Log("[PGP_Zone_Quest_Script] zone: " + transform.name + " complete");
-    }
-
-    public bool GetQuestStatus()
-    {
-        return questStatus;
     }
 
     private void OnTriggerEnter(Collider other)
