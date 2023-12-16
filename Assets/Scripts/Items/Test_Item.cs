@@ -28,7 +28,7 @@ public class Test_Item : Base
     {
         foreach (var type in subTypes)
         {
-            manager.subscribe(type, this);
+            manager.Subscribe(type, this);
         }
     }
     
@@ -41,7 +41,7 @@ public class Test_Item : Base
      *  a: string (тип события)
      *  status: bool (состояние кубика)
      */
-    public override void Notify(string a, bool status)
+    public override void Notify(string a)
     {
         TeleportCube();
     }

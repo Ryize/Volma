@@ -18,10 +18,15 @@ public class Item_Repository : Repository
     private bool _Test_fallStatus = false;
     // Статус квеста грязи
     private bool _Dirt_Quest_isComplete;
+    // Статус квеста ПГП
+    private bool _PGP_Quest_isComplete;
+    // Статус зоны ПГП
+    private bool _PGP_Zone_Quest_isComplete;
     
     // Кол-во грязи
     private int _DirtsAmount;
     // Кол-во зон ПГП
+    private int _PGPAmount;
     
     /*
      * Стартовый метод
@@ -32,6 +37,7 @@ public class Item_Repository : Repository
     {
         // Получение кол-ва грязи
         _DirtsAmount = GameObject.Find("Dirts").transform.childCount;
+        _PGPAmount = GameObject.Find("PGP Quest").transform.childCount;
     }
 
     // Квест ведра
@@ -47,7 +53,7 @@ public class Item_Repository : Repository
 
             if (value)
             {
-                manager.Notify_BucketQuestComplete(value);
+                manager.Notify_BucketQuestComplete();
             }
         }
     }
@@ -64,7 +70,7 @@ public class Item_Repository : Repository
             _Test_fallStatus = value;
             if (value)
             {
-                manager.Notify_Fall(value);
+                manager.Notify_Fall();
             }
         }
     }
@@ -81,7 +87,7 @@ public class Item_Repository : Repository
             _Dirt_Quest_isComplete = value;
             if (value)
             {
-                manager.Notify_DirtQuestComplete(value);
+                manager.Notify_DirtQuestComplete();
             }
         }
     }
@@ -99,6 +105,56 @@ public class Item_Repository : Repository
             if (value <= 0)
             {
                 Dirt_Quest_isComplete = true;
+            }
+        }
+    }
+    
+    // Получение и установка статуса квеста грязи
+    public bool PGP_Quest_isComplete
+    {
+        get
+        {
+            return _PGP_Quest_isComplete;
+        }
+        set
+        {
+            _PGP_Quest_isComplete = value;
+            if (value)
+            {
+                manager.Notify_PGP_Quest();
+            }
+        }
+    }
+    
+    // Получение и установка статуса квеста грязи
+    public bool PGP_Zone_Quest_isComplete
+    {
+        get
+        {
+            return _PGP_Zone_Quest_isComplete;
+        }
+        set
+        {
+            _PGP_Zone_Quest_isComplete = value;
+            if (value)
+            {
+                manager.Notify_PGP_Zone_Quest();
+            }
+        }
+    }
+
+    public int PGPAmount
+    {
+        get
+        {
+            return _PGPAmount;
+        }
+        set
+        {
+            _PGPAmount = value;
+            if (value <= 0)
+            {
+                PGP_Quest_isComplete = true;
             }
         }
     }

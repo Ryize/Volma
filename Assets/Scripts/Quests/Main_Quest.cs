@@ -30,7 +30,7 @@ public class Main_Quest : Quest
     {
         foreach (var type in subTypes)
         {
-            manager.subscribe(type, this);
+            manager.Subscribe(type, this);
         }
     }
 
@@ -44,7 +44,7 @@ public class Main_Quest : Quest
      *  questType: string (тип события)
      *  status: bool (состояние кубика)
      */
-    public override void Notify(string questType, bool status)
+    public override void Notify(string questType)
     {
         QuestComplete(questType);
     }

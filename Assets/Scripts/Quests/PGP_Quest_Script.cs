@@ -18,13 +18,21 @@ public class PGP_Quest_Script : Quest
         
         foreach (var type in subTypes)
         {
-            manager.subscribe(type, this);
+            manager.Subscribe(type, this);
         }
     }
     
-    public override void Notify(string questType, bool status)
+    public override void Notify(string questType)
     {
-        NextPgpZone();
+        switch (questType)
+        {
+            case "bucket_completed":
+                transform.GetChild(0).gameObject.SetActive(true);
+                break;
+            case "pgp_zone_completed":
+                NextPgpZone();
+                break;
+        }
     }
 
     private void NextPgpZone()
@@ -35,7 +43,7 @@ public class PGP_Quest_Script : Quest
         }
         else
         {
-            manager.Notify_PGP_Quest(true);
+            manager.Notify_PGP_Quest();
         }
     }
 

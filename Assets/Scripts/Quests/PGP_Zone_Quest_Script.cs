@@ -11,6 +11,7 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
     private bool canBeSet;
     
     public Item_Manager manager;
+    public Item_Repository repository;
     
     private void Start()
     {
@@ -22,7 +23,7 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
 
     public void CompleteQuest()
     {
-        manager.Notify_PGP_Zone_Quest(true);
+        repository.PGP_Zone_Quest_isComplete = true;
         
         Debug.Log("[PGP_Zone_Quest_Script] zone: " + transform.name + " complete");
     }

@@ -9,7 +9,7 @@ public class Item_Manager : Managers
      */
     
     // Словарь подписок на события
-    private Dictionary<string, Base> _observers = new Dictionary<string, Base>();
+    private Dictionary<string, List<Base>> _observers = new Dictionary<string, List<Base>>();
     
     /*
      * Метод уведомления о падении
@@ -19,15 +19,9 @@ public class Item_Manager : Managers
      * Args:
      *  status: bool (статус квеста)
      */
-    public void Notify_Fall(bool status)
+    public void Notify_Fall()
     {
-        foreach (var observer in _observers)
-        {
-            if (observer.Key == "falled")
-            {
-                observer.Value.Notify("falled", status);
-            }
-        }
+        Notify("falled");
     }
     
     /*
@@ -38,15 +32,9 @@ public class Item_Manager : Managers
      * Args:
      *  status: bool (статус квеста)
      */
-    public void Notify_DirtQuestComplete(bool status)
+    public void Notify_DirtQuestComplete()
     {
-        foreach (var observer in _observers)
-        {
-            if (observer.Key == "dirt_completed")
-            {
-                observer.Value.Notify("dirt_completed", status);
-            }
-        }
+        Notify("dirt_completed");
     }
     
     /*
@@ -57,15 +45,9 @@ public class Item_Manager : Managers
      * Args:
      *  status: bool (статус квеста)
      */
-    public void Notify_BucketQuestComplete(bool status)
+    public void Notify_BucketQuestComplete()
     {
-        foreach (var observer in _observers)
-        {
-            if (observer.Key == "bucket_completed")
-            {
-                observer.Value.Notify("bucket_completed", status);
-            }
-        }
+        Notify("bucket_completed");
     }
     
     /*
@@ -78,13 +60,7 @@ public class Item_Manager : Managers
      */
     public void Notify_DirtsIsLeft()
     {
-        foreach (var observer in _observers)
-        {
-            if (observer.Key == "dirtsLefted")
-            {
-                observer.Value.Notify("dirtsLefted", true);
-            }
-        }
+        Notify("dirtsLefted");
     }
     
     /*
@@ -95,15 +71,9 @@ public class Item_Manager : Managers
      * Args:
      *  status: bool (статус квеста)
      */
-    public void Notify_PGP_Zone_Quest(bool status)
+    public void Notify_PGP_Zone_Quest()
     {
-        foreach (var observer in _observers)
-        {
-            if (observer.Key == "pgp_zone_completed")
-            {
-                observer.Value.Notify("pgp_zone_completed", status);
-            }
-        }
+        Notify("pgp_zone_completed");
     }
     
     /*
@@ -114,15 +84,9 @@ public class Item_Manager : Managers
      * Args:
      *  status: bool (статус квеста)
      */
-    public void Notify_PGP_Quest(bool status)
+    public void Notify_PGP_Quest()
     {
-        foreach (var observer in _observers)
-        {
-            if (observer.Key == "pgp_completed")
-            {
-                observer.Value.Notify("pgp_completed", status);
-            }
-        }
+        Notify("pgp_completed");
     }
     
     /*
@@ -134,8 +98,15 @@ public class Item_Manager : Managers
      *  subscribeType: string (тип подписки)
      *  obj: Base (объект, который подписывается)
      */
-    public void subscribe(string subscribeType, Base obj){
-        _observers.Add(subscribeType, obj);
+    public void Subscribe(string subscribeType, Base obj){
+        if (!_observers.ContainsKey(subscribeType))
+        {
+            _observers.Add(subscribeType, new List<Base> {obj});
+        }
+        else
+        {
+            _observers[subscribeType].Add(obj);
+        }
     }
     
     /*
@@ -146,7 +117,29 @@ public class Item_Manager : Managers
      * Args:
      *  subscribeType: string (тип подписки)
      */
-    public void unsubscribe(string subscribeType){
+    public void Unsubscribe(string subscribeType){
         _observers.Remove(subscribeType);
+    }
+    
+    /*
+     * Метод уведомления
+     *
+     * Уведовляет всех подписчкиков о событии
+     *
+     * Args:
+     *  status: bool (статус квеста)
+     */
+    public void Notify(string subscribeType)
+    {
+        foreach (var observers in _observers)
+        {
+            if (observers.Key == subscribeType)
+            {
+                foreach (var observer in observers.Value)
+                {
+                    observer.Notify(subscribeType);
+                }
+            }
+        }
     }
 }
