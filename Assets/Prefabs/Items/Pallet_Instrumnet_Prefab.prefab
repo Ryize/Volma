@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1544662931392875091}
   - component: {fileID: 3310956373326014649}
   - component: {fileID: 2971272935363810206}
+  - component: {fileID: 4289510520415445844}
   m_Layer: 0
   m_Name: Pallet_Instrumnet_Prefab
   m_TagString: Untagged
@@ -210,6 +211,18 @@ MonoBehaviour:
       values: 010101010101
     previewEnabled: 1
   scale: 1
+--- !u!114 &4289510520415445844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849487172368056112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355709051909eed4d83ecf6f2f4e96ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2499629124811071996
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &449392754693338045
 Transform:
   m_ObjectHideFlags: 0
@@ -586,7 +599,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7864504760934160379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -110,5 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0545dedd92762e64cb3341788d1171f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventZoneCounter: 0
   glue: {fileID: 0}

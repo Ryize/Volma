@@ -7,6 +7,7 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
     public void CompleteQuest()
     {
         questStatus = true;
+        Debug.Log("[PGP_Zone_Quest_Script] zone: " + transform.name + " complete");
     }
 
     public bool GetQuestStatus()

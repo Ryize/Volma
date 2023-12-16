@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Pallet_Instrumnet_Script : MonoBehaviour
@@ -5,6 +6,16 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
     /*
      * Отвечает за нанесения клея на ПГП
     */
+
+    private MeshRenderer meshRenderer;
+
+    private Transform task;
+    
+    private void Start()
+    {
+        meshRenderer = transform.GetChild(2).gameObject.GetComponent<MeshRenderer>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         /*
@@ -16,20 +27,13 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
          *  other: Collider (объект, которого мы коснулись)
         */
         
+        Debug.Log("[Pallet_Instrumnet_Script] target: " + other.name);
         // Если объект не ведро с клеем, то заканчиваем функцию
-        if (!(other.tag.ToLower().Contains("task") || other.tag.ToLower().Contains("basket")))
+        if (!other.name.ToLower().Contains("bucket"))
             return;
-        
-        string otherName = other.transform.name.ToLower();
-        MeshRenderer meshRenderer = transform.gameObject.GetComponent<MeshRenderer>();
-        
-        // Если на шпателе есть клей, то но заканчиваем функцию
-        if (meshRenderer.enabled) {
-            return;
-        }
-        // Если объект ведро, раствор замешен и на шпателе нет клея, то на шпателе появится клей
-        if (otherName.Contains("basket") && 
-            other.transform.parent.GetChild(3).gameObject.activeSelf) {
+       
+        // Если на шпателе нет клея, то на шпателе появится клей
+        if (!meshRenderer.enabled) {
             meshRenderer.enabled = true;
         }
     }
@@ -48,17 +52,19 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
         // Если объект не квестовый, то заканчиваем функцию
         if (!other.tag.ToLower().Contains("task"))
             return;
+
+        task = other.transform;
         
-        string otherName = other.transform.name.ToLower();
-        MeshRenderer meshRenderer = transform.gameObject.GetComponent<MeshRenderer>();
-        Transform eventZone = other.transform.parent;
+        string otherName = task.name.ToLower();
+        
+        Transform eventZone = task.parent;
 
         // Если на шпателе есть клей и объект горизонтальная или вертикальная зона
         // (зона, куда наносится клей, чтобы закрепить ПГП).
         // То удаляем зону нанесения клея и убираем клей со шпателя.
         if (meshRenderer.enabled && 
-        (otherName.Contains("horizontalzone") || otherName.Contains("verticalzone"))) {
-            Destroy(other.transform.gameObject);
+        (otherName.Contains("horizontal_zone") || otherName.Contains("vertical_zone"))) {
+            Destroy(task.gameObject);
             meshRenderer.enabled = false;
         }
 
@@ -69,7 +75,7 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
         // Объект горизонтальная или вертикальная зона
         // (зона, куда наносится клей, чтобы закрепить ПГП).
         // То удаляем зону нанесения клея.
-        if (otherName.Contains("horizontalglue") || otherName.Contains("verticalglue")) {
+        if (otherName.Contains("horizontal_glue") || otherName.Contains("vertical_glue")) {
             Destroy(other.transform.gameObject);
         }
     }

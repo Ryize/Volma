@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 3719016765377823194}
   - component: {fileID: -784412831877293535}
   - component: {fileID: 2696342052282103647}
+  - component: {fileID: 6200921723475648029}
   m_Layer: 0
   m_Name: Pallet_Small_Instrument_Prefab
   m_TagString: Untagged
@@ -547,3 +548,15 @@ MonoBehaviour:
       values: 010101010101
     previewEnabled: 1
   scale: 1
+--- !u!114 &6200921723475648029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6689007366975873803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355709051909eed4d83ecf6f2f4e96ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
