@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2031740740502893899}
   - component: {fileID: 2591565572164410582}
   m_Layer: 0
-  m_Name: SandMixed
+  m_Name: Glue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
