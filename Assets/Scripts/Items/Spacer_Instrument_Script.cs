@@ -13,7 +13,7 @@ public class Spacer_Instrument_Script : PGP_Zone_Quest_Script
     protected override void Start()
     {
         canBeSet = false;
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
     }
 
     protected override void OnTriggerEnter(Collider other)
