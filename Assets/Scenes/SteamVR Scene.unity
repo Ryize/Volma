@@ -2891,6 +2891,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 635936176}
     m_Modifications:
+    - target: {fileID: 3549703147199046652, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549703147199046652, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549703147199046652, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549703147199046652, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549703147199046652, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549703147199046652, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5263920849595568245, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
       propertyPath: m_Name
       value: Dirt_Quest_Prefab
@@ -3407,7 +3431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1043953680
 Transform:
   m_ObjectHideFlags: 0
