@@ -110,10 +110,11 @@ public class TextChange_Script : MonoBehaviour
     public void QuestCompleted(int questNumber)
     {
         _completedQuests[questNumber] = true;
-        
-        currentText.text = _quests[questNumber];
-        currentText.color = Color.green;
-        currentText.text = _quests[currentQuest];
+
+        if (questNumber == currentQuest)
+        {
+            currentText.color = Color.green;
+        }
         
         _questCompleteSound.Play();
     }
