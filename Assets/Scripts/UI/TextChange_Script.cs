@@ -23,6 +23,9 @@ public class TextChange_Script : MonoBehaviour
     // Индекс текущего квеста для вывода
     private int currentQuest = 0;
 
+    private static readonly Color colorQuestCompleted = Color.green;
+    private static readonly Color colorQuestIncompleted = Color.white;
+
 
     /* Метод с стартовыми данными
      *
@@ -69,43 +72,26 @@ public class TextChange_Script : MonoBehaviour
 
         _questCompleteSound = GetComponent<AudioSource>();
     }
+    
+    private void ChangeText(int direction)
+    {
+        // Напрвеление в котором меняем квест
+        currentQuest  = Mathf.Clamp(currentQuest + direction, 0, _completedQuests.Count-1) ;
+        
+        // Меняем текст 
+        currentText.text = _quests[currentQuest];
+
+        // Меняем цвет текста в зависимости от выполнения квеста
+        currentText.color = _completedQuests[currentQuest] ? colorQuestCompleted : colorQuestIncompleted;
+    }
+    
     public void ChangeTextNext()
     {
-        // Метод для переключения на следующий квест
-        if (currentQuest <2)
-        {
-            currentQuest++;
-            currentText.text = _quests[currentQuest];
-        }
-
-        // Меняет цвет текста в зависимости от завершенности квеста
-        if (_completedQuests[currentQuest])
-        {
-            currentText.color = Color.green;
-        }
-        else
-        {
-            currentText.color = Color.white;
-        }
+        ChangeText(1);
     }
     public void ChangeTextPrevious()
     {
-        // Метод для переключения на предыдущий квест
-        if(currentQuest!=0)
-        {
-            currentQuest--;
-            currentText.text = _quests[currentQuest];
-        }
-        
-        // Меняет цвет текста в зависимости от завершенности квеста
-        if (_completedQuests[currentQuest])
-        {
-            currentText.color = Color.green;
-        }
-        else
-        {
-            currentText.color = Color.white;
-        }
+        ChangeText(-1);
     }
 
     /* Метод выполнения квеста
@@ -116,11 +102,16 @@ public class TextChange_Script : MonoBehaviour
      */
     public void QuestCompleted(int questNumber)
     {
+        if (questNumber < 0 || questNumber >= _completedQuests.Count)
+        {
+            return;
+        }
+        
         _completedQuests[questNumber] = true;
 
         if (questNumber == currentQuest)
         {
-            currentText.color = Color.green;
+            currentText.color = colorQuestCompleted;
         }
         
         _questCompleteSound.Play();
