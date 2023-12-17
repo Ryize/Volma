@@ -9776,8 +9776,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1611535457}
   subTypes:
+  - primer_completed
   - pgp_zone_completed
-  - bucket_completed
 --- !u!1001 &1177416233
 PrefabInstance:
   m_ObjectHideFlags: 0

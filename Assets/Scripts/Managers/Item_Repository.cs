@@ -153,7 +153,9 @@ public class Item_Repository : Repository
         }
         set
         {
-            if (value == _PGPAmount + 1)
+            Debug.Log("[Item_Repository] PGPAmount value: " + value);
+            
+            if (value == _PGPAmount - 1)
             {
                 manager.Notify_PGP_Zone_Quest();
             }
