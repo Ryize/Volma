@@ -10,6 +10,9 @@ public class Primer_Line_Quest: Quest
     // Компонент Renderer для грунтовки
     private Renderer primerRenderer;
     
+    // Компонент Renderer для зоны грунтовки
+    private Renderer primerZoneRenderer;
+    
     // Прозрачность
     private float _opacity;
     
@@ -21,6 +24,7 @@ public class Primer_Line_Quest: Quest
     private void Start()
     {
         primerRenderer = GetComponent<Renderer>();
+        primerZoneRenderer = transform.GetChild(0).GetComponent<Renderer>();
         
         _opacity = 0f;
         ChangeObjectOpacity(_opacity);
@@ -40,6 +44,7 @@ public class Primer_Line_Quest: Quest
         if (_opacity < 0.001f)
         {
             primerRenderer.enabled = true;
+            primerZoneRenderer.enabled = false;
         }
         
         ChangeObjectOpacity(_opacity += 0.01f);

@@ -3,6 +3,8 @@ using UnityEngine;
 public class Primer_Resource_Script : MonoBehaviour
 {
     private CounterTracker cuvetteFillAmount;
+
+    public GameObject primerQuest;
     
     //звук выливания из канистры
     private AudioSource _bottleMovementSound;
@@ -52,6 +54,7 @@ public class Primer_Resource_Script : MonoBehaviour
         if ((cuvetteFillAmount.tracker += 0.1f) >= 0.5f)
         {
             cuvette.GetChild(1).gameObject.SetActive(true);
+            primerQuest.SetActive(true);
         }
     }
 }

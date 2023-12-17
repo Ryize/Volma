@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Item_Repository : Repository
@@ -11,6 +12,9 @@ public class Item_Repository : Repository
     
     // Менеджер предметов
     public Item_Manager manager; 
+    
+    // Список квестов
+    public List<GameObject> quests;
     
     // Статус положения ведра
     private bool _Bucket_Quest_isComplete;
@@ -38,9 +42,9 @@ public class Item_Repository : Repository
     private void Start()
     {
         // Получение кол-ва грязи
-        _DirtsAmount = GameObject.Find("Dirt Quest").transform.childCount;
-        _PGPAmount = GameObject.Find("PGP Quest").transform.childCount;
-        _PrimerAmount = GameObject.Find("Primer Quest").transform.childCount;
+        _DirtsAmount = quests[0].transform.childCount;
+        _PGPAmount = quests[1].transform.childCount;
+        _PrimerAmount = quests[2].transform.childCount;
     }
 
     // Квест ведра
