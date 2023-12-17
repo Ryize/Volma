@@ -14,13 +14,16 @@ public class ChannelSwitchScript : MonoBehaviour
     void Start()
     {
         radioAudioSource = GetComponent<AudioSource>();
-        trackIndex = 0;
+        trackIndex = -1;
         radioAudioSource.clip = audioTracks[trackIndex].trackAudioClip;
     }
-
-    public void SkipNext(int counter)
+    
+    public void UpdateTrack(int index)
     {
-        
+        if (index != -1)
+        {
+            radioAudioSource.clip = audioTracks[index].trackAudioClip;
+        }
     }
     public void PlayAudio()
     {
@@ -37,6 +40,41 @@ public class ChannelSwitchScript : MonoBehaviour
     {
         //float spinMagnitude = Quaternion.Angle(Quaternion.Euler(_lastRotation), transform.rotation);
         _lastRotation = transform.localRotation.eulerAngles.y;
-        Debug.Log(_lastRotation);
+        if (_lastRotation >= 30 && _lastRotation <= 60)
+        {
+            UpdateTrack(1);
+            Debug.Log("1");
+            PlayAudio();
+        }
+        else if (_lastRotation >= 120 && _lastRotation <= 150)
+        {
+            UpdateTrack(2);
+            Debug.Log("2");
+            PlayAudio();
+        }
+        else if (_lastRotation >= 210 && _lastRotation <= 240)
+        {
+            UpdateTrack(3);
+            Debug.Log("3");
+            PlayAudio();
+        }
+        else if (_lastRotation >= 300 && _lastRotation <= 330)
+        {
+            UpdateTrack(4);
+            Debug.Log("4");
+            PlayAudio();
+        }
+        else if (_lastRotation>=0 && _lastRotation<=15)
+        {
+            StopAudio();
+            Debug.Log("стоп");
+        }
+        else
+        {
+            UpdateTrack(0);
+            PlayAudio();
+            Debug.Log("шум");
+        }
+
     }
 }
