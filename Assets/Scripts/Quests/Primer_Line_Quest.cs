@@ -21,10 +21,12 @@ public class Primer_Line_Quest: Quest
     private void Start()
     {
         primerRenderer = GetComponent<Renderer>();
-
+        
         _opacity = 0f;
         ChangeObjectOpacity(_opacity);
 
+        primerRenderer.enabled = false;
+        
         _isDone = false;
     }
 
@@ -35,6 +37,11 @@ public class Primer_Line_Quest: Quest
      */
     public void ApplyPrimer()
     {
+        if (_opacity < 0.001f)
+        {
+            primerRenderer.enabled = true;
+        }
+        
         ChangeObjectOpacity(_opacity += 0.01f);
         
         if (Math.Abs(_opacity - 1f) < 0.001f)
