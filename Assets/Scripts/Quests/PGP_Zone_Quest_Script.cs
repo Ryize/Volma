@@ -21,7 +21,7 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
 
     public void CompleteQuest()
     {
-        repository.PGP_Zone_Quest_isComplete = true;
+        repository.PGPAmount--;
         
         Debug.Log("[PGP_Zone_Quest_Script] zone: " + transform.name + " complete");
     }

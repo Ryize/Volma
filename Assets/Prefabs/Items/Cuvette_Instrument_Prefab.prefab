@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7306678262391603409}
   - component: {fileID: 8551651714739202472}
   - component: {fileID: 6529408191030227117}
+  - component: {fileID: 3672989270385847141}
   m_Layer: 6
   m_Name: Cuvette_Instrument_Prefab
   m_TagString: cuvette_item
@@ -158,6 +159,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
+--- !u!114 &3672989270385847141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825396194248456467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7157459d65ef641b156d48852083f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: 0
+  destroyEmpty: 0
 --- !u!1 &2118304288283521579
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +347,7 @@ GameObject:
   - component: {fileID: 7095003709756271485}
   - component: {fileID: 1978247760535860119}
   - component: {fileID: 3634738693501380773}
+  - component: {fileID: 7705305912413667946}
   m_Layer: 6
   m_Name: PrimerPaint
   m_TagString: Untagged
@@ -347,8 +363,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7742004326118360415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1059, y: 0.0573, z: 0.008}
-  m_LocalScale: {x: 0.020624, y: 1.3454, z: 0.0243944}
+  m_LocalPosition: {x: -0.0649, y: 0.0573, z: 0.008}
+  m_LocalScale: {x: 0.030073179, y: 1.3454, z: 0.0243944}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 17932878815110057}
@@ -404,6 +420,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7705305912413667946
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742004326118360415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.999999, y: 0.05, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8573075330930049482
 GameObject:
   m_ObjectHideFlags: 0

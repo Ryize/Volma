@@ -12,7 +12,6 @@ public class Spacer_Instrument_Script : PGP_Zone_Quest_Script
 
     protected override void Start()
     {
-        
         canBeSet = false;
     }
 

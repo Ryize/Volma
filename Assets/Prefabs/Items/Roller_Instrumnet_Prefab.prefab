@@ -253,6 +253,8 @@ GameObject:
   - component: {fileID: 1653835616688840042}
   - component: {fileID: 8893888764534947246}
   - component: {fileID: 1270517125126363219}
+  - component: {fileID: 8718426252936916}
+  - component: {fileID: 6433694611484425132}
   m_Layer: 6
   m_Name: Roller_Instrumnet_Prefab
   m_TagString: roller_item
@@ -427,6 +429,32 @@ MonoBehaviour:
   previewPoseSelection: 0
   blendingBehaviours: []
   scale: 1
+--- !u!114 &8718426252936916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143439256878060032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa67b1a2ead8bd45991f7344eb4d5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6433694611484425132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143439256878060032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7157459d65ef641b156d48852083f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: 0
+  destroyEmpty: 0
 --- !u!1 &8699763126888636266
 GameObject:
   m_ObjectHideFlags: 0
