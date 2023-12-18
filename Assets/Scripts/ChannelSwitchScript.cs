@@ -1,12 +1,12 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ChannelSwitchScript : MonoBehaviour
 {
     /*
      * Класс реализующий смену треков на радио
-     * Ссылка на гайд если не понятно(https://www.youtube.com/watch?v=EHKrMWGEZPU)
      *
      *
      * Для того что бы создать трек нужно зайти в папку ScriptableObjects(Assets), нажать ПКМ и в верху выбрать пункт Create.
@@ -29,105 +29,105 @@ public class ChannelSwitchScript : MonoBehaviour
     private float _prevRotation;
     //Аудиосоурс который воспроизводит треки
     private AudioSource radioAudioSource;
+    
+    // Пределы диапазонов для каждого трека
+    private List<float> trackRanges;
+    
     /*
-     * Методы со стартовыми данными
-     *
+     * Метод со стартовыми данными
      */
     void Start()
     {
-        // Не особо шарю так сделали в гайде
+        // Получение компонента AudioSource
         radioAudioSource = GetComponent<AudioSource>();
+        
         //Значение трека поставлено на -1 т.к. 0 занят первым треком в списке
         trackIndex = -1;
+        
         //Получаем изначальный угол поворота
         _prevRotation=transform.localRotation.eulerAngles.y;
+        
+        if (audioTracks != null && audioTracks.Length > 1)
+        {
+            trackRanges = new List<float>();
+            
+            for (int range = 0; range < audioTracks.Length - 1; range++)
+            {
+                trackRanges.Add(Mathf.Round((float) range / (audioTracks.Length - 1) * 360 + 30));
+            }
+        }
     }
+    
     /*
      * Метод обновления трека и их запуск
      */
-    public void UpdateTrack(int index)
+    private void UpdateTrack(int index)
     {
-            radioAudioSource.clip = audioTracks[index].trackAudioClip;
-            PlayAudio();
+        // Если индексы равны, то не меняем трек
+        if (index == trackIndex) return;
+
+        trackIndex = index;
+        radioAudioSource.clip = audioTracks[index].trackAudioClip;
+        PlayAudio();
     }
+    
     /*
      * Метод запуска трека
      */
-    public void PlayAudio()
+    private void PlayAudio()
     {
         radioAudioSource.Play();
     }
+    
     /*
      * Метод остановки трека
      */
-    public void StopAudio() 
+    private void StopAudio() 
     {
         radioAudioSource.Stop();
     }
+    
     /*
      * Основной метод который следит за поворотом ручки
      * Сделал всё в нём а не в отдельном методе потому что лень
      */
     void Update()
-    {   // Получение актуального значения поворота
-        _lastRotation = transform.localRotation.eulerAngles.y;
-        //Проверяем изменилось ли значение поворота
-        if (_lastRotation != _prevRotation)
+    {   
+        if (trackRanges == null)
         {
-            //Запоминаем новые значения поворота
-            _prevRotation = _lastRotation;
-            //1й трек и его диапазон
-            if (_lastRotation >= 30f && _lastRotation <= 60f)
-            {
-                if (trackIndex != 1)
-                {
-                    trackIndex = 1;
-                    UpdateTrack(trackIndex);
-                }
-            }
-            //2й трек и его диапазон
-            else if (_lastRotation >= 120f && _lastRotation <= 150f )
-            {
-                if (trackIndex != 2)
-                {
-                    trackIndex = 2;
-                    UpdateTrack(trackIndex);
-                }
-            }
-            //3й трек и его диапазон
-            else if (_lastRotation >= 210f && _lastRotation <= 240f && trackIndex!=3)
-            {
-                if (trackIndex != 3)
-                {
-                    trackIndex = 3;
-                    UpdateTrack(trackIndex);
-                }
-            }
-            //4й трек и его диапазон
-            else if (_lastRotation >= 300f && _lastRotation <= 330f && trackIndex!=4)
-            {
-                if (trackIndex != 4)
-                {
-                    trackIndex = 4;
-                    UpdateTrack(trackIndex);
-                }
-            }
-            //Остановка Аудио
-            else if (_lastRotation >= 0f && _lastRotation <= 5f)
-            {
-                StopAudio();
-            }
-            // Во всех других случаях мы ставим помехи(типа реалистично)
-            else
-            {
-                if (trackIndex != 0)
-                {
-                    trackIndex = 0;
-                    UpdateTrack(trackIndex); 
-                }
-            }
-
+            return;
         }
         
+        // Получение актуального значения поворота
+        _lastRotation = transform.localRotation.eulerAngles.y;
+        
+        //Проверяем изменилось ли значение поворота
+        if (Mathf.Approximately(_lastRotation, _prevRotation))
+        {
+            return;
+        }
+        
+        //Запоминаем новые значения поворота
+        _prevRotation = _lastRotation;
+        
+        foreach (float range in trackRanges)
+        {
+            if (_lastRotation - range is >= 0 and <= 30f)
+            {
+                UpdateTrack(trackRanges.IndexOf(range) + 1);
+                return;
+            }
+        }
+        
+        //Остановка Аудио
+        if (_lastRotation is >= 0f and <= 5f)
+        {
+            StopAudio();
+        }
+        // Во всех других случаях мы ставим помехи(типа реалистично)
+        else
+        {
+            UpdateTrack(0);
+        }
     }
 }
