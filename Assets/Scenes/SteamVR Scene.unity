@@ -4339,6 +4339,10 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 592356968}
+    - target: {fileID: 1280325394794294952, guid: 3c7891ff813a341908c62d34c15d4750, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2525642524019253720, guid: 3c7891ff813a341908c62d34c15d4750, type: 3}
       propertyPath: m_RootOrder
       value: 4

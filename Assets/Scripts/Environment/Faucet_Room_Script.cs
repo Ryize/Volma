@@ -13,13 +13,20 @@ public class Faucet_Room_Script : Base
     // Сколько осталось набрать воды
     private CounterTracker bucketCounter;
     
-    //private ParticleSystem.Trails waterTrails;
+    private ParticleSystem waterParticles;
+    private ParticleSystem waterSplashParticles;
 
     public GameObject stats;
 
     private void Start()
     {
         InvokeRepeating("FaucetWork", 1f, 1f);
+
+        waterParticles = transform.GetChild(2).GetComponent<ParticleSystem>();
+        waterSplashParticles = transform.GetChild(2).GetChild(0).GetComponent<ParticleSystem>();
+
+        waterParticles.maxParticles = 0;
+        waterSplashParticles.maxParticles = 0;
     }
 
     /*
@@ -30,10 +37,13 @@ public class Faucet_Room_Script : Base
     private void FaucetWork()
     {
         // напор крана
-        float faucetHandleAngle = transform.GetChild(3).localRotation.eulerAngles.y;
-        float faucetForce = Mathf.Abs(Mathf.Sin(faucetHandleAngle) * 0.5f);
+        float faucetHandleAngle = transform.GetChild(1).localRotation.eulerAngles.y;
+        float faucetForce = Mathf.Abs(Mathf.Sin(faucetHandleAngle));
 
-        stats.GetComponent<Stats>().water += faucetForce;
+        waterParticles.maxParticles = (int) (faucetForce * 10);
+        waterSplashParticles.maxParticles = (int) (faucetForce * 10);
+        
+        stats.GetComponent<Stats>().water += faucetForce * 0.5f;
         
         Vector3 origin = transform.position;
         Vector3 derection = Vector3.down;
@@ -82,7 +92,7 @@ public class Faucet_Room_Script : Base
         Debug.Log("[Faucet_Room_Script] FaucetWork bucketCounter: " + bucket);
         
         // Если ведро заполнено
-        if (bucketCounter.tracker > 6)
+        if (bucketCounter.tracker > 12)
         {
             bucket.transform.GetChild(1).gameObject.SetActive(true);
             empty.SetActive(false);
