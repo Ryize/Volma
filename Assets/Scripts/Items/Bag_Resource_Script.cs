@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bag_Resource_Script : MonoBehaviour
@@ -6,9 +7,14 @@ public class Bag_Resource_Script : MonoBehaviour
      * Класс отвечающий за засыпание цемента в ведро с водой.
     */
     
+    // Счетчик ведра
     private CounterTracker bucketFillAmount;
 
-    public GameObject stats;
+    // Статистика
+    [SerializeField] private GameObject stats;
+    
+    // Эффект мешка
+    private ParticleSystem sandLeak;
 
     //звук высыпания из мешка
     private AudioSource _bagMovementSound;
@@ -19,7 +25,11 @@ public class Bag_Resource_Script : MonoBehaviour
          * Запускаем скрипт проверки на засыпания раз в секунду
         */
         InvokeRepeating("FallingCement", 1f, 1f);
+
+        sandLeak = transform.GetChild(0).GetComponent<ParticleSystem>();
         _bagMovementSound = GetComponent<AudioSource>();
+
+        sandLeak.maxParticles = 0;
     }
 
     void FallingCement()
@@ -36,16 +46,18 @@ public class Bag_Resource_Script : MonoBehaviour
 
         if (cosX * cosZ <= 0)
         {
+            sandLeak.maxParticles = 10;
+            
             // звук высыпания из мешка
             _bagMovementSound.Play();
         }
         else 
         {
+            sandLeak.maxParticles = 0;
+            
             _bagMovementSound.Pause();
             return;
         }
-        
-        Debug.Log("[Bag_Script] 1");
         stats.GetComponent<Stats>().cement += transform.GetComponent<Rigidbody>().velocity.magnitude * 6;
  
         Vector3 origin = transform.position;
@@ -62,8 +74,6 @@ public class Bag_Resource_Script : MonoBehaviour
             return;
         }
         
-        Debug.Log("[Bag_Script] 2");
-        
         // Если объект не ведро
         if (!bucket.transform.name.ToLower().Contains("bucket") &&
             !bucket.transform.name.ToLower().Contains("water"))
@@ -71,13 +81,9 @@ public class Bag_Resource_Script : MonoBehaviour
             return;
         }
         
-        Debug.Log("[Bag_Script] 3");
-        
         // Если текущее ведро, не ведро с водой, то заканчиваем выполнение метода
         if (!bucket.transform.GetChild(1).gameObject.activeSelf)
             return;
-        
-        Debug.Log("[Bag_Script] 4");
 
         bucketFillAmount = bucket.transform.GetComponent<CounterTracker>();
         
