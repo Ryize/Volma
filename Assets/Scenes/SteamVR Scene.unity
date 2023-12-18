@@ -247,7 +247,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6b2920764e03d7b49bc2f32f76742a83, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2985,6 +2985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dirt_Quest_Prefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5312458636556766683, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5469662624611519346, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3058,6 +3062,10 @@ PrefabInstance:
     - target: {fileID: 2646892208176144594, guid: 4345bebf68a993348b4b4c220fa36418, type: 3}
       propertyPath: m_Name
       value: Primer_Resource_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979111296163409038, guid: 4345bebf68a993348b4b4c220fa36418, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4868469466006344229, guid: 4345bebf68a993348b4b4c220fa36418, type: 3}
       propertyPath: m_RootOrder
@@ -3980,6 +3988,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dirt_Quest_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 5312458636556766683, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5469662624611519346, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -4053,6 +4065,10 @@ PrefabInstance:
     - target: {fileID: 5263920849595568245, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
       propertyPath: m_Name
       value: Dirt_Quest_Prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312458636556766683, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5469662624611519346, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
       propertyPath: m_Enabled
@@ -10918,6 +10934,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.41
       objectReference: {fileID: 0}
+    - target: {fileID: 7445066861119179290, guid: e5cb734870890854986967c02d298e61, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1740059895874766864, guid: e5cb734870890854986967c02d298e61, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5cb734870890854986967c02d298e61, type: 3}
@@ -11071,7 +11091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1508626950
 Transform:
   m_ObjectHideFlags: 0
@@ -12058,6 +12078,10 @@ PrefabInstance:
     - target: {fileID: 5263920849595568245, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
       propertyPath: m_Name
       value: Dirt_Quest_Prefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312458636556766683, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5469662624611519346, guid: 4a7c281dcbc4c214db90f9fd1e9bb753, type: 3}
       propertyPath: m_Enabled
