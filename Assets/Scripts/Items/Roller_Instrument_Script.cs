@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Roller_Instrument_Script : MonoBehaviour
@@ -14,18 +15,26 @@ public class Roller_Instrument_Script : MonoBehaviour
 
     // Константа для минимальной грунтовки
     private const float MinPrimerThreshold = 0.1f;
+    
+    // Компонет AudioSource для валика
+    private AudioSource rollerAudioSource;
 
     private void Start()
     {
-        // Избегаем лишних вызовов GetComponent, сохраняем ссылки
         primerFlowTracker = GetComponent<CounterTracker>();
         rollerRigidbody = GetComponent<Rigidbody>();
+        rollerAudioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerStay(Collider other)
     {
         Transform target = other.transform;
         string targetName = target.name.ToLower();
+
+        if (!rollerAudioSource.isPlaying)
+        {
+            rollerAudioSource.Play();
+        }
 
         if (targetName.Contains("primerpaint"))
         {
@@ -52,6 +61,14 @@ public class Roller_Instrument_Script : MonoBehaviour
             {
                 primerLineQuest.ApplyPrimer();
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (rollerAudioSource.isPlaying)
+        {
+            rollerAudioSource.Stop();
         }
     }
 }
