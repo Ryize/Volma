@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Timeline;
+using Valve.VR.InteractionSystem;
 
 public class ChannelSwitchScript : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class ChannelSwitchScript : MonoBehaviour
     [Header("List of Tracks")] 
     // Список с треками
     [SerializeField] private AudioClip[] audioTracks;
+    
+    [Header("Regulators")]
+    [SerializeField] public Transform trackRegulator;
+    [SerializeField] public Transform valumeRegulator;
 
     //Индекс текущего трека
     private int trackIndex;
@@ -41,7 +46,7 @@ public class ChannelSwitchScript : MonoBehaviour
         trackIndex = -1;
         
         //Получаем изначальный угол поворота
-        _prevRotation=transform.localRotation.eulerAngles.y;
+        _prevRotation = trackRegulator.localRotation.eulerAngles.y;
         
         if (audioTracks != null && audioTracks.Length > 1)
         {
@@ -60,8 +65,8 @@ public class ChannelSwitchScript : MonoBehaviour
     private void UpdateTrack(int index)
     {
         // Если индексы равны, то не меняем трек
-        if (index == trackIndex && audioTracks[index] == null) return;
-
+        if (index == trackIndex || audioTracks[index] == null) return;
+        
         trackIndex = index;
         radioAudioSource.clip = audioTracks[index];
         PlayAudio();
@@ -95,7 +100,10 @@ public class ChannelSwitchScript : MonoBehaviour
         }
         
         // Получение актуального значения поворота
-        _lastRotation = transform.localRotation.eulerAngles.y;
+        _lastRotation = trackRegulator.localRotation.eulerAngles.y;
+
+        // Изменение громкости
+        radioAudioSource.volume = valumeRegulator.localRotation.eulerAngles.y / 180;
         
         //Проверяем изменилось ли значение поворота
         if (Mathf.Approximately(_lastRotation, _prevRotation))
