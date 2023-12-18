@@ -2,9 +2,14 @@ using UnityEngine;
 
 public class Primer_Resource_Script : MonoBehaviour
 {
+    // Наполение кюветки
     private CounterTracker cuvetteFillAmount;
-
-    public GameObject primerQuest;
+    
+    // Квест грунтовки
+    [SerializeField] private GameObject primerQuest;
+    
+    // Эффект грунтовки
+    private ParticleSystem primerLeak;
     
     //звук выливания из канистры
     private AudioSource _bottleMovementSound;
@@ -12,7 +17,11 @@ public class Primer_Resource_Script : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("Primer", 1f, 1f);
+        
         _bottleMovementSound = GetComponent<AudioSource>();
+        primerLeak = transform.GetChild(0).GetComponent<ParticleSystem>();
+
+        primerLeak.maxParticles = 0;
     }
 
     void Primer() {
@@ -21,11 +30,15 @@ public class Primer_Resource_Script : MonoBehaviour
 
         if (cosX * cosZ <= 0)
         {
+            primerLeak.maxParticles = 10;
+            
             // воспроизведение звука выливания из канистры
             _bottleMovementSound.Play();
         }
         else
         {
+            primerLeak.maxParticles = 0;
+            
             _bottleMovementSound.Pause();
             return;
         }
