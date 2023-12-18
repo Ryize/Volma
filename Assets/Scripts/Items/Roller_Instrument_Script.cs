@@ -30,7 +30,7 @@ public class Roller_Instrument_Script : MonoBehaviour
         if (targetName.Contains("primerpaint"))
         {
             // Увеличивает кол-во грунтовки на валике с использованием Mathf.Clamp01
-            primerFlowTracker.tracker = Mathf.Clamp(primerFlowTracker.tracker + rollerRigidbody.velocity.magnitude, 0f, Mathf.Infinity);
+            primerFlowTracker.tracker = Mathf.Clamp(primerFlowTracker.tracker + rollerRigidbody.velocity.magnitude, 0f, 100f);
             return;
         }
 
@@ -45,7 +45,7 @@ public class Roller_Instrument_Script : MonoBehaviour
             }
 
             // Уменьшает кол-во грунтовки на валике с использованием Mathf.Clamp
-            primerFlowTracker.tracker = Mathf.Clamp(primerFlowTracker.tracker - rollerRigidbody.velocity.magnitude, 0f, Mathf.Infinity);
+            primerFlowTracker.tracker = Mathf.Clamp(primerFlowTracker.tracker - rollerRigidbody.velocity.magnitude, 0f, 100f);
 
             // Проверяем, достаточно ли грунтовки, чтобы намазать
             if (primerFlowTracker.tracker > MinPrimerThreshold && primerLineQuest != null)
