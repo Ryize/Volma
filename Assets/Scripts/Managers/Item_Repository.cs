@@ -26,6 +26,8 @@ public class Item_Repository : Repository
     private bool _Primer_Quest_isComplete;
     // Статус квеста ПГП
     private bool _PGP_Quest_isComplete;
+    // Статус квеста Пены
+    private bool _Foam_Quest_isComplete;
     
     // Кол-во грязи
     private int _DirtsAmount;
@@ -33,6 +35,8 @@ public class Item_Repository : Repository
     private int _PrimerAmount;
     // Кол-во зон ПГП
     private int _PGPAmount;
+    // Кол-во зон для пены
+    private int _FoamAmount;
     
     /*
      * Стартовый метод
@@ -45,6 +49,7 @@ public class Item_Repository : Repository
         _DirtsAmount = quests[0].transform.childCount;
         _PrimerAmount = quests[1].transform.childCount;
         _PGPAmount = quests[2].transform.childCount;
+        _FoamAmount = quests[3].transform.childCount;
     }
 
     // Квест ведра
@@ -185,7 +190,41 @@ public class Item_Repository : Repository
             _PGP_Quest_isComplete = value;
             if (value)
             {
+                quests[3].gameObject.SetActive(true);
                 manager.Notify_PGP_Quest();
+            }
+        }
+    }
+    
+    // Получение и установка кол-ва зон грунтовки
+    public int FoamAmount
+    {
+        get
+        {
+            return _FoamAmount;
+        }
+        set
+        {
+            _FoamAmount = value;
+            if (value <= 0)
+            {
+                Foam_Quest_isComplete = true;
+            }
+        }
+    }
+
+    public bool Foam_Quest_isComplete
+    {
+        get
+        {
+            return _Foam_Quest_isComplete;
+        }
+        set
+        {
+            _Foam_Quest_isComplete = value;
+            if (value)
+            {
+                manager.Notify_Foam_Quest();
             }
         }
     }

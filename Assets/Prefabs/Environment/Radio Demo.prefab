@@ -208,8 +208,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8a0945ec0bfe00c4c9dd8b585850db6a, type: 3}
   - {fileID: 8300000, guid: 4bb163af66a209749bbebc0bda743e56, type: 3}
   - {fileID: 8300000, guid: 87438643de146f0469abf095aa0b888d, type: 3}
-  - {fileID: 8300000, guid: 72cfb43c63b42c646ac2189dbc2aa237, type: 3}
   - {fileID: 8300000, guid: dec937ac57cd11041a5ddf645bbc4c7e, type: 3}
+  - {fileID: 8300000, guid: 72cfb43c63b42c646ac2189dbc2aa237, type: 3}
 --- !u!82 &4219925477082701838
 AudioSource:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.501
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -426,9 +426,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4219925479151827071}
-  m_LocalRotation: {x: 0.69042194, y: -0.15270121, z: -0.15270118, w: -0.6904219}
+  m_LocalRotation: {x: -0.69042164, y: 0.15270248, z: 0.15270248, w: 0.69042164}
   m_LocalPosition: {x: -1.5009462, y: 0.822, z: 1.6668787}
-  m_LocalScale: {x: 0.032142293, y: 0.016324585, z: 0.030489715}
+  m_LocalScale: {x: 0.032142293, y: 0.016324587, z: 0.030489715}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4219925477971992033}
