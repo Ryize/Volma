@@ -43,8 +43,8 @@ public class Item_Repository : Repository
     {
         // Получение кол-ва грязи
         _DirtsAmount = quests[0].transform.childCount;
-        _PGPAmount = quests[1].transform.childCount;
-        _PrimerAmount = quests[2].transform.childCount;
+        _PrimerAmount = quests[1].transform.childCount;
+        _PGPAmount = quests[2].transform.childCount;
     }
 
     // Квест ведра
