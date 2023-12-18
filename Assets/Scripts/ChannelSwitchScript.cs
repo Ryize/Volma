@@ -2,24 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class ChannelSwitchScript : MonoBehaviour
 {
     /*
      * Класс реализующий смену треков на радио
      *
-     *
-     * Для того что бы создать трек нужно зайти в папку ScriptableObjects(Assets), нажать ПКМ и в верху выбрать пункт Create.
-     * После чего выбрать пункт RadioTrackScript.
-     * В создавшийся объект нужно засунуть трек, пункт TrackAudioClip, предварительно закинутый в папку Audio,
-     * после чего выбрать крутилку радио и данный скрипт.
      * В свойствах скрипта будет масиив AudioTracks.
-     * Нужно будет выбрать количество элементов в масииве и добавить трек в нужную нам позицию, после чего в скрипте прописать логику(по аналогии с остальными). 
+     * Нужно будет выбрать количество элементов в масииве и добавить трек в нужную нам позицию
      */
     //Заголовок(хз в гайде так делали)
     [Header("List of Tracks")] 
     // Список с треками
-    [SerializeField] private RadioTrackScript[] audioTracks;
+    [SerializeField] private AudioClip[] audioTracks;
 
     //Индекс текущего трека
     private int trackIndex;
@@ -64,10 +60,10 @@ public class ChannelSwitchScript : MonoBehaviour
     private void UpdateTrack(int index)
     {
         // Если индексы равны, то не меняем трек
-        if (index == trackIndex) return;
+        if (index == trackIndex && audioTracks[index] == null) return;
 
         trackIndex = index;
-        radioAudioSource.clip = audioTracks[index].trackAudioClip;
+        radioAudioSource.clip = audioTracks[index];
         PlayAudio();
     }
     

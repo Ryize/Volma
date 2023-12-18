@@ -205,11 +205,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioTracks:
-  - {fileID: 11400000, guid: 0cda54dcefc2fe54585674907974a6f8, type: 2}
-  - {fileID: 11400000, guid: 066eb806d4d2055428e2b56b8c9bdde4, type: 2}
-  - {fileID: 11400000, guid: df6658abb6c880d4792abceaf5458609, type: 2}
-  - {fileID: 11400000, guid: 98b6680e758079b4f818a0efe28a0e2e, type: 2}
-  - {fileID: 11400000, guid: 9cdfd952a16078a4bb61558ea8183b38, type: 2}
+  - {fileID: 8300000, guid: 8a0945ec0bfe00c4c9dd8b585850db6a, type: 3}
+  - {fileID: 8300000, guid: 4bb163af66a209749bbebc0bda743e56, type: 3}
+  - {fileID: 8300000, guid: 87438643de146f0469abf095aa0b888d, type: 3}
+  - {fileID: 8300000, guid: 72cfb43c63b42c646ac2189dbc2aa237, type: 3}
+  - {fileID: 8300000, guid: dec937ac57cd11041a5ddf645bbc4c7e, type: 3}
 --- !u!82 &4219925477082701838
 AudioSource:
   m_ObjectHideFlags: 0
