@@ -3808,7 +3808,6 @@ GameObject:
   - component: {fileID: 592356971}
   - component: {fileID: 592356970}
   - component: {fileID: 592356973}
-  - component: {fileID: 592356974}
   m_Layer: 0
   m_Name: Stats
   m_TagString: Untagged
@@ -3911,19 +3910,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentText: {fileID: 1726575309}
---- !u!114 &592356974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592356968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d937521e8f4cb5988a53d8d09ea7ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 592356973}
 --- !u!1001 &603328800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5355,7 +5341,7 @@ PrefabInstance:
     - target: {fileID: -3862893983457612835, guid: 3c7891ff813a341908c62d34c15d4750, type: 3}
       propertyPath: stats
       value: 
-      objectReference: {fileID: 592356968}
+      objectReference: {fileID: 1611535458}
     - target: {fileID: 1280325394794294952, guid: 3c7891ff813a341908c62d34c15d4750, type: 3}
       propertyPath: InitialModule.maxNumParticles
       value: 10
@@ -13607,6 +13593,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 592356973}
+  manager: {fileID: 1611535457}
+  subTypes:
+  - all_completed
 --- !u!1001 &1625654491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14089,7 +14078,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0446\u0435\u043C\u0435\u043D\u0442: 1\u043A\u0433\n------------------------------------\n\u0432\u043E\u0434\u0430:
+  m_text: "\u0446\u0435\u043C\u0435\u043D\u0442: 1\u043A\u0433\n\u0432\u043E\u0434\u0430:
     1\u043B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16097,7 +16086,7 @@ PrefabInstance:
     - target: {fileID: -5650341189367620552, guid: 88cd37a2d202d87408e0be02c4133eda, type: 3}
       propertyPath: stats
       value: 
-      objectReference: {fileID: 592356968}
+      objectReference: {fileID: 1611535458}
     - target: {fileID: -5650341189367620552, guid: 88cd37a2d202d87408e0be02c4133eda, type: 3}
       propertyPath: bucket
       value: 

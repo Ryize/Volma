@@ -28,6 +28,8 @@ public class Item_Repository : Repository
     private bool _PGP_Quest_isComplete;
     // Статус квеста Пены
     private bool _Foam_Quest_isComplete;
+    // Статус всех квестов
+    protected bool _All_Quests_isComplete;
     
     // Кол-во грязи
     private int _DirtsAmount;
@@ -37,6 +39,8 @@ public class Item_Repository : Repository
     private int _PGPAmount;
     // Кол-во зон для пены
     private int _FoamAmount;
+    // Кол-во выполненных квестов
+    private int _CompletedQuests;
     
     /*
      * Стартовый метод
@@ -50,6 +54,8 @@ public class Item_Repository : Repository
         _PrimerAmount = quests[1].transform.childCount;
         _PGPAmount = quests[2].transform.childCount;
         _FoamAmount = quests[3].transform.childCount;
+
+        _CompletedQuests = 0;
     }
 
     // Квест ведра
@@ -66,6 +72,7 @@ public class Item_Repository : Repository
             if (value)
             {
                 manager.Notify_BucketQuestComplete();
+                CompletedQuests++;
             }
         }
     }
@@ -117,6 +124,7 @@ public class Item_Repository : Repository
             if (value)
             {
                 manager.Notify_DirtQuestComplete();
+                CompletedQuests++;
             }
         }
     }
@@ -150,6 +158,7 @@ public class Item_Repository : Repository
             if (value)
             {
                 manager.Notify_Primer_Quest();
+                CompletedQuests++;
             }
         }
     }
@@ -192,6 +201,7 @@ public class Item_Repository : Repository
             {
                 quests[3].gameObject.SetActive(true);
                 manager.Notify_PGP_Quest();
+                CompletedQuests++;
             }
         }
     }
@@ -225,6 +235,24 @@ public class Item_Repository : Repository
             if (value)
             {
                 manager.Notify_Foam_Quest();
+                CompletedQuests++;
+            }
+        }
+    }
+
+    public int CompletedQuests
+    {
+        get
+        {
+            return _CompletedQuests;
+        }
+        set
+        {
+            _CompletedQuests = value;
+            // quests.Count не работает, хз почему
+            if (value == 4)
+            {
+                _All_Quests_isComplete = true;
             }
         }
     }

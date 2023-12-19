@@ -11,7 +11,7 @@ public class Bag_Resource_Script : MonoBehaviour
     private CounterTracker bucketFillAmount;
 
     // Статистика
-    [SerializeField] private GameObject stats;
+    [SerializeField] private Stats stats;
     
     // Эффект мешка
     private ParticleSystem sandLeak;
@@ -58,7 +58,7 @@ public class Bag_Resource_Script : MonoBehaviour
             _bagMovementSound.Pause();
             return;
         }
-        stats.GetComponent<Stats>().cement += transform.GetComponent<Rigidbody>().velocity.magnitude * 6;
+        stats.cement += transform.GetComponent<Rigidbody>().velocity.magnitude * 6;
  
         Vector3 origin = transform.position;
         Vector3 derection = Vector3.down;

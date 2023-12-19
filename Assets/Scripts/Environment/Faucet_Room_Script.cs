@@ -16,7 +16,7 @@ public class Faucet_Room_Script : Base
     private ParticleSystem waterParticles;
     private ParticleSystem waterSplashParticles;
 
-    public GameObject stats;
+    [SerializeField] private Stats stats;
 
     private void Start()
     {
@@ -43,7 +43,7 @@ public class Faucet_Room_Script : Base
         waterParticles.maxParticles = (int) (faucetForce * 10);
         waterSplashParticles.maxParticles = (int) (faucetForce * 10);
         
-        stats.GetComponent<Stats>().water += faucetForce * 0.5f;
+        stats.water += faucetForce * 0.5f;
         
         Vector3 origin = transform.position;
         Vector3 derection = Vector3.down;
