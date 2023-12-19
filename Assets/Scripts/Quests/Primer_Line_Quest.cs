@@ -18,6 +18,9 @@ public class Primer_Line_Quest: Quest
     
     // Готова ли грунтовка
     private bool _isDone;
+    
+    // Звук выполнения задания
+    private AudioSource doneAudioSource;
 
     public Item_Repository repository;
 
@@ -32,6 +35,8 @@ public class Primer_Line_Quest: Quest
         primerRenderer.enabled = false;
         
         _isDone = false;
+
+        doneAudioSource = GetComponent<AudioSource>();
     }
 
     /*
@@ -49,10 +54,11 @@ public class Primer_Line_Quest: Quest
         
         ChangeObjectOpacity(_opacity += 0.01f);
         
-        if (Math.Abs(_opacity - 1f) < 0.001f)
+        if (Math.Abs(_opacity - 1f) < 0.1f)
         {
             _isDone = true;
             repository.PrimerAmount--;
+            doneAudioSource.Play();
         }
     }
 

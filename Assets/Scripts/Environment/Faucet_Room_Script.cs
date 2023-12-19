@@ -13,10 +13,15 @@ public class Faucet_Room_Script : Base
     // Сколько осталось набрать воды
     private CounterTracker bucketCounter;
     
+    // Эффекты воды
     private ParticleSystem waterParticles;
     private ParticleSystem waterSplashParticles;
+    
+    // Звук воды
+    private AudioSource waterAudioSource;
 
     [SerializeField] private Stats stats;
+    
 
     private void Start()
     {
@@ -27,6 +32,8 @@ public class Faucet_Room_Script : Base
 
         waterParticles.maxParticles = 0;
         waterSplashParticles.maxParticles = 0;
+
+        waterAudioSource = GetComponent<AudioSource>();
     }
 
     /*
@@ -42,6 +49,22 @@ public class Faucet_Room_Script : Base
 
         waterParticles.maxParticles = (int) (faucetForce * 10);
         waterSplashParticles.maxParticles = (int) (faucetForce * 10);
+
+        if (Mathf.Approximately(faucetForce, 0))
+        {
+            if (waterAudioSource.isPlaying)
+            {
+                waterAudioSource.Stop();
+            }
+        }
+        else
+        {
+            if (!waterAudioSource.isPlaying)
+            {
+                waterAudioSource.Play();
+            }
+            waterAudioSource.volume = faucetForce * 0.5f;
+        }
         
         stats.water += faucetForce * 0.5f;
         

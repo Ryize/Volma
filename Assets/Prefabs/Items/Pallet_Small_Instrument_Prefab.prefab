@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1076461322885506392}
   - component: {fileID: 6440501868134806687}
   - component: {fileID: 7334319556142032451}
-  - component: {fileID: 6481822782021077387}
   - component: {fileID: 2162598768280006410}
   m_Layer: 0
   m_Name: Blade
@@ -85,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6481822782021077387
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175304230784624182}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4493585093827132993, guid: 4a09dc799c66142eabbb184196686e5a, type: 3}
 --- !u!64 &2162598768280006410
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -124,7 +109,6 @@ GameObject:
   - component: {fileID: 1814187840335520055}
   - component: {fileID: 2198524410819329426}
   - component: {fileID: 6622207003508166141}
-  - component: {fileID: 8104316382288204355}
   - component: {fileID: 853498539515474738}
   m_Layer: 0
   m_Name: Handle
@@ -198,20 +182,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8104316382288204355
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455549526123735382}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 4a09dc799c66142eabbb184196686e5a, type: 3}
 --- !u!65 &853498539515474738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -236,7 +206,6 @@ GameObject:
   - component: {fileID: 5680130279787736578}
   - component: {fileID: 1796069735696835879}
   - component: {fileID: 5551581594073880982}
-  - component: {fileID: 6755385346750500750}
   - component: {fileID: 4423525217021851525}
   m_Layer: 0
   m_Name: Grip
@@ -310,20 +279,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6755385346750500750
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6245172633258514413}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: 4a09dc799c66142eabbb184196686e5a, type: 3}
 --- !u!65 &4423525217021851525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -514,10 +469,10 @@ MonoBehaviour:
   poseEditorExpanded: 1
   blendEditorExpanded: 1
   poseNames:
-  - PalletPose (MAIN)
+  - PalletSmallPose (MAIN)
   overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}
   overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25, type: 3}
-  skeletonMainPose: {fileID: 11400000, guid: 6fcac25ac50087244bcd2d19a81ac55e, type: 2}
+  skeletonMainPose: {fileID: 11400000, guid: d7f7a534aebdd194ca8aaa5892a63d9f, type: 2}
   skeletonAdditionalPoses: []
   showLeftPreview: 0
   showRightPreview: 0

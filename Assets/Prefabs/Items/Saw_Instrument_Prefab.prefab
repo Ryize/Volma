@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CapMaterial: {fileID: 2100000, guid: 16733bc6e77b33a4ea7498167f986505, type: 2}
+  redQuestMaterial: {fileID: 2100000, guid: d6545057fdd6a5a4da012f8dbdb437e6, type: 2}
+  greenQuestMaterial: {fileID: 2100000, guid: a111a1b33c58e3d4aafec136d4257534, type: 2}
 --- !u!1 &-516098083770646512
 GameObject:
   m_ObjectHideFlags: 0

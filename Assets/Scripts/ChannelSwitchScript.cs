@@ -9,13 +9,17 @@ public class ChannelSwitchScript : MonoBehaviour
      * В свойствах скрипта будет масиив AudioTracks.
      * Нужно будет выбрать количество элементов в масииве и добавить трек в нужную нам позицию
      */
-    //Заголовок(хз в гайде так делали)
+    
+    //Заголовок
     [Header("List of Tracks")] 
     // Список с треками
     [SerializeField] private AudioClip[] audioTracks;
     
+    //Заголовок для кнопок
     [Header("Regulators")]
+    // Регулятор треков
     [SerializeField] public Transform trackRegulator;
+    // Регулятор громкости
     [SerializeField] public Transform valumeRegulator;
 
     //Индекс текущего трека
@@ -43,14 +47,17 @@ public class ChannelSwitchScript : MonoBehaviour
         
         //Получаем изначальный угол поворота
         _prevRotation = trackRegulator.localRotation.eulerAngles.y;
+
+        int trackListLength = audioTracks.Length;
         
-        if (audioTracks != null && audioTracks.Length > 1)
+        if (audioTracks != null && trackListLength > 1)
         {
             trackRanges = new List<float>();
             
-            for (int range = 0; range < audioTracks.Length - 1; range++)
+            for (int range = 1; range < trackListLength; range++)
             {
-                trackRanges.Add(Mathf.Round((float) range / (audioTracks.Length - 1) * 360 + 30));
+                trackRanges.Add(Mathf.Round((float) range / (trackListLength) * 360));
+                Debug.Log(trackRanges[range-1]);
             }
         }
     }
@@ -112,7 +119,8 @@ public class ChannelSwitchScript : MonoBehaviour
         
         foreach (float range in trackRanges)
         {
-            if (_lastRotation - range is >= 0 and <= 30f)
+            float ratio = _lastRotation - range;
+            if (ratio >= 0 && ratio <= trackRanges[0] / 2)
             {
                 UpdateTrack(trackRanges.IndexOf(range) + 1);
                 return;
