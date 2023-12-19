@@ -250,7 +250,7 @@ public class Item_Repository : Repository
         {
             _CompletedQuests = value;
             // quests.Count не работает, хз почему
-            if (value == 4)
+            if (value >= 5)
             {
                 _All_Quests_isComplete = true;
             }
