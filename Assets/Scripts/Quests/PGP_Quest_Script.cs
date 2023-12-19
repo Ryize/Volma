@@ -42,9 +42,4 @@ public class PGP_Quest_Script : Quest
             transform.GetChild(++pgpCounter).gameObject.SetActive(true);
         }
     }
-
-    public void SetPpg(GameObject obj)
-    {
-        transform.GetChild(pgpCounter).GetComponent<PGP_Zone_Quest_Script>().SetPgp(obj);
-    }
 }
