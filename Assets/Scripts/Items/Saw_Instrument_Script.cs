@@ -1,4 +1,8 @@
+using System;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Threading;
+using BLINDED_AM_ME.Extensions;
 
 public class Saw_Instrument_Script : MonoBehaviour
 {
@@ -8,16 +12,21 @@ public class Saw_Instrument_Script : MonoBehaviour
      * Позволяет разрезать объекты (ПГП) пополам.
     */
     
-    // Ссылка на префаб pgpFrontVR
-    public GameObject pgpFrontVR;
-    // Ссылка на префаб pgpBackVR
-    public GameObject pgpBackVR;
-    // Rigidbody пилы
-    public Rigidbody sawRigidbody;
     // Скорость пилы
-    private float velocity;
+    private Rigidbody sawRigidbody;
+    
     // Начальная прочность объекта
-    private PGP_Strength_Resource_Script pgpStatus; 
+    private CounterTracker pgpCounterTracker;
+    
+    // Материал разрезанного объекта
+    [SerializeField] private Material CapMaterial;
+    
+    private CancellationTokenSource _previousTaskCancel;
+
+    private void Start()
+    {
+        sawRigidbody = transform.parent.GetComponent<Rigidbody>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -29,42 +38,131 @@ public class Saw_Instrument_Script : MonoBehaviour
          * Args:
          *  other: Collider (объект, которого мы коснулись)
         */
-        if (!other.transform.root.CompareTag("pgp_item"))
-            return;
-
-        velocity = sawRigidbody.velocity.magnitude;
-        pgpStatus = other.transform.root.gameObject.GetComponent<PGP_Strength_Resource_Script>();
-        pgpStatus.strength -= velocity;
         
-        // Если ПГП уже разрезан, то мы не можем разрезать его ещё раз.
-        if (pgpStatus.hasSliced)
-            return;
-
-        if (pgpStatus.strength < 0.1)
+        if (other.name.ToLower().Contains("pgp_item"))
         {
-            Split(other.transform.root.gameObject);
-            pgpStatus.hasSliced = true;
+	        Transform pgp = other.transform;
+	        pgpCounterTracker = pgp.GetComponent<CounterTracker>();
+
+	        float velocity = Mathf.Clamp01(sawRigidbody.velocity.magnitude * 0.5f);
+        
+	        if ((pgpCounterTracker.tracker -= velocity) <= 0)
+	        {
+		        //var timeLimit = new CancellationTokenSource(TimeSpan.FromSeconds(5)).Token;
+	        
+		        //Cut(other.gameObject, timeLimit);
+	        
+		        Cut(other.gameObject);
+	        }
+        }
+
+        if (other.name.ToLower().Contains("cut collider"))
+        {
+	        Transform cutLine = other.transform.GetChild(0);
+	        cutLine.GetComponent<MeshRenderer>().enabled = true;
+
+	        Vector3 position = new Vector3(0, other.transform.InverseTransformPoint(transform.position).y, 0);
+
+	        cutLine.localPosition = position;
         }
     }
 
-    private void Split(GameObject other)
+    private void OnTriggerExit(Collider other)
     {
-        /*
-         * Метод реализующий логику разделения (располовинивая) объектов при разрезании.
-         *
-         * Args:
-         *  other: GameObject (объект, который столкнулась пила)
-         */
-        // Получаем позицию и поворот объекта, с которым столкнулась пила
-        Vector3 position = other.transform.position;
-        Quaternion rotation = other.transform.rotation;
-
-        // Уничтожаем объект
-        //other.GetComponent<>()
-        Destroy(other);
-
-        // Создаем две половинки объекта pgpFrontVR и pgpBackVR
-        Instantiate(pgpFrontVR, position, rotation);
-        Instantiate(pgpBackVR, position, rotation);
+	    if (other.name.ToLower().Contains("cut collider"))
+	    {
+		    Transform cutLine = other.transform.GetChild(0);
+		    cutLine.GetComponent<MeshRenderer>().enabled = false;
+	    }
     }
+
+    private void Cut(GameObject target, CancellationToken cancellationToken = default)
+		{
+			try
+			{
+				_previousTaskCancel?.Cancel();
+				_previousTaskCancel = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+				cancellationToken = _previousTaskCancel.Token;
+				cancellationToken.ThrowIfCancellationRequested();
+
+				// get the victims mesh
+				var leftSide = target;
+				var leftMeshFilter = leftSide.GetComponent<MeshFilter>();
+				var leftMeshRenderer = leftSide.GetComponent<MeshRenderer>();
+
+				var rightSide = Instantiate(target);
+				var rightMeshFilter = rightSide.GetComponent<MeshFilter>();
+				var rightMeshRenderer = rightSide.GetComponent<MeshRenderer>();
+
+				var materials = new List<Material>();
+				leftMeshRenderer.GetSharedMaterials(materials);
+
+				// the insides
+				var capSubmeshIndex = 0;
+				if (materials.Contains(CapMaterial))
+					capSubmeshIndex = materials.IndexOf(CapMaterial);
+				else
+				{
+					capSubmeshIndex = materials.Count;
+					materials.Add(CapMaterial);
+				}
+
+				// set the blade relative to victim
+				var blade = new Plane(
+					Vector3.up,
+					leftSide.transform.InverseTransformPoint(transform.position));
+				
+				// разрез ровно посередине
+				/*var blade = new Plane(
+					Vector3.up,
+					leftSide.transform.localPosition);*/
+
+				Debug.Log("blade: " + blade);
+
+				var mesh = leftMeshFilter.sharedMesh;
+				//var mesh = leftMeshFilter.mesh;
+
+				// Cut
+				var pieces = mesh.Cut(blade, capSubmeshIndex, cancellationToken);
+
+				leftSide.name = "LeftSide";
+				leftMeshFilter.mesh = pieces.Item1;
+				leftMeshRenderer.sharedMaterials = materials.ToArray();
+				//leftMeshRenderer.materials = materials.ToArray();
+
+				rightSide.transform.SetPositionAndRotation(leftSide.transform.position, leftSide.transform.rotation);
+				rightSide.transform.localScale = leftSide.transform.localScale;
+
+				rightSide.name = "RightSide";
+				rightMeshFilter.mesh = pieces.Item2;
+				rightMeshRenderer.sharedMaterials = materials.ToArray();
+				//rightMeshRenderer.materials = materials.ToArray();
+
+				// Physics 
+				Destroy(leftSide.GetComponent<Collider>());
+				Destroy(rightSide.GetComponent<Collider>());
+
+				// Replace
+				var leftCollider = leftSide.AddComponent<MeshCollider>();
+				leftCollider.convex = true;
+				leftCollider.sharedMesh = pieces.Item1;
+
+				var rightCollider = rightSide.AddComponent<MeshCollider>();
+				rightCollider.convex = true;
+				rightCollider.sharedMesh = pieces.Item2;
+
+				// rigidbody
+				if (!leftSide.GetComponent<Rigidbody>())
+					leftSide.AddComponent<Rigidbody>();
+
+				if (!rightSide.GetComponent<Rigidbody>())
+					rightSide.AddComponent<Rigidbody>();
+
+				rightSide.GetComponent<Rigidbody>().useGravity = true;
+			}
+			catch (Exception ex)
+			{
+				Debug.LogError(ex);
+			}
+		}
 }
