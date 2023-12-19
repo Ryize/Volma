@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Cuvette_Instrument_Script : MonoBehaviour
 {
-    /*
+    /*/*
      * Добавляет логику обмакивания валика в кюветку
-     */
+     #1#
     
     // Для нахождения скорости валика
     public Rigidbody paintRoller;
@@ -20,7 +20,7 @@ public class Cuvette_Instrument_Script : MonoBehaviour
          *
          * Args:
          *  other: Collider (объект, которого мы коснулись)
-         */
+         #1#
         // Касаться должен именно валик
         if (other != brush.roller)
             return;
@@ -31,5 +31,5 @@ public class Cuvette_Instrument_Script : MonoBehaviour
         // Увеличение кол-ва краски на валике
         brush.paintFlowTracker += force;
         brush.paintFlowTracker = Mathf.Clamp(brush.paintFlowTracker, 0, 100);
-    }
+    }*/
 }

@@ -64,8 +64,16 @@ public class Main_Quest : Quest
                 desk.QuestCompleted(1);
                 break;
             // Квест грунтовки
-            case "pgp_completed":
+            case "primer_completed":
                 desk.QuestCompleted(2);
+                break;
+            // Квест ПГП
+            case "pgp_completed":
+                desk.QuestCompleted(3);
+                break;
+            // Квест пены
+            case "foam_completed":
+                desk.QuestCompleted(4);
                 break;
             // Обработка неизвестного квеста
             default:

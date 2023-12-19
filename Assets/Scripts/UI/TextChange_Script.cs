@@ -23,6 +23,9 @@ public class TextChange_Script : MonoBehaviour
     // Индекс текущего квеста для вывода
     private int currentQuest = 0;
 
+    private static readonly Color colorQuestCompleted = Color.green;
+    private static readonly Color colorQuestIncompleted = Color.white;
+
 
     /* Метод с стартовыми данными
      *
@@ -46,6 +49,13 @@ public class TextChange_Script : MonoBehaviour
         _completedQuests.Add(false);
         
         // Третий квест
+        _quests.Add("Грунтовка поверхности:\n\t" +
+                    "1.Налить грунтовкку в кюветку\n\t" +
+                    "2.Обмакнуть валик в кюветку\n\t" +
+                    "3.Нанести грунтовку на помеченую на поверхность\n");
+        _completedQuests.Add(false);
+        
+        // Четвертый квест
         _quests.Add("Установка ПГП плит:\n\t" +
                    "1.Нанести приготовленный раствор на место установки плиты(пол, стена) с помощью шпателя\n\t" +
                    "2.Взять плиту\n\t" +
@@ -54,51 +64,38 @@ public class TextChange_Script : MonoBehaviour
                    "5.Нанести клей на установленную плиту(сверху, ребро)\n\t" +
                    "6.Установить следующую плиту\n\t" +
                    "7.Повторить предыдущие шаги \n\t"+
-                   "8.При создании дверного проёма монтировать распорку\n\t"+
-                   "9.После возведения залить место стыка стены с потолком монтажной пеной\n");
+                   "8.При создании дверного проёма монтировать распорку\n");
+        _completedQuests.Add(false);
+        
+        // Пятый квест
+        _quests.Add("Установка ПГП плит:\n\t" +
+                    "9.После возведения залить место стыка стены с потолком монтажной пеной\n");
         _completedQuests.Add(false);
         
         //currentText.text = _quests[currentQuest];
 
         _questCompleteSound = GetComponent<AudioSource>();
     }
+    
+    private void ChangeText(int direction)
+    {
+        // Напрвеление в котором меняем квест
+        currentQuest  = Mathf.Clamp(currentQuest + direction, 0, _completedQuests.Count-1) ;
+        
+        // Меняем текст 
+        currentText.text = _quests[currentQuest];
+
+        // Меняем цвет текста в зависимости от выполнения квеста
+        currentText.color = _completedQuests[currentQuest] ? colorQuestCompleted : colorQuestIncompleted;
+    }
+    
     public void ChangeTextNext()
     {
-        // Метод для переключения на следующий квест
-        if (currentQuest <2)
-        {
-            currentQuest++;
-            currentText.text = _quests[currentQuest];
-        }
-
-        // Меняет цвет текста в зависимости от завершенности квеста
-        if (_completedQuests[currentQuest])
-        {
-            currentText.color = Color.green;
-        }
-        else
-        {
-            currentText.color = Color.white;
-        }
+        ChangeText(1);
     }
     public void ChangeTextPrevious()
     {
-        // Метод для переключения на предыдущий квест
-        if(currentQuest!=0)
-        {
-            currentQuest--;
-            currentText.text = _quests[currentQuest];
-        }
-        
-        // Меняет цвет текста в зависимости от завершенности квеста
-        if (_completedQuests[currentQuest])
-        {
-            currentText.color = Color.green;
-        }
-        else
-        {
-            currentText.color = Color.white;
-        }
+        ChangeText(-1);
     }
 
     /* Метод выполнения квеста
@@ -109,11 +106,16 @@ public class TextChange_Script : MonoBehaviour
      */
     public void QuestCompleted(int questNumber)
     {
+        if (questNumber < 0 || questNumber >= _completedQuests.Count)
+        {
+            return;
+        }
+        
         _completedQuests[questNumber] = true;
 
         if (questNumber == currentQuest)
         {
-            currentText.color = Color.green;
+            currentText.color = colorQuestCompleted;
         }
         
         _questCompleteSound.Play();

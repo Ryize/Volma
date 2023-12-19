@@ -15,9 +15,6 @@ public class Item_Manager : Managers
      * Метод уведомления о падении
      *
      * Уведовляет всех подписчкиков о событии падения кубика
-     * 
-     * Args:
-     *  status: bool (статус квеста)
      */
     public void Notify_Fall()
     {
@@ -28,9 +25,6 @@ public class Item_Manager : Managers
      * Метод уведомления о завершении квеста
      *
      * Уведовляет всех подписчкиков о событии завершения квеста
-     *
-     * Args:
-     *  status: bool (статус квеста)
      */
     public void Notify_DirtQuestComplete()
     {
@@ -41,9 +35,6 @@ public class Item_Manager : Managers
      * Метод уведомления о завершении квеста
      *
      * Уведовляет всех подписчкиков о событии завершения квеста
-     *
-     * Args:
-     *  status: bool (статус квеста)
      */
     public void Notify_BucketQuestComplete()
     {
@@ -54,22 +45,26 @@ public class Item_Manager : Managers
      * Метод уведомления о завершении квеста
      *
      * Уведовляет всех подписчкиков о событии завершения квеста
-     *
-     * Args:
-     *  status: bool (статус квеста)
      */
     public void Notify_DirtsIsLeft()
     {
         Notify("dirtsLefted");
+    }
+
+    /*
+     * Метод уведомления о завершении квеста грунтовки
+     *
+     * Уведовляет всех подписчкиков о событии завершении квеста грунтовки
+     */
+    public void Notify_Primer_Quest()
+    {
+        Notify("primer_completed");
     }
     
     /*
      * Метод уведомления о завершении зоны ПГП
      *
      * Уведовляет всех подписчкиков о событии завершении зоны ПГП
-     *
-     * Args:
-     *  status: bool (статус квеста)
      */
     public void Notify_PGP_Zone_Quest()
     {
@@ -80,13 +75,20 @@ public class Item_Manager : Managers
      * Метод уведомления о завершении квеста ПГП
      *
      * Уведовляет всех подписчкиков о событии завершении квеста ПГП
-     *
-     * Args:
-     *  status: bool (статус квеста)
      */
     public void Notify_PGP_Quest()
     {
         Notify("pgp_completed");
+    }
+    
+    /*
+     * Метод уведомления о завершении квеста пены
+     *
+     * Уведовляет всех подписчкиков о событии завершении квеста пены
+     */
+    public void Notify_Foam_Quest()
+    {
+        Notify("foam_completed");
     }
     
     /*
@@ -138,6 +140,28 @@ public class Item_Manager : Managers
                 foreach (var observer in observers.Value)
                 {
                     observer.Notify(subscribeType);
+                }
+            }
+        }
+    }
+    
+    /*
+     * Метод уведомления
+     *
+     * Уведовляет всех подписчкиков о событии
+     *
+     * Args:
+     *  status: bool (статус квеста)
+     */
+    public void Notify(string subscribeType, bool status = true)
+    {
+        foreach (var observers in _observers)
+        {
+            if (observers.Key == subscribeType)
+            {
+                foreach (var observer in observers.Value)
+                {
+                    observer.Notify(subscribeType, status);
                 }
             }
         }

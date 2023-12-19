@@ -26,7 +26,7 @@ public class PGP_Quest_Script : Quest
     {
         switch (questType)
         {
-            case "bucket_completed":
+            case "primer_completed":
                 transform.GetChild(0).gameObject.SetActive(true);
                 break;
             case "pgp_zone_completed":
@@ -40,10 +40,6 @@ public class PGP_Quest_Script : Quest
         if (transform.childCount > pgpCounter+1)
         {
             transform.GetChild(++pgpCounter).gameObject.SetActive(true);
-        }
-        else
-        {
-            manager.Notify_PGP_Quest();
         }
     }
 
