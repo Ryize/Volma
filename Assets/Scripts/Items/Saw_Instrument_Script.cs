@@ -54,13 +54,10 @@ public class Saw_Instrument_Script : MonoBehaviour
 		        Transform cutLine = pgp.GetChild(0).GetChild(0);
 		        bool isHalf = Mathf.Abs(cutLine.localPosition.y) < 0.2;
 
-		        if (!isHalf)
-		        {
-			        Transform newPgp = Instantiate(pgp);
-			        newPgp.name = "pgp_item";
-			        newPgp.GetComponent<Rigidbody>().useGravity = true;
-			        newPgp.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled = false;
-		        }
+		        Transform newPgp = Instantiate(pgp);
+		        newPgp.name = "pgp_item";
+		        newPgp.GetComponent<Rigidbody>().useGravity = true;
+		        newPgp.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled = false;
 		        
 		        Cut(other.gameObject, isHalf);
 	        }

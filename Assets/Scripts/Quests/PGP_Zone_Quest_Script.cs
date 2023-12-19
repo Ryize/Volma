@@ -10,13 +10,13 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
     
     public Item_Repository repository;
 
-    [SerializeField] private GameObject PGP;
+    private GameObject PGP;
     
     protected virtual void Start()
     {
         standardPgpZone = new Vector3(-2.31900001f, 0.254000306f, 1.29499996f);
         PGP = transform.GetChild(0).gameObject;
-        PgpZone = transform.GetChild(4).gameObject;
+        PgpZone = transform.GetChild(5).gameObject;
         pgpIsSetted = false;
     }
 
@@ -35,7 +35,7 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
         }
         
         // Должно быть три ребенка (пгп, вертикальный и горизонтальный клей)
-        if (transform.childCount != 3)
+        if (transform.childCount != 4)
         {
             return;
         }
@@ -60,8 +60,18 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
     {
         PgpZone.SetActive(false);
     }
-
+    
     public virtual void SetPgp(GameObject obj)
+    {
+        PGP.SetActive(true);
+
+        obj.transform.position = standardPgpZone;
+
+        pgpIsSetted = true;
+    }
+
+    // Метод установки ПГП (для множества частей)
+    /*public virtual void SetPgp(GameObject obj)
     {
         var pgpName = obj.name.ToLower();
         
@@ -106,5 +116,5 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
         }
 
         pgpIsSetted = true;
-    }
+    }*/
 }

@@ -67,8 +67,6 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
             Destroy(task.gameObject);
             meshRenderer.enabled = false;
         }
-
-        return;      
         
         // Если пгп не активна
         if (!eventZone.GetChild(0).gameObject.activeSelf)
