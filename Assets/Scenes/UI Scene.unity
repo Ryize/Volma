@@ -11284,6 +11284,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4219925477082701839, guid: 8cb504cf3a1a3e949aa8399e44e6e2b6, type: 3}
+      propertyPath: audioTracks.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219925477082701839, guid: 8cb504cf3a1a3e949aa8399e44e6e2b6, type: 3}
+      propertyPath: audioTracks.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 03a4e4d0daa96964d9d6fc26c1b9f859, type: 3}
+    - target: {fileID: 4219925477082701839, guid: 8cb504cf3a1a3e949aa8399e44e6e2b6, type: 3}
+      propertyPath: audioTracks.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d0259563d76a224f8e3726de6e48246, type: 3}
     - target: {fileID: 4219925479151827043, guid: 8cb504cf3a1a3e949aa8399e44e6e2b6, type: 3}
       propertyPath: m_RootOrder
       value: 8
