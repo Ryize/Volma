@@ -994,6 +994,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2026805807}
     m_Modifications:
+    - target: {fileID: 3730781866617909656, guid: d7c557bdbd737d242958c8a52d986fea, type: 3}
+      propertyPath: m_Mass
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5389484939067304435, guid: d7c557bdbd737d242958c8a52d986fea, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1315,6 +1319,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2026805807}
     m_Modifications:
+    - target: {fileID: -5650216492911095833, guid: 7a8a78109bc4dab43968d27864a1f1d5, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3375540413476912517, guid: 7a8a78109bc4dab43968d27864a1f1d5, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1968,6 +1976,10 @@ PrefabInstance:
     - target: {fileID: 825396194248456467, guid: 0ef0a50c81691134eac0bd4b8b9aaa9f, type: 3}
       propertyPath: m_Name
       value: Cuvette_Instrument_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551651714739202472, guid: 0ef0a50c81691134eac0bd4b8b9aaa9f, type: 3}
+      propertyPath: m_Mass
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef0a50c81691134eac0bd4b8b9aaa9f, type: 3}
@@ -2963,6 +2975,10 @@ PrefabInstance:
     - target: {fileID: 5143439256878060032, guid: 3243bea982df66d479cd40c02baf6880, type: 3}
       propertyPath: m_Name
       value: Roller_Instrumnet_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937337005652335899, guid: 3243bea982df66d479cd40c02baf6880, type: 3}
+      propertyPath: m_Mass
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3243bea982df66d479cd40c02baf6880, type: 3}
@@ -13120,6 +13136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ladder_Instrumnet_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 5059986706736720666, guid: dfc597e134bf78144bf941a07bef5c01, type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfc597e134bf78144bf941a07bef5c01, type: 3}
 --- !u!1 &1611535454
@@ -13528,6 +13548,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2026805807}
     m_Modifications:
+    - target: {fileID: 1405582479826929330, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3701137197923413803, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -14212,6 +14236,10 @@ PrefabInstance:
       propertyPath: repository
       value: 
       objectReference: {fileID: 1611535456}
+    - target: {fileID: 7509196762363892007, guid: 51757c701c34755409fb2272355e2657, type: 3}
+      propertyPath: m_Mass
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51757c701c34755409fb2272355e2657, type: 3}
 --- !u!1001 &1905692728
@@ -14803,6 +14831,10 @@ PrefabInstance:
     - target: {fileID: 1815282635631116926, guid: 8b05a6cdf75a4694182a2e90e6358820, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359393286551064031, guid: 8b05a6cdf75a4694182a2e90e6358820, type: 3}
+      propertyPath: m_Mass
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b05a6cdf75a4694182a2e90e6358820, type: 3}
@@ -15632,6 +15664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bag_Volma_Resource_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4036060762964706213, guid: 88cd37a2d202d87408e0be02c4133eda, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88cd37a2d202d87408e0be02c4133eda, type: 3}
 --- !u!1001 &2084193891
@@ -16048,6 +16084,10 @@ PrefabInstance:
     - target: {fileID: 849487172368056112, guid: 944e5008b467ae447b67f820c2b5c211, type: 3}
       propertyPath: m_Name
       value: Pallet_Instrumnet_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853547354982550490, guid: 944e5008b467ae447b67f820c2b5c211, type: 3}
+      propertyPath: m_Mass
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2182413065264222132, guid: 944e5008b467ae447b67f820c2b5c211, type: 3}
       propertyPath: m_RootOrder
