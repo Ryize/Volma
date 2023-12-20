@@ -911,7 +911,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a7470848c84005e4f873e20ddc40b4be, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7470848c84005e4f873e20ddc40b4be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2088,6 +2088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: room_menu
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b36829612fb4ec94eb83a4ed37d4a8e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b36829612fb4ec94eb83a4ed37d4a8e2, type: 3}
 --- !u!1001 &1027149517
@@ -3214,6 +3218,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d953f7483afa7f7418f59cd3d441df22, type: 3}
       propertyPath: m_Name
       value: room_menu1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d953f7483afa7f7418f59cd3d441df22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d953f7483afa7f7418f59cd3d441df22, type: 3}
