@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bag_Resource_Script : MonoBehaviour
@@ -19,6 +18,11 @@ public class Bag_Resource_Script : MonoBehaviour
     //звук высыпания из мешка
     private AudioSource _bagMovementSound;
 
+    /*
+     * Стартовый метод
+     *
+     * Определяет компоненты ведра
+     */
     private void Start()
     {
         /*
@@ -32,14 +36,13 @@ public class Bag_Resource_Script : MonoBehaviour
         sandLeak.maxParticles = 0;
     }
 
+    /*
+     * Метод позволяющий засыпать цемент.
+     *
+     * Запускается раз в секунду и при выполнении условий засыпает цемент.
+     */
     void FallingCement()
     {
-        /*
-         * Метод позволяющий засыпать цемент.
-         *
-         * Запускается раз в секунду и при выполнении условий засыпает цемент.
-        */
-
         // Если мешок перевернут
         float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
         float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);

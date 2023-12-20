@@ -21,27 +21,36 @@ public class Saw_Instrument_Script : MonoBehaviour
     // Материал разрезанного объекта
     [SerializeField] private Material CapMaterial;
 
+	// Красный квестовый материал
     [SerializeField] private Material redQuestMaterial;
+    
+    // Зеленый квестовый материал
     [SerializeField] private Material greenQuestMaterial;
     
+	// Переменная для распила (не трогать)
     private CancellationTokenSource _previousTaskCancel;
 
+    /*
+     * Стартовый метод
+     *
+     * Определяет компоненты пилы
+     */
     private void Start()
     {
         sawRigidbody = transform.parent.GetComponent<Rigidbody>();
     }
 
+    /*
+     * Метод вызывающийся автоматически, при нахождении пилы в коллайдере объекта.
+     *
+     * Отслеживается ПГП, тк только он может разрезаться.
+     * Отслеживает интерфейс для разреза (перемещает место разреза в зависимости нахождения пилы)
+     *
+     * Args:
+     *  other: Collider (объект, которого мы коснулись)
+     */
     private void OnTriggerStay(Collider other)
     {
-        /*
-         * Метод вызывающийся автоматически, при касании пилы с объектом.
-         *
-         * Отслеживается именно ПГП, тк только он может разрезаться.
-         *
-         * Args:
-         *  other: Collider (объект, которого мы коснулись)
-        */
-        
         if (other.name.ToLower() == "pgp_item")
         {
 	        Transform pgp = other.transform;
@@ -77,6 +86,14 @@ public class Saw_Instrument_Script : MonoBehaviour
         }
     }
 
+    /*
+     * Метод вызывающийся автоматически, при выходе пилы из коллайдера объекта.
+     * 
+     * Отслеживает интерфейс для разреза (убирает его)
+     *
+     * Args:
+     *  other: Collider (объект, которого мы коснулись)
+     */
     private void OnTriggerExit(Collider other)
     {
 	    if (other.name.ToLower().Contains("cut collider"))

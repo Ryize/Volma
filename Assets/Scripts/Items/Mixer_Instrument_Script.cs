@@ -1,4 +1,3 @@
-using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using Valve.VR;
@@ -16,29 +15,36 @@ public class Mixer_Instrument_Script : MonoBehaviour
     // Скрипт анимации миксера
     private Mixer_Animation_Instrument_Script mixerAnimation;
 
+    // Компонент Rigidbody руки
     private Rigidbody handRigidbody;
 
+    // Компонент Interactable миксера
     private Interactable mixerInteractable;
 
+    // Репозиторий предметов
     public Item_Repository repository;
 
+    /*
+     * Стартовый метод
+     *
+     * Определяет компоненты миксера
+     */
     private void Start()
     {
         mixerAnimation = transform.GetComponent<Mixer_Animation_Instrument_Script>();
         mixerInteractable = transform.GetComponent<Interactable>();
     }
 
+    /*
+     * Метод вызывающийся автоматически, при касании миксера с объектом.
+     *
+     * Отслеживается песок, тк только раствор в ведре может размешиваться.
+     *
+     * Args:
+     *  other: Collider (объект, которого мы коснулись)
+     */
     private void OnTriggerEnter(Collider sand)
     {
-        /*
-         * Метод вызывающийся автоматически, при касании миксера с объектом.
-         *
-         * Отслеживается именно ведро, тк только раствор в ведре может размешиваться.
-         *
-         * Args:
-         *  other: Collider (объект, которого мы коснулись)
-        */
-        
         if (!mixerInteractable.attachedToHand)
             return;
         

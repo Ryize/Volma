@@ -1,16 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem.HID;
 using Valve.VR.Extras;
-using Valve.VR.InteractionSystem;
 
 public class LaserHand : SteamVR_LaserPointer
 {
-    private Hand hand;
+    /*
+     * Класс указки
+     *
+     * Класс рисует указку, с помощью которй можно переключать кнопки меню
+     * и телепоритовать предметы к руке
+     */
     
+    /*
+     * Метод входа указки
+     *
+     * Если указка вошла в объект, то она активируется и меняет цвет кнопки на синий
+     * Args:
+     *  e: PointerEventArgs (объект, который поймала указка)
+     */
     public override void OnPointerIn(PointerEventArgs e)
     {
         if(e.target.CompareTag("ButtonUI"))
@@ -23,7 +30,16 @@ public class LaserHand : SteamVR_LaserPointer
             pointer.GetComponent<MeshRenderer>().enabled = true;
         }
     }
-
+    
+    /*
+     * Метод отработки нажатия на кнопку
+     *
+     * Если указка указывает на кнопку, то она на неё нажимает
+     * Если указка указывает на Item, то она телепортирует его к руке
+     * 
+     * Args:
+     *  e: PointerEventArgs (объект, который поймала указка)
+     */
     public override void OnPointerClick(PointerEventArgs e)
     {
         base.OnPointerClick(e);
@@ -39,6 +55,13 @@ public class LaserHand : SteamVR_LaserPointer
         }
     }
 
+    /*
+     * Метод выхода указки
+     *
+     * Если указка вышла из объекта, то она деактивируется и меняет цвет кнопки на белый
+     * Args:
+     *  e: PointerEventArgs (объект, который поймала указка)
+     */
     public override void OnPointerOut(PointerEventArgs e)
     {
         if(e.target.CompareTag("ButtonUI"))
