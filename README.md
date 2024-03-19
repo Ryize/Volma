@@ -1,12 +1,16 @@
 # Проект строительного тренажера
 
-## Используемые средства
-* Unity - версия 2021.3.18
-* SteamVR - плагин для работы с VR
-* Rider - 2023, proffessional edition
-* Github Desktop
-* Jira (Scrum) - таскборд
-* Blender
+## Использованные технологии: 
+
+
+![](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
+![](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white)
+![](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![](https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white)
+![](https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white)
+![](https://img.shields.io/badge/Rider-000000.svg?style=for-the-badge&logo=Rider&logoColor=white&color=black&labelColor=crimson)
+<br>
+
 ## Реализованные возможности в тренажере
 * Меню игры
 * Передвижение и телепортация игрока
