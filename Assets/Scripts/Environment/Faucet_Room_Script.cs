@@ -66,8 +66,6 @@ public class Faucet_Room_Script : Base
             waterAudioSource.volume = faucetForce * 0.5f;
         }
         
-        stats.water += faucetForce * 0.5f;
-        
         Vector3 origin = transform.position;
         Vector3 derection = Vector3.down;
         Debug.Log("[Faucet_Room_Script] FaucetWork derection: " + derection);
@@ -91,7 +89,10 @@ public class Faucet_Room_Script : Base
         }
         
         GameObject empty = bucket.transform.GetChild(bucket.transform.childCount - 1).gameObject;
-        
+
+        // Добавление расхода воды в статистику
+        stats.water += faucetForce * 0.5f;
+
         // Если поставлено не пустое ведро
         if (!empty.activeSelf)
         {
@@ -101,7 +102,6 @@ public class Faucet_Room_Script : Base
         Debug.Log("[Faucet_Room_Script] FaucetWork empty: " + empty.name);
 
         // получаем трекер количества воды в ведре
-        
         bucketCounter = bucket.transform.GetComponent<CounterTracker>();
         bucketCounter.tracker += faucetForce;
         /*

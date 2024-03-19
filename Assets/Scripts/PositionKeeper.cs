@@ -4,14 +4,18 @@ using UnityEngine;
 public class PositionKeeper : MonoBehaviour
 {
     [SerializeField] private Vector3 defaultPosition;
-    
+    [SerializeField] private Vector3 defaultRotation;
+
+    private Rigidbody rigidbody;
+
     void Start()
     {
-        if (defaultPosition.IsUnityNull())
-        {
-            defaultPosition = new Vector3(0, 1, 0);
-        }
-        
+        defaultPosition = transform.position;
+        defaultRotation = transform.eulerAngles;
+
+        rigidbody = transform.GetComponent<Rigidbody>();
+
+
         InvokeRepeating("KeepItem", 0, 1);
     }
 
@@ -22,11 +26,17 @@ public class PositionKeeper : MonoBehaviour
             transform.position.z > 2f || transform.position.z < -2f
            )
         {
+            rigidbody.isKinematic = true;
+
             transform.position = defaultPosition;
-            
-            if (transform.GetComponent<Rigidbody>())
+            transform.eulerAngles = defaultRotation;
+
+            rigidbody.isKinematic = false;
+
+
+            if (rigidbody)
             {
-                transform.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                rigidbody.velocity = new Vector3(0, 0, 0);
             }
         }
     }
