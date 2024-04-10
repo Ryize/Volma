@@ -47,7 +47,7 @@ public class Bag_Resource_Script : MonoBehaviour
         float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
         float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
 
-        if (cosX * cosZ <= 0)
+        if (cosX * cosZ <= -0.1f)
         {
             sandLeak.maxParticles = 10;
             
@@ -61,7 +61,6 @@ public class Bag_Resource_Script : MonoBehaviour
             _bagMovementSound.Pause();
             return;
         }
-        stats.cement += transform.GetComponent<Rigidbody>().velocity.magnitude * 6;
  
         Vector3 origin = transform.position;
         Vector3 derection = Vector3.down;
@@ -91,7 +90,10 @@ public class Bag_Resource_Script : MonoBehaviour
         bucketFillAmount = bucket.transform.GetComponent<CounterTracker>();
         
         bucketFillAmount.tracker += transform.GetComponent<Rigidbody>().velocity.magnitude;
-        
+
+        // Добавление цемента в статистику
+        stats.cement += transform.GetComponent<Rigidbody>().velocity.magnitude * 6;
+
         Debug.Log("[Bag_Script] bucketFillAmount: " + bucketFillAmount.tracker);
 
         // Меняем ведро с водой, на ведро с цементом

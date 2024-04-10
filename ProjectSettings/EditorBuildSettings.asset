@@ -11,7 +11,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 268343cc2adb7cb499df7d4393f7be78
+  - enabled: 1
+    path: Assets/Scenes/MenuCensored.unity
+    guid: 408ee4a1d91501f4fbdeae924ff0911d
+  - enabled: 1
+    path: Assets/Scenes/MainCensored.unity
+    guid: 168c12e1f8b69bb4498b24c13ed3ec9e
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 603c26e3b46a4eb42a657047c4025707, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 37739e6ccd45f074fa0fe8e62731c1bc, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 800f7226d1299434e9f4c95341185e58, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f7f2fced23da3e149a97d66cce42501e, type: 2}

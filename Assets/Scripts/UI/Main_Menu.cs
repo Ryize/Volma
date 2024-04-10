@@ -13,7 +13,14 @@ public class Main_Menu : MonoBehaviour
 
     // Название главной сцены
     private const string MainScene = "Main";
-    
+
+    // Название главной сцены (отцензуренная)
+    private const string MainSceneCensored = "MainCensored";
+
+    // Цензура
+    [SerializeField]
+    private bool isCensored = false;
+
     // Название главной меню
     private const string MenuScene = "Menu";
 
@@ -81,7 +88,14 @@ public class Main_Menu : MonoBehaviour
      */
     public void LoadMainScene()
     {
-        LoadScene(MainScene);
+        if (isCensored)
+        {
+            LoadScene(MainSceneCensored);
+        }
+        else
+        {
+            LoadScene(MainScene);
+        }
     }
 
     /*

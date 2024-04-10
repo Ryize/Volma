@@ -10,9 +10,11 @@ public class Spacer_Instrument_Script : PGP_Zone_Quest_Script
      * Класс распорки над дверным проёмом (при ПГП квесте)
     */
 
+    public bool enableToSet;
+
     protected override void Start()
     {
-        
+        enableToSet = false;
     }
 
     protected override void OnTriggerStay(Collider other)
@@ -31,6 +33,9 @@ public class Spacer_Instrument_Script : PGP_Zone_Quest_Script
 
     public override void SetPgp(GameObject obj)
     {
+        if (!enableToSet)
+            return;
+
         obj.transform.position = transform.position;
         obj.transform.rotation = transform.rotation;
 
@@ -41,5 +46,10 @@ public class Spacer_Instrument_Script : PGP_Zone_Quest_Script
         CompleteQuest();
         
         gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        enableToSet = true;
     }
 }

@@ -52,7 +52,7 @@ public class Primer_Line_Quest: Quest
             primerZoneRenderer.enabled = false;
         }
         
-        ChangeObjectOpacity(_opacity += 0.01f);
+        ChangeObjectOpacity(_opacity += 0.07f);
         
         if (Math.Abs(_opacity - 1f) < 0.1f)
         {

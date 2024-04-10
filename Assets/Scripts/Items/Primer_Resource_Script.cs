@@ -28,7 +28,7 @@ public class Primer_Resource_Script : MonoBehaviour
         float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
         float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
 
-        if (cosX * cosZ <= 0)
+        if (cosX * cosZ <= -0.1f)
         {
             primerLeak.maxParticles = 10;
             
