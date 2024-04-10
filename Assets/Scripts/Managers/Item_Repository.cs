@@ -49,11 +49,11 @@ public class Item_Repository : Repository
      */
     private void Start()
     {
-        // Получение кол-ва грязи
-        _DirtsAmount = quests[0].transform.childCount;
-        _PrimerAmount = quests[1].transform.childCount;
-        _PGPAmount = quests[2].transform.childCount;
-        _FoamAmount = quests[3].transform.childCount;
+        if (quests[0]) _DirtsAmount = quests[0].transform.childCount;
+        if (quests[1]) _PrimerAmount = quests[1].transform.childCount;
+        Debug.Log("_PrimerAmount: " + _PrimerAmount);
+        if (quests[2]) _PGPAmount = quests[2].transform.childCount;
+        if (quests[3]) _FoamAmount = quests[3].transform.childCount;
 
         _CompletedQuests = 0;
     }
