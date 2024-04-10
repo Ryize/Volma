@@ -88,16 +88,18 @@ public class Bag_Resource_Script : MonoBehaviour
             return;
 
         bucketFillAmount = bucket.transform.GetComponent<CounterTracker>();
+
+        float cement = transform.GetComponent<Rigidbody>().velocity.magnitude * 5 + 1;
         
-        bucketFillAmount.tracker += transform.GetComponent<Rigidbody>().velocity.magnitude;
+        bucketFillAmount.tracker += cement;
 
         // Добавление цемента в статистику
-        stats.cement += transform.GetComponent<Rigidbody>().velocity.magnitude * 6;
+        stats.cement += cement;
 
         Debug.Log("[Bag_Script] bucketFillAmount: " + bucketFillAmount.tracker);
 
         // Меняем ведро с водой, на ведро с цементом
-        if (bucketFillAmount.tracker > 1f)
+        if (bucketFillAmount.tracker > 6f)
         {
             bucket.transform.GetChild(2).gameObject.SetActive(true);
             bucket.transform.GetChild(1).gameObject.SetActive(false);
