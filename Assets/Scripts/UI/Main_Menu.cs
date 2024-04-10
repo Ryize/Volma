@@ -10,19 +10,9 @@ public class Main_Menu : MonoBehaviour
      * Реализует главное меню игры. Функционал
      * 
      */
-
-    // Название главной сцены
-    private const string MainScene = "Main";
-
-    // Название главной сцены (отцензуренная)
-    private const string MainSceneCensored = "MainCensored";
-
-    // Цензура
-    [SerializeField]
-    private bool isCensored = false;
-
-    // Название главной меню
-    private const string MenuScene = "Menu";
+    
+    // Главная сцена
+    [Header("Main Scene")] [SerializeField] private string mainScene;
 
     // Музыка меню
     [Header("Menu music")] [SerializeField]
@@ -88,14 +78,7 @@ public class Main_Menu : MonoBehaviour
      */
     public void LoadMainScene()
     {
-        if (isCensored)
-        {
-            LoadScene(MainSceneCensored);
-        }
-        else
-        {
-            LoadScene(MainScene);
-        }
+        LoadScene(mainScene);
     }
 
     /*

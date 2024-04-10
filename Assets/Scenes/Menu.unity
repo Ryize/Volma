@@ -3776,6 +3776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b1f4aabedf09040ab10fe818e500c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainScene: Main
   menuMusic: {fileID: 8300000, guid: defbba3f0f11ee14494ec3ea9c29a554, type: 3}
 --- !u!1001 &2030564402
 PrefabInstance:
