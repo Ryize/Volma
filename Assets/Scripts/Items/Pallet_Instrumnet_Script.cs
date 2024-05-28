@@ -29,7 +29,7 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
         
         Debug.Log("[Pallet_Instrumnet_Script] target: " + other.name);
         // Если объект не ведро с клеем, то заканчиваем функцию
-        if (!other.name.ToLower().Contains("bucket"))
+        if (!(other.name.ToLower().Contains("bucket") || other.name.ToLower().Contains("glue")))
             return;
        
         // Если на шпателе нет клея, то на шпателе появится клей

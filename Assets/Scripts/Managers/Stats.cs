@@ -85,7 +85,7 @@ public class Stats : Item_Repository
 
     private void Update()
     {
-        Debug.Log(CompletedQuests + " " + _All_Quests_isComplete);
+        //Debug.Log(CompletedQuests + " " + _All_Quests_isComplete);
         if (_All_Quests_isComplete)
         {
             return;

@@ -11,11 +11,15 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
     public Item_Repository repository;
 
     private GameObject PGP;
-    
+
+    private GameObject glueH, glueV;
+
     protected virtual void Start()
     {
         standardPgpZone = new Vector3(-2.31900001f, 0.254000306f, 1.29499996f);
         PGP = transform.GetChild(0).gameObject;
+        glueV = transform.GetChild(3).gameObject;
+        glueH = transform.GetChild(4).gameObject;
         PgpZone = transform.GetChild(5).gameObject;
         pgpIsSetted = false;
     }
@@ -29,13 +33,15 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
 
     protected virtual void OnTriggerStay(Collider other)
     {
+        Debug.Log("[PGP_Zone_Quest_Script] collider: " + other.name);
+
         if (pgpIsSetted)
         {
             return;
         }
         
         // Должно быть три ребенка (пгп, вертикальный и горизонтальный клей)
-        if (transform.childCount != 4)
+        if (!(glueV.activeSelf && glueH.activeSelf))
         {
             return;
         }
@@ -49,7 +55,7 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
         // Активирует проекцию ПГП
         PgpZone.SetActive(true);
 
-        if (!other.GetComponent<Interactable>().attachedToHand)
+        if (!other.transform.parent.GetComponent<Interactable>().attachedToHand)
         {
             SetPgp(other.gameObject);
             PgpZone.SetActive(false);

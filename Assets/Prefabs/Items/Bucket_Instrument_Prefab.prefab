@@ -2364,6 +2364,7 @@ GameObject:
   - component: {fileID: 9010599445277964290}
   - component: {fileID: 2031740740502893899}
   - component: {fileID: 2591565572164410582}
+  - component: {fileID: 1037281233938154109}
   m_Layer: 0
   m_Name: Glue
   m_TagString: Untagged
@@ -2450,6 +2451,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tracker: 0
   destroyEmpty: 0
+--- !u!64 &1037281233938154109
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794315756433942599}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1828038662991807924
 GameObject:
   m_ObjectHideFlags: 0
