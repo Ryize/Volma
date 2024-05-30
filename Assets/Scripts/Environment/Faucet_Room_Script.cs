@@ -116,6 +116,9 @@ public class Faucet_Room_Script : Base
     {
         CalculateForce();
         ChangeSound();
+        
+        if (faucetForce < 0.01f)
+            return;
 
         Bucket_Item_Script bucket = BucketRaycast();
 

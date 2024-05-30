@@ -21,8 +21,9 @@ public class Bucket_Item_Script : MonoBehaviour
     [SerializeField] private Transform fillerTransform;
     [SerializeField] private Transform sandTransform;
     [SerializeField] private Renderer fillerRender;
-    
-    [Header("Filler Materials")]
+
+    [Header("Filler Materials")] 
+    [SerializeField] private Material waterMaterial;
     [SerializeField] private Material glueMaterial;
     
     [FormerlySerializedAs("minRadius")]
@@ -77,6 +78,8 @@ public class Bucket_Item_Script : MonoBehaviour
         sandTransform.localPosition =
             new Vector3(0, newSandHeight, 0);
         sandTransform.localScale = new Vector3(newSandRadius, 0.001f, newSandRadius);
+        
+        isReadyMixture = false;
     }
 
     public float waterVolume
@@ -84,7 +87,7 @@ public class Bucket_Item_Script : MonoBehaviour
         set { 
             if (value < 0) return;
             
-            _sandVolume = Mathf.Min(maxVolume - _sandVolume, value);
+            _waterVolume = Mathf.Min(maxVolume - _sandVolume, value);
             
             ChangeFiller();
         }
@@ -123,6 +126,8 @@ public class Bucket_Item_Script : MonoBehaviour
 
             if (value)
                 fillerRender.material = glueMaterial;
+            else
+                fillerRender.material = waterMaterial;
         }
         get { return _isReadyMixture; }
     }

@@ -2331,6 +2331,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1885223059}
     m_Modifications:
+    - target: {fileID: 1141531318, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
+      propertyPath: glueMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 54e5b262a0cc68c45a6254f98576530d, type: 2}
+    - target: {fileID: 1141531318, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
+      propertyPath: waterMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 967578261f8e13142b10ed604e91b64b, type: 2}
     - target: {fileID: 3701137197923413803, guid: 9f63e3225cfccfb40bf5431b0aaffadc, type: 3}
       propertyPath: m_RootOrder
       value: 10
