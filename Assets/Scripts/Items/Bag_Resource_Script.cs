@@ -5,6 +5,75 @@ public class Bag_Resource_Script : MonoBehaviour
     /*
      * Класс отвечающий за засыпание цемента в ведро с водой.
     */
+
+    // Статистика
+    [SerializeField] private Stats stats;
+
+    [SerializeField] private Spillable spillable;
+
+    [SerializeField] private ParticleSystem sandLeak;
+
+    [SerializeField] private AudioSource bagSpillingSound;
+
+    [SerializeField] private Rigidbody bagRigidbody;
+
+    private void Update()
+    {
+        Spill();
+    }
+
+    private void Spill()
+    {
+        // Песок должен высыпаться
+        if (spillable == null || !spillable.IsSpilling) {
+            sandLeak.maxParticles = 0;
+            return;
+        }
+
+        sandLeak.maxParticles = 10;
+
+        if (bagSpillingSound != null && !bagSpillingSound.isPlaying) bagSpillingSound.Play();
+        else bagSpillingSound.Stop();
+
+        Bucket_Item_Script bucket = BucketRaycast();
+
+        float cement = bagRigidbody.velocity.magnitude * 5 + 1;
+
+        stats.cement += cement;
+
+        if (bucket != null)
+        {
+            bucket.sandVolume += cement;
+        }
+    }
+
+    private Bucket_Item_Script BucketRaycast()
+    {
+        Vector3 origin = transform.position;
+        Vector3 derection = Vector3.down;
+
+        // Максимальная дистанция для засыпания
+        float distance = 10f;
+
+        RaycastHit bucket;
+
+        // Если дистанция слишком большая
+        if (!Physics.Raycast(origin, derection, out bucket, distance))
+        {
+            return null;
+        }
+
+        // Если объект не ведро
+        if (!bucket.transform.name.ToLower().Contains("bucket") &&
+            !bucket.transform.name.ToLower().Contains("water"))
+        {
+            return null;
+        }
+
+        return bucket.transform.GetComponent<Bucket_Item_Script>();
+    }
+
+    /*
     
     // Счетчик ведра
     private CounterTracker bucketFillAmount;
@@ -18,16 +87,16 @@ public class Bag_Resource_Script : MonoBehaviour
     //звук высыпания из мешка
     private AudioSource _bagMovementSound;
 
-    /*
+    *//*
      * Стартовый метод
      *
      * Определяет компоненты ведра
-     */
+     *//*
     private void Start()
     {
-        /*
+        *//*
          * Запускаем скрипт проверки на засыпания раз в секунду
-        */
+        *//*
         InvokeRepeating("FallingCement", 1f, 1f);
 
         sandLeak = transform.GetChild(0).GetComponent<ParticleSystem>();
@@ -36,11 +105,11 @@ public class Bag_Resource_Script : MonoBehaviour
         sandLeak.maxParticles = 0;
     }
 
-    /*
+    *//*
      * Метод позволяющий засыпать цемент.
      *
      * Запускается раз в секунду и при выполнении условий засыпает цемент.
-     */
+     *//*
     void FallingCement()
     {
         // Если мешок перевернут
@@ -105,5 +174,5 @@ public class Bag_Resource_Script : MonoBehaviour
             bucket.transform.GetChild(1).gameObject.SetActive(false);
             bucketFillAmount.tracker = 0;
         }
-    }
+    }*/
 }
