@@ -1,9 +1,15 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Bucket_Item_Script : MonoBehaviour
 {
+    
+    [Header("Spilling")]
     [SerializeField] private Spillable spillable;
+    [SerializeField] AudioSource spillingAudio;
 
+    [Header("Bucket volume")]
     [SerializeField] private float maxVolume = 20;
 
     [SerializeField] private float _waterVolume = 0;
@@ -12,27 +18,40 @@ public class Bucket_Item_Script : MonoBehaviour
 
     [SerializeField] private bool _isReadyMixture;
 
-    [SerializeField] AudioSource spillingAudio;
-
-    [SerializeField] private GameObject filler;
+    [Header("Filler")]
+    [SerializeField] private Transform fillerTransform;
+    [SerializeField] private Transform sandTransform;
     [SerializeField] private Renderer fillerRender;
-    [SerializeField] private Material sandMaterial;
+    
+    [Header("Filler Materials")]
     [SerializeField] private Material gluerMaterial;
+    
+    [FormerlySerializedAs("minRadius")]
+    [Header("Filler Const")]
+    [SerializeField] float minFillerRadius = 0.015f;
+    [SerializeField] float minFillerHeight = 0.00044f;
+    [SerializeField] float maxFillerRadius = 0.019f;
+    [SerializeField] float maxFillerHeight = 0.01394f;
+
+    private void Start()
+    {
+        ChangeFiller();
+    }
 
     void Update()
     {
         Spill();
     }
 
-    // Метод для виливания ведра
+    // РњРµС‚РѕРґ РґР»СЏ РІРёР»РёРІР°РЅРёСЏ РІРµРґСЂР°
     private void Spill()
     {
-        if (spillable == null) return;
+        if (!spillable) return;
 
         if (spillable.IsSpilling && !spillingAudio.isPlaying)
         {
-            _sandVolume -= Time.deltaTime;
-            _waterVolume -= Time.deltaTime;
+            _sandVolume = Mathf.Max(0, _sandVolume - Time.deltaTime);
+            _waterVolume = Mathf.Max(0, _waterVolume - Time.deltaTime);
             spillingAudio?.Play();
         }
         else
@@ -41,29 +60,34 @@ public class Bucket_Item_Script : MonoBehaviour
         }
     }
 
-    private void ChangeFillerPosition()
+    private void ChangeFiller()
     {
-        float minRadius = 0.015f;
-        float minHeight = 0.00044f;
-        float maxRadius = 0.019f;
-        float maxHeight = 0.01394f;
+        float fillerProcentage = (waterVolume + sandVolume) / maxVolume;
+        float sandProcentage = sandVolume / maxVolume;
 
-        float fillProcentage = (waterVolume + sandVolume)/ maxVolume;
+        float newFillerRadius = Mathf.Lerp(minFillerRadius,maxFillerRadius,  fillerProcentage);
+        float newFillerHeight = Mathf.Lerp(maxFillerHeight,minFillerHeight,  fillerProcentage);
+        
+        float newSandRadius = Mathf.Lerp(minFillerRadius,maxFillerRadius,  sandProcentage);
+        float newSandHeight = Mathf.Lerp(maxFillerHeight,minFillerHeight,  sandProcentage);
 
-        float newRadius = Mathf.Lerp(minRadius, maxRadius, fillProcentage);
-        float newHeight = Mathf.Lerp(minHeight, maxHeight, fillProcentage);
+        fillerTransform.localPosition = 
+            new Vector3(0, newFillerHeight, 0);
+        fillerTransform.localScale = new Vector3(newFillerRadius, 0.001f, newFillerRadius);
 
-        // Дописать изменения наполнения
+        sandTransform.localPosition =
+            new Vector3(0, newSandHeight, 0);
+        sandTransform.localScale = new Vector3(newSandRadius, 0.001f, newSandRadius);
     }
 
     public float waterVolume
     {
         set { 
             if (value < 0) return;
-
-            if (value > maxVolume - _sandVolume) return;
-
-            _waterVolume = value; 
+            
+            _sandVolume = Mathf.Min(maxVolume - _sandVolume, value);
+            
+            ChangeFiller();
         }
 
         get { return _waterVolume; }
@@ -75,12 +99,9 @@ public class Bucket_Item_Script : MonoBehaviour
         {
             if (value < 0) return;
 
-            if (value > maxVolume - _waterVolume) return;
+            _sandVolume = Mathf.Min(maxVolume - _waterVolume, value);
 
-            _sandVolume = value;
-
-            if (_sandVolume>0 && !isReadyMixture)
-                fillerRender.material = sandMaterial;
+            ChangeFiller();
         }
 
         get { return _sandVolume; }
