@@ -9,57 +9,44 @@ public class Mixer_Animation_Instrument_Script : MonoBehaviour
     */
     
     // Скорость вращения
+    [SerializeField]
     private float _speed;
     
     // Звук при вращении миксера
+    [SerializeField]
     private AudioSource _mixerMovementSound;
     
+    [SerializeField]
     private SteamVR_Action_Single _buttonTrigger = SteamVR_Input.GetAction<SteamVR_Action_Single>("buggy", "Throttle");
+    [SerializeField]
     private Interactable _interactable;
     
     // Двигаящаяся часть у миксера
+    [SerializeField]
     private Transform _auger;
     
     // Плоскость в которой вращается миксер
     private float _augerX, _augerY, _augerZ;
     
     // Кнопка миксера
+    [SerializeField]
     private Transform _button;
-
-    private void Start()
-    {
-        /*
-         * Метод для задания начальных значений
-        */
-        _auger = transform.GetChild(2);
-        _button = transform.GetChild(0);
-        
-        _interactable = GetComponent<Interactable>();
-        _mixerMovementSound = GetComponentInParent<AudioSource>();
-    }
 
     void Update()
     {
-        /*
-         * Метод для вращения и вопроизведения звуков миксера.
-         */
-        
+        calculateSpeed();
+    }
 
+    private void calculateSpeed()
+    {
         // Если миксер в руке
         if (_interactable.attachedToHand)
         {
             SteamVR_Input_Sources hand = _interactable.attachedToHand.handType;
             _speed = _buttonTrigger.GetAxis(hand);
             
-            // Нажатие кнопки
-            //_button.position = new Vector3(0, 2.97f,0.1f + _speed / 10);
-            
-            
-            // Вращение миксера
-            _augerX = _auger.eulerAngles.x;
-            _augerY = _auger.eulerAngles.y;
-            _augerZ = _auger.eulerAngles.z + _speed * 10;
-            _auger.eulerAngles = new Vector3(_augerX, _augerY, _augerZ);
+            animateMixer();
+            ChangeSound();
         }
         
         // Миксер не в руке
@@ -67,7 +54,22 @@ public class Mixer_Animation_Instrument_Script : MonoBehaviour
         {
             _speed = 0f;
         }
+    }
+
+    private void animateMixer()
+    {
+        // Нажатие кнопки
+        _button.localPosition = new Vector3(0, 2.97f,0.1f + _speed / 10);
         
+        // Вращение миксера
+        _augerX = _auger.eulerAngles.x;
+        _augerY = _auger.eulerAngles.y;
+        _augerZ = _auger.eulerAngles.z + _speed * 10;
+        _auger.eulerAngles = new Vector3(_augerX, _augerY, _augerZ);
+    }
+
+    private void ChangeSound()
+    {
         // Идёт вращение миксера
         if(_speed > 0f && !_mixerMovementSound.isPlaying)
         {
@@ -84,13 +86,8 @@ public class Mixer_Animation_Instrument_Script : MonoBehaviour
         }
     }
 
-    /*
-     * Метод получения скорости
-     *
-     * Возвращает скорость миксера
-     */
-    public float GetSpeed()
+    public float speed
     {
-        return _speed;
+        get { return _speed; }
     }
 }
