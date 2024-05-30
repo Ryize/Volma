@@ -15,25 +15,28 @@ public class Spillable : MonoBehaviour
         lastRotation = transform.eulerAngles;
     }
 
-    public bool IsSpilling()
+    public bool IsSpilling
     {
-        if (lastRotation != transform.eulerAngles)
+        get
         {
-            lastRotation = transform.eulerAngles;
-
-            float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
-            float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
-
-            if (cosX * cosZ <= -0.1f)
+            if (lastRotation != transform.eulerAngles)
             {
-                _isSpilling |= true;
+                lastRotation = transform.eulerAngles;
+
+                float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
+                float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
+
+                if (cosX * cosZ <= -0.1f)
+                {
+                    _isSpilling |= true;
+                }
+                else
+                {
+                    _isSpilling |= false;
+                }
             }
-            else
-            {
-                _isSpilling |= false;
-            }
+
+            return _isSpilling;
         }
-
-        return _isSpilling;
     }
 }
