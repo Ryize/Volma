@@ -33,6 +33,7 @@ public class Faucet_Room_Script : Base
     private Vector3 lastRotation;
     private float faucetForce;
     
+    private Bucket_Item_Script cachedBucket = null;
 
     private void Start()
     {
@@ -69,6 +70,9 @@ public class Faucet_Room_Script : Base
         {
             return null;
         }
+        
+        if (cachedBucket && cachedBucket.transform == bucket.transform)
+            return cachedBucket;
 
         return bucket.transform.GetComponent<Bucket_Item_Script>();
     }
@@ -120,14 +124,14 @@ public class Faucet_Room_Script : Base
         if (faucetForce < 0.01f)
             return;
 
-        Bucket_Item_Script bucket = BucketRaycast();
+        cachedBucket = BucketRaycast();
 
         // Добавление расхода воды в статистику
         stats.water += faucetForce * Time.deltaTime;
         
-        if (bucket)
+        if (cachedBucket)
         {
-            bucket.waterVolume += faucetForce * Time.deltaTime;
+            cachedBucket.waterVolume += faucetForce * Time.deltaTime;
         }
     }
 }

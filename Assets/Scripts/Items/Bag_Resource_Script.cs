@@ -18,6 +18,8 @@ public class Bag_Resource_Script : MonoBehaviour
     [SerializeField] private Rigidbody bagRigidbody;
 
     [SerializeField] private float cementCount = 30;
+    
+    private Bucket_Item_Script cachedBucket = null;
 
     private void Update()
     {
@@ -38,7 +40,7 @@ public class Bag_Resource_Script : MonoBehaviour
         if (bagSpillingSound != null && !bagSpillingSound.isPlaying) bagSpillingSound.Play();
         else bagSpillingSound.Stop();
 
-        Bucket_Item_Script bucket = BucketRaycast();
+        cachedBucket = BucketRaycast();
 
         if (cementCount > 0)
         {
@@ -46,9 +48,9 @@ public class Bag_Resource_Script : MonoBehaviour
 
             stats.cement += cementSpilling;
 
-            if (bucket)
+            if (cachedBucket)
             {
-                bucket.sandVolume += cementSpilling;
+                cachedBucket.sandVolume += cementSpilling;
             }
 
             cementCount -= cementSpilling;
@@ -78,6 +80,9 @@ public class Bag_Resource_Script : MonoBehaviour
             return null;
         }
 
+        if (cachedBucket && cachedBucket.transform == bucket.transform)
+            return cachedBucket;
+        
         return bucket.transform.GetComponent<Bucket_Item_Script>();
     }
 }
