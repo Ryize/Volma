@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Serialization;
 
 public class Faucet_Room_Script : Base
 {
@@ -9,47 +10,91 @@ public class Faucet_Room_Script : Base
      *
      * При набирании воды выключает пустое ведро, и включает ведро с водой
     */
-    
-    // Сколько осталось набрать воды
-    private CounterTracker bucketCounter;
-    
+
+    [SerializeField] private Transform faucetHandleTransform;
+
+    [Header("Water Leak")] 
+    [SerializeField]
+    private Transform waterLeakTransform;
     // Эффекты воды
+    [SerializeField]
     private ParticleSystem waterParticles;
+    [SerializeField]
     private ParticleSystem waterSplashParticles;
     
     // Звук воды
+    [SerializeField]
     private AudioSource waterAudioSource;
 
+    [SerializeField] private float litersPerSecond = 0.5f;
+
     [SerializeField] private Stats stats;
+
+    private Vector3 lastRotation;
+    private float faucetForce;
     
 
     private void Start()
     {
-        InvokeRepeating("FaucetWork", 1f, 1f);
-
-        waterParticles = transform.GetChild(2).GetComponent<ParticleSystem>();
-        waterSplashParticles = transform.GetChild(2).GetChild(0).GetComponent<ParticleSystem>();
-
         waterParticles.maxParticles = 0;
         waterSplashParticles.maxParticles = 0;
 
-        waterAudioSource = GetComponent<AudioSource>();
+        lastRotation = faucetHandleTransform.eulerAngles;
     }
 
-    /*
-     * Метод набирания воды в ведро
-     *
-     * Набрает воду в ведро
-     */
-    private void FaucetWork()
+    private void Update()
     {
-        // напор крана
-        float faucetHandleAngle = transform.GetChild(1).localRotation.eulerAngles.y;
-        float faucetForce = Mathf.Abs(Mathf.Sin(faucetHandleAngle));
+        FaucetWork();
+    }
+    
+    private Bucket_Item_Script BucketRaycast()
+    {
+        Vector3 origin = transform.position;
+        Vector3 derection = Vector3.down;
 
+        // Максимальная дистанция для засыпания
+        float distance = 10f;
+
+        RaycastHit bucket;
+
+        // Если дистанция слишком большая
+        if (!Physics.Raycast(origin, derection, out bucket, distance))
+        {
+            return null;
+        }
+
+        // Если объект не ведро
+        if (!bucket.transform.name.ToLower().Contains("bucket") &&
+            !bucket.transform.name.ToLower().Contains("water"))
+        {
+            return null;
+        }
+
+        return bucket.transform.GetComponent<Bucket_Item_Script>();
+    }
+
+    // напор крана
+    private void CalculateForce()
+    {
+        if (faucetHandleTransform.eulerAngles != lastRotation)
+        {
+            lastRotation = faucetHandleTransform.eulerAngles;
+            float faucetHandleAngle = faucetHandleTransform.localRotation.eulerAngles.y;
+            faucetForce = Mathf.Abs(Mathf.Sin(faucetHandleAngle)) * litersPerSecond;
+            
+            ChangeEffect();
+        }
+    }
+
+    private void ChangeEffect()
+    {
         waterParticles.maxParticles = (int) (faucetForce * 10);
         waterSplashParticles.maxParticles = (int) (faucetForce * 10);
+    }
 
+    private void ChangeSound()
+    {
+        
         if (Mathf.Approximately(faucetForce, 0))
         {
             if (waterAudioSource.isPlaying)
@@ -63,73 +108,23 @@ public class Faucet_Room_Script : Base
             {
                 waterAudioSource.Play();
             }
-            waterAudioSource.volume = faucetForce * 0.5f;
-        }
-        
-        Vector3 origin = transform.position;
-        Vector3 derection = Vector3.down;
-        Debug.Log("[Faucet_Room_Script] FaucetWork derection: " + derection);
-
-        // Максимальная дистанция для засыпания
-        float distance = 3f;
-
-        RaycastHit bucket;
-
-        // Если дистанция слишком большая
-        if (!Physics.Raycast(origin, derection, out bucket, distance))
-        {
-            return;
-        }
-        Debug.Log("[Faucet_Room_Script] FaucetWork bucket: " + bucket.transform.name);
-        
-        // Если объект не ведро
-        if (!bucket.transform.name.ToLower().Contains("bucket"))
-        {
-            return;
-        }
-        
-        GameObject empty = bucket.transform.GetChild(bucket.transform.childCount - 1).gameObject;
-
-        // Добавление расхода воды в статистику
-        stats.water += faucetForce * 0.5f;
-
-        // Если поставлено не пустое ведро
-        if (!empty.activeSelf)
-        {
-            return;
-        }
-        
-        Debug.Log("[Faucet_Room_Script] FaucetWork empty: " + empty.name);
-
-        // получаем трекер количества воды в ведре
-        bucketCounter = bucket.transform.GetComponent<CounterTracker>();
-        bucketCounter.tracker += faucetForce;
-        /*
-         * 
-        float bucketCounter = bucket.transform.GetComponent<CounterTracker>().Get();
-        bucket.transform.GetComponent<CounterTracker>().Add(faucetForce);
-         */
-        
-        Debug.Log("[Faucet_Room_Script] FaucetWork FaucetHandleY: " + faucetHandleAngle);
-        Debug.Log("[Faucet_Room_Script] FaucetWork FaucetHandleYsin: " + faucetForce);
-        Debug.Log("[Faucet_Room_Script] FaucetWork bucketCounter: " + bucket);
-        
-        // Если ведро заполнено
-        if (bucketCounter.tracker > 12)
-        {
-            bucket.transform.GetChild(1).gameObject.SetActive(true);
-            empty.SetActive(false);
-            bucketCounter.tracker = 0f;
+            waterAudioSource.volume = faucetForce * litersPerSecond;
         }
     }
     
-    void Notify(string type, bool status)
+    private void FaucetWork()
     {
-        /*
-         * Метод уведомления о событии
-         *
-         * Отслеживается событие bucketInArea.
-         * И в зависимости от успешности проверок ведро набирается 
-        */
+        CalculateForce();
+        ChangeSound();
+
+        Bucket_Item_Script bucket = BucketRaycast();
+
+        // Добавление расхода воды в статистику
+        stats.water += faucetForce * Time.deltaTime;
+        
+        if (bucket)
+        {
+            bucket.waterVolume += faucetForce * Time.deltaTime;
+        }
     }
 }
