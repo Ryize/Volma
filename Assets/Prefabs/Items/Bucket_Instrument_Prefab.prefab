@@ -9759,6 +9759,7 @@ GameObject:
   - component: {fileID: 1141531316}
   - component: {fileID: 1141531317}
   - component: {fileID: 1141531318}
+  - component: {fileID: 3400027269415864005}
   m_Layer: 0
   m_Name: Bucket_Instrument_Prefab
   m_TagString: basket_1_item
@@ -10046,6 +10047,7 @@ MonoBehaviour:
   _waterVolume: 0
   _sandVolume: 0
   _isReadyMixture: 0
+  mixtureProcces: {fileID: 3400027269415864005}
   fillerTransform: {fileID: 3119080629808600980}
   sandTransform: {fileID: 3562419832083379672}
   fillerRender: {fileID: 4571658090431859970}
@@ -10054,6 +10056,20 @@ MonoBehaviour:
   minFillerHeight: 0.1379
   maxFillerRadius: 0.38
   maxFillerHeight: -0.1329
+--- !u!114 &3400027269415864005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7498616175626056139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7157459d65ef641b156d48852083f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracker: 0
+  destroyEmpty: 0
 --- !u!1 &7607659571482240560
 GameObject:
   m_ObjectHideFlags: 0

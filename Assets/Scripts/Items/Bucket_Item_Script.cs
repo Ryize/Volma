@@ -4,19 +4,18 @@ using UnityEngine.Serialization;
 
 public class Bucket_Item_Script : MonoBehaviour
 {
-    
     [Header("Spilling")]
     [SerializeField] private Spillable spillable;
     [SerializeField] AudioSource spillingAudio;
 
     [Header("Bucket volume")]
     [SerializeField] private float maxVolume = 20;
+    [SerializeField] private float _waterVolume;
+    [SerializeField] private float _sandVolume;
 
-    [SerializeField] private float _waterVolume = 0;
-
-    [SerializeField] private float _sandVolume = 0;
-
+    [Header("Mixture")]
     [SerializeField] private bool _isReadyMixture;
+    [SerializeField] private CounterTracker mixtureProcces;
 
     [Header("Filler")]
     [SerializeField] private Transform fillerTransform;
@@ -24,14 +23,14 @@ public class Bucket_Item_Script : MonoBehaviour
     [SerializeField] private Renderer fillerRender;
     
     [Header("Filler Materials")]
-    [SerializeField] private Material gluerMaterial;
+    [SerializeField] private Material glueMaterial;
     
     [FormerlySerializedAs("minRadius")]
     [Header("Filler Const")]
-    [SerializeField] float minFillerRadius = 0.015f;
-    [SerializeField] float minFillerHeight = 0.00044f;
-    [SerializeField] float maxFillerRadius = 0.019f;
-    [SerializeField] float maxFillerHeight = 0.01394f;
+    [SerializeField] float minFillerRadius;
+    [SerializeField] float minFillerHeight;
+    [SerializeField] float maxFillerRadius;
+    [SerializeField] float maxFillerHeight;
 
     private void Start()
     {
@@ -107,13 +106,23 @@ public class Bucket_Item_Script : MonoBehaviour
         get { return _sandVolume; }
     }
 
+    public void MixFiller(float speed)
+    {
+        mixtureProcces.tracker += speed;
+
+        if (mixtureProcces.tracker > 100)
+        {
+            isReadyMixture = true;
+        }
+    }
+
     public bool isReadyMixture
     {
         set { 
             _isReadyMixture = value;
 
-            if (isReadyMixture)
-                fillerRender.material = gluerMaterial;
+            if (value)
+                fillerRender.material = glueMaterial;
         }
         get { return _isReadyMixture; }
     }

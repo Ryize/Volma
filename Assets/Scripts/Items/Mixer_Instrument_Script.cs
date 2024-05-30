@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using Valve.VR;
@@ -8,31 +9,27 @@ public class Mixer_Instrument_Script : MonoBehaviour
     /*
      * Класс отвечающий за логику замешивания раствора в ведре
     */
-    
-    // Показывает, сколько осталось смешивать. Аналог ХП замешивания
-    private CounterTracker bucketMixing;
 
     // Скрипт анимации миксера
+    [SerializeField]
     private Mixer_Animation_Instrument_Script mixerAnimation;
 
     // Компонент Rigidbody руки
-    private Rigidbody handRigidbody;
+    private Rigidbody leftHandRigidbody;
+    private Rigidbody rightHandRigidbody;
 
     // Компонент Interactable миксера
+    [SerializeField]
     private Interactable mixerInteractable;
 
     // Репозиторий предметов
-    public Item_Repository repository;
+    [SerializeField]
+    private Item_Repository repository;
 
-    /*
-     * Стартовый метод
-     *
-     * Определяет компоненты миксера
-     */
     private void Start()
     {
-        mixerAnimation = transform.GetComponent<Mixer_Animation_Instrument_Script>();
-        mixerInteractable = transform.GetComponent<Interactable>();
+        leftHandRigidbody = GameObject.Find("HandColliderLeft(Clone)").GetComponent<Rigidbody>();
+        rightHandRigidbody = GameObject.Find("HandColliderRight(Clone)").GetComponent<Rigidbody>();
     }
 
     /*
@@ -43,40 +40,33 @@ public class Mixer_Instrument_Script : MonoBehaviour
      * Args:
      *  other: Collider (объект, которого мы коснулись)
      */
-    private void OnTriggerEnter(Collider sand)
+    private void OnTriggerEnter(Collider filler)
     {
         if (!mixerInteractable.attachedToHand)
             return;
         
         // Если объект не ведро
-        if (!sand.transform.name.ToLower().Contains("sand"))
+        if (!filler.transform.name.ToLower().Contains("filler"))
         {
             return;
         }
+
+        Rigidbody handRigidbody;
         
         // Получаем Rigidbody руки, в которой лежит мискер
         if (mixerInteractable.attachedToHand.handType == SteamVR_Input_Sources.LeftHand)
         {
-            handRigidbody = GameObject.Find("HandColliderLeft(Clone)").GetComponent<Rigidbody>();
+            handRigidbody = leftHandRigidbody;
         }
         else
         {
-            handRigidbody = GameObject.Find("HandColliderRight(Clone)").GetComponent<Rigidbody>();
+            handRigidbody = rightHandRigidbody;
         }
         
         // Получаем скорость замешивания
-        float speed = mixerAnimation.GetSpeed() * Mathf.Min(handRigidbody.velocity.magnitude, 1);
-        
-        // Увеличиваем трекер
-        bucketMixing = sand.GetComponent<CounterTracker>();
-        bucketMixing.tracker += speed;
+        float speed = mixerAnimation.speed * Mathf.Min(handRigidbody.velocity.magnitude, 1);
 
-        // Если мы замешали раствор
-        if (bucketMixing.tracker > 10)
-        {
-            sand.transform.parent.GetChild(3).gameObject.SetActive(true);
-            sand.transform.GameObject().SetActive(false);
-            repository.Bucket_Quest_isComplete = true;
-        }
+        Bucket_Item_Script bucket = filler.transform.parent.GetComponent<Bucket_Item_Script>();
+        bucket.MixFiller(speed);
     }
 }
