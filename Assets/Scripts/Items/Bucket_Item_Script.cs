@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Bucket_Item_Script : MonoBehaviour
 {
+    [SerializeField]
     private Spillable spillable;
 
     [SerializeField]
@@ -13,19 +14,19 @@ public class Bucket_Item_Script : MonoBehaviour
     [SerializeField]
     private float _sandVolume = 0;
 
+    [SerializeField]
     AudioSource spillingAudio;
-
-    void Start()
-    {
-        spillable = GetComponent<Spillable>();
-        spillingAudio = GetComponent<AudioSource>();
-    }
 
     void Update()
     {
+        Spill();
+    }
+
+    private void Spill()
+    {
         if (spillable == null) return;
 
-        if (spillable.IsSpilling && spillingAudio.isPlaying)
+        if (spillable.IsSpilling && !spillingAudio.isPlaying)
         {
             spillingAudio?.Play();
         }
