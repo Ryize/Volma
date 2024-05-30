@@ -41,6 +41,21 @@ public class Bucket_Item_Script : MonoBehaviour
         }
     }
 
+    private void ChangeFillerPosition()
+    {
+        float minRadius = 0.015f;
+        float minHeight = 0.00044f;
+        float maxRadius = 0.019f;
+        float maxHeight = 0.01394f;
+
+        float fillProcentage = (waterVolume + sandVolume)/ maxVolume;
+
+        float newRadius = Mathf.Lerp(minRadius, maxRadius, fillProcentage);
+        float newHeight = Mathf.Lerp(minHeight, maxHeight, fillProcentage);
+
+        // Дописать изменения наполнения
+    }
+
     public float waterVolume
     {
         set { 
