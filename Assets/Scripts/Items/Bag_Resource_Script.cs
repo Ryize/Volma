@@ -27,7 +27,7 @@ public class Bag_Resource_Script : MonoBehaviour
     private void Spill()
     {
         // Песок должен высыпаться
-        if (spillable == null || !spillable.IsSpilling)
+        if (!spillable || !spillable.IsSpilling)
         {
             sandLeak.maxParticles = 0;
             return;
@@ -46,7 +46,7 @@ public class Bag_Resource_Script : MonoBehaviour
 
             stats.cement += cementSpilling;
 
-            if (bucket != null)
+            if (bucket)
             {
                 bucket.sandVolume += cementSpilling;
             }
