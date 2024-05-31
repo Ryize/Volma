@@ -29,22 +29,23 @@ public class Bag_Resource_Script : MonoBehaviour
     private void Spill()
     {
         // Песок должен высыпаться
-        if (!spillable || !spillable.IsSpilling)
+        if (spillable && spillable.IsSpilling)
+        {
+            sandLeak.maxParticles = 10;
+            if (!bagSpillingSound.isPlaying) bagSpillingSound.Play();
+        }
+        else
         {
             sandLeak.maxParticles = 0;
+            if (bagSpillingSound.isPlaying) bagSpillingSound.Stop();
             return;
         }
-
-        sandLeak.maxParticles = 10;
-
-        if (bagSpillingSound != null && !bagSpillingSound.isPlaying) bagSpillingSound.Play();
-        else bagSpillingSound.Stop();
 
         cachedBucket = BucketRaycast();
 
         if (cementCount > 0)
         {
-            float cementSpilling = (bagRigidbody.velocity.magnitude * 5 + 1) * Time.deltaTime;
+            float cementSpilling = (bagRigidbody.velocity.magnitude * 3 + 3) * Time.deltaTime;
 
             stats.cement += cementSpilling;
 
