@@ -59,7 +59,7 @@ public class Mixer_Animation_Instrument_Script : MonoBehaviour
     private void animateMixer()
     {
         // Нажатие кнопки
-        _button.localPosition = new Vector3(0, 2.97f,0.1f + _speed / 10);
+        _button.localPosition = new Vector3(0, 2.97f,-0.1f - _speed / 10);
         
         // Вращение миксера
         _augerX = _auger.eulerAngles.x;
