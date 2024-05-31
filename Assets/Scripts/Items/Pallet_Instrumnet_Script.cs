@@ -7,14 +7,10 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
      * Отвечает за нанесения клея на ПГП
     */
 
-    private MeshRenderer meshRenderer;
+    [SerializeField]
+    private MeshRenderer glueRenderer;
 
     private Transform task;
-    
-    private void Start()
-    {
-        meshRenderer = transform.GetChild(2).gameObject.GetComponent<MeshRenderer>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,12 +25,17 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
         
         Debug.Log("[Pallet_Instrumnet_Script] target: " + other.name);
         // Если объект не ведро с клеем, то заканчиваем функцию
-        if (!(other.name.ToLower().Contains("bucket") || other.name.ToLower().Contains("glue")))
+        if (!other.name.ToLower().Contains("filler"))
             return;
+
+        if (!other.transform.parent.GetComponent<Bucket_Item_Script>().isReadyMixture)
+        {
+            return;
+        }
        
         // Если на шпателе нет клея, то на шпателе появится клей
-        if (!meshRenderer.enabled) {
-            meshRenderer.enabled = true;
+        if (!glueRenderer.enabled) {
+            glueRenderer.enabled = true;
         }
     }
 
@@ -62,10 +63,10 @@ public class Pallet_Instrumnet_Script : MonoBehaviour
         // Если на шпателе есть клей и объект горизонтальная или вертикальная зона
         // (зона, куда наносится клей, чтобы закрепить ПГП).
         // То удаляем зону нанесения клея и убираем клей со шпателя.
-        if (meshRenderer.enabled && 
+        if (glueRenderer.enabled && 
         (otherName.Contains("horizontal_zone") || otherName.Contains("vertical_zone"))) {
             Destroy(task.gameObject);
-            meshRenderer.enabled = false;
+            glueRenderer.enabled = false;
         }
         
         // Если пгп не активна
