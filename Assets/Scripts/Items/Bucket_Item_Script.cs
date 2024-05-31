@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -12,6 +13,7 @@ public class Bucket_Item_Script : MonoBehaviour
     [SerializeField] private float maxVolume = 20;
     [SerializeField] private float _waterVolume;
     [SerializeField] private float _sandVolume;
+    [SerializeField] private TMP_Text status;
 
     [Header("Mixture")]
     [SerializeField] private bool _isReadyMixture;
@@ -48,15 +50,15 @@ public class Bucket_Item_Script : MonoBehaviour
     {
         if (!spillable) return;
 
-        if (spillable.IsSpilling && !spillingAudio.isPlaying)
+        if (spillable.IsSpilling)
         {
-            _sandVolume = Mathf.Max(0, _sandVolume - Time.deltaTime);
-            _waterVolume = Mathf.Max(0, _waterVolume - Time.deltaTime);
-            spillingAudio?.Play();
+            sandVolume = Mathf.Max(0, _sandVolume - Time.deltaTime * 2);
+            waterVolume = Mathf.Max(0, _waterVolume - Time.deltaTime * 2);
+            if (!spillingAudio.isPlaying) spillingAudio.Play();
         }
         else
         {
-            spillingAudio?.Stop();
+            if (spillingAudio.isPlaying) spillingAudio.Stop();
         }
     }
 
@@ -80,6 +82,8 @@ public class Bucket_Item_Script : MonoBehaviour
         sandTransform.localScale = new Vector3(newSandRadius, 0.001f, newSandRadius);
         
         isReadyMixture = false;
+
+        UpdateStatus();
     }
 
     public float waterVolume
@@ -126,9 +130,23 @@ public class Bucket_Item_Script : MonoBehaviour
 
             if (value)
                 fillerRender.material = glueMaterial;
-            else
+            else{
                 fillerRender.material = waterMaterial;
+                mixtureProcces.tracker = 0;
+            }
         }
         get { return _isReadyMixture; }
+    }
+
+    private void UpdateStatus()
+    {
+        if (!isReadyMixture)
+        {
+            status.SetText($"цемент: {_sandVolume:F1}кг.\nвода: {_waterVolume:F1}л.\nвсего: {(_waterVolume + _sandVolume):F1}");
+        }
+        else
+        {
+            status.SetText("смесь готова.");
+        }
     }
 }
