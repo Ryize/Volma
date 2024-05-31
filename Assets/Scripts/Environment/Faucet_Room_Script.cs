@@ -83,7 +83,8 @@ public class Faucet_Room_Script : Base
         if (faucetHandleTransform.eulerAngles != lastRotation)
         {
             lastRotation = faucetHandleTransform.eulerAngles;
-            float faucetHandleAngle = faucetHandleTransform.localRotation.eulerAngles.y;
+            float faucetHandleAngle = faucetHandleTransform.localRotation.eulerAngles.y * Mathf.Deg2Rad;
+
             faucetForce = Mathf.Abs(Mathf.Sin(faucetHandleAngle)) * litersPerSecond;
             
             ChangeEffect();
