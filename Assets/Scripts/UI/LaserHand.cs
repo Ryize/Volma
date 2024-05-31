@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Valve.VR;
 using Valve.VR.Extras;
+using Valve.VR.InteractionSystem;
 
 public class LaserHand : SteamVR_LaserPointer
 {
@@ -10,7 +12,12 @@ public class LaserHand : SteamVR_LaserPointer
      * Класс рисует указку, с помощью которй можно переключать кнопки меню
      * и телепоритовать предметы к руке
      */
-    
+
+    [SerializeField]
+    private Hand hand;
+
+    private Interactable cachedInteractable = null;
+
     /*
      * Метод входа указки
      *
@@ -25,12 +32,41 @@ public class LaserHand : SteamVR_LaserPointer
             e.target.GetComponent<Image>().color=Color.cyan;
         }
 
+        if (!hand || hand.AttachedObjects.Count > 0)
+        {
+            return;
+        }
+
+
         if (e.target.CompareTag("Panel") || e.target.CompareTag("ButtonUI") || e.target.tag.ToLower().Contains("item"))
         {
             pointer.GetComponent<MeshRenderer>().enabled = true;
         }
     }
-    
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (previousContact && previousContact.tag.ToLower().Contains("item"))
+        {
+            if (!cachedInteractable || cachedInteractable.transform != previousContact)
+            {
+                cachedInteractable = previousContact.GetComponent<Interactable>();
+            }
+
+            if (!hand || hand.AttachedObjects.Count > 0)
+            {
+                return;
+            }
+
+            if (cachedInteractable)
+            {
+                hand.hoveringInteractable = cachedInteractable;
+            }
+        }
+    }
+
     /*
      * Метод отработки нажатия на кнопку
      *
@@ -51,7 +87,7 @@ public class LaserHand : SteamVR_LaserPointer
 
         if (e.target.tag.ToLower().Contains("item"))
         {
-            e.target.position = transform.position;
+            //e.target.position = transform.position;
         }
     }
 

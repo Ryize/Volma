@@ -532,7 +532,19 @@ namespace Valve.VR.InteractionSystem
                     }
                     else
                     {
-                        attachedObject.initialPositionalOffset = attachedObject.handAttachmentPointTransform.InverseTransformPoint(objectToAttach.transform.position);
+                        float maxDistance = .25f; // Максимальное допустимое расстояние между объектом и рукой
+                        float distanceToHand = Vector3.Distance(attachedObject.attachedObject.transform.position, transform.position);
+
+                        if (distanceToHand > maxDistance)
+                        {
+                            // Телепортируем объект в центр руки
+                            attachedObject.initialPositionalOffset = new Vector3(0, 0, 0);
+                        }
+                        else
+                        {
+                            attachedObject.initialPositionalOffset = attachedObject.handAttachmentPointTransform.InverseTransformPoint(objectToAttach.transform.position);
+                        }
+
                         attachedObject.initialRotationalOffset = Quaternion.Inverse(attachedObject.handAttachmentPointTransform.rotation) * objectToAttach.transform.rotation;
                     }
                 }

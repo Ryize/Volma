@@ -24,7 +24,7 @@ namespace Valve.VR.Extras
         public event PointerEventHandler PointerOut;
         public event PointerEventHandler PointerClick;
 
-        Transform previousContact = null;
+        protected Transform previousContact = null;
 
 
         private void Start()
@@ -89,7 +89,7 @@ namespace Valve.VR.Extras
         }
 
 
-        private void Update()
+        protected virtual void Update()
         {
             if (!isActive)
             {
