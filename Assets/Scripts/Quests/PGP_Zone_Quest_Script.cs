@@ -4,7 +4,8 @@ using Valve.VR.InteractionSystem;
 
 public class PGP_Zone_Quest_Script : MonoBehaviour
 {
-    private Vector3 standardPgpZone;
+    [SerializeField]
+    private PositionKeeper standardPgpZone;
     private GameObject PgpZone;
     private bool pgpIsSetted;
     
@@ -16,7 +17,6 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
 
     protected virtual void Start()
     {
-        standardPgpZone = new Vector3(-2.31900001f, 0.254000306f, 1.29499996f);
         PGP = transform.GetChild(0).gameObject;
         glueV = transform.GetChild(3).gameObject;
         glueH = transform.GetChild(4).gameObject;
@@ -71,56 +71,8 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
     {
         PGP.SetActive(true);
 
-        obj.transform.position = standardPgpZone;
+        standardPgpZone.TpToDefaultPosition();
 
         pgpIsSetted = true;
     }
-
-    // Метод установки ПГП (для множества частей)
-    /*public virtual void SetPgp(GameObject obj)
-    {
-        var pgpName = obj.name.ToLower();
-        
-        if (pgpName.Contains("trash"))
-        {
-            return;
-        }
-        
-        Debug.Log("[SetPGP] 3");
-
-        Vector3 pgpPosition;
-
-        if (pgpName.Contains("right"))
-        {
-            pgpPosition = new Vector3(-0.025f, 0.25f, -0.005f);
-        }
-        else
-        {
-            pgpPosition = new Vector3(-0.025f, 0.25f, -0.3335f);
-        }
-        
-        
-        Debug.Log("[SetPGP] 4");
-        
-        var newPGP = Instantiate(PGP);
-        newPGP.name = "pgp_item";
-        newPGP.transform.position = standardPgpZone;
-        newPGP.transform.eulerAngles = new Vector3(-90, 0, 0);
-
-        obj.name = "PGP_wall";
-        obj.transform.SetParent(transform);
-        obj.transform.localPosition = pgpPosition;
-        obj.transform.eulerAngles = new Vector3(-90, 0, 0);
-        Destroy(obj.GetComponent<Throwable>());
-        Destroy(obj.GetComponent<Interactable>());
-        Destroy(obj.GetComponent<Rigidbody>());
-        Destroy(obj.GetComponent<CounterTracker>());
-        
-        if (obj.transform.childCount != 0)
-        {
-            Destroy(obj.transform.GetChild(0).gameObject);
-        }
-
-        pgpIsSetted = true;
-    }*/
 }

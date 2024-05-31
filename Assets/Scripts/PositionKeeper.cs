@@ -26,18 +26,23 @@ public class PositionKeeper : MonoBehaviour
             transform.position.z > 2f || transform.position.z < -2f
            )
         {
-            rigidbody.isKinematic = true;
+            TpToDefaultPosition();
+        }
+    }
 
-            transform.position = defaultPosition;
-            transform.eulerAngles = defaultRotation;
+    public void TpToDefaultPosition()
+    {
+        rigidbody.isKinematic = true;
 
-            rigidbody.isKinematic = false;
+        transform.position = defaultPosition;
+        transform.eulerAngles = defaultRotation;
+
+        rigidbody.isKinematic = false;
 
 
-            if (rigidbody)
-            {
-                rigidbody.velocity = new Vector3(0, 0, 0);
-            }
+        if (rigidbody)
+        {
+            rigidbody.velocity = new Vector3(0, 0, 0);
         }
     }
 }
