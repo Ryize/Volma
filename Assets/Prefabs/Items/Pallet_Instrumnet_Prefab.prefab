@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 3310956373326014649}
   - component: {fileID: 2971272935363810206}
   - component: {fileID: 4289510520415445844}
+  - component: {fileID: 169971095}
   m_Layer: 0
   m_Name: Pallet_Instrumnet_Prefab
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +48,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849487172368056112}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -223,6 +224,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355709051909eed4d83ecf6f2f4e96ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  glueRenderer: {fileID: 2850722566030734412}
+--- !u!114 &169971095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849487172368056112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066407584259b1845ab513bd98de8e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPosition: {x: 1.437775, y: 1.121, z: 1.1242}
+  defaultRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &2499629124811071996
 GameObject:
   m_ObjectHideFlags: 0

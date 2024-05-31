@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: -1393144810737451774}
   - component: {fileID: 4965368640853266917}
   - component: {fileID: 2979111296163409038}
+  - component: {fileID: 471337896}
   m_Layer: 6
   m_Name: Primer_Resource_Prefab
-  m_TagString: primer_item
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,6 +272,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &471337896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646892208176144594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066407584259b1845ab513bd98de8e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPosition: {x: 2.875, y: 1.1515, z: 1.326}
+  defaultRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &3036084000737370908
 GameObject:
   m_ObjectHideFlags: 0

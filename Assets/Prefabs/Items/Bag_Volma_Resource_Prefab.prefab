@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: -7468651005805439913}
   - component: {fileID: -5650341189367620552}
   - component: {fileID: 1235744621}
+  - component: {fileID: 1235744624}
   m_Layer: 0
   m_Name: Bag_Volma_Resource_Prefab
   m_TagString: Item
@@ -369,6 +370,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
+  spillable: {fileID: 1235744624}
+  sandLeak: {fileID: 1646674796706823739}
+  bagSpillingSound: {fileID: -7468651005805439913}
+  bagRigidbody: {fileID: 4036060762964706213}
+  cementCount: 30
 --- !u!114 &1235744621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +389,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPosition: {x: 2.847, y: 0.325, z: 0.637}
   defaultRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &1235744624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885209096843629658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e5f7d4f5dc4a64e851c30e2b40a1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8416272007918961125
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,5 +568,10 @@ PrefabInstance:
 --- !u!4 &1444125877734020639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9190309892509554801, guid: 180f7c31f386cd844ba6896f1ebf6325, type: 3}
+  m_PrefabInstance: {fileID: 7746220985887706734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1646674796706823739 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9032585821970968661, guid: 180f7c31f386cd844ba6896f1ebf6325, type: 3}
   m_PrefabInstance: {fileID: 7746220985887706734}
   m_PrefabAsset: {fileID: 0}

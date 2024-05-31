@@ -145,6 +145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86288979b32e31348a03e7f4943fd363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faucetHandleTransform: {fileID: 5916689622473184178}
+  waterLeakTransform: {fileID: 1374754558330619532}
+  waterParticles: {fileID: 1280325394794294952}
+  waterSplashParticles: {fileID: 1280364147865913092}
+  waterAudioSource: {fileID: 141743026670382052}
+  litersPerSecond: 2
   stats: {fileID: 0}
 --- !u!82 &141743026670382052
 AudioSource:
@@ -767,6 +773,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf2cbfc5b900af94d877399a49c43a2b, type: 3}
+--- !u!198 &1280325394794294952 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9032585821970968661, guid: cf2cbfc5b900af94d877399a49c43a2b, type: 3}
+  m_PrefabInstance: {fileID: 7826853572341866237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1280364147865913092 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9032626232631400953, guid: cf2cbfc5b900af94d877399a49c43a2b, type: 3}
+  m_PrefabInstance: {fileID: 7826853572341866237}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1374754558330619532 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9190309892509554801, guid: cf2cbfc5b900af94d877399a49c43a2b, type: 3}
