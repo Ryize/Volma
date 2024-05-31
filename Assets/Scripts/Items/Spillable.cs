@@ -28,11 +28,11 @@ public class Spillable : MonoBehaviour
 
                 if (cosX * cosZ <= -0.1f)
                 {
-                    _isSpilling |= true;
+                    _isSpilling = true;
                 }
                 else
                 {
-                    _isSpilling |= false;
+                    _isSpilling = false;
                 }
             }
 
