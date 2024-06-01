@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4965368640853266917}
   - component: {fileID: 2979111296163409038}
   - component: {fileID: 471337896}
+  - component: {fileID: 1606325441}
   m_Layer: 6
   m_Name: Primer_Resource_Prefab
   m_TagString: Item
@@ -175,7 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08953e36802b0564b8bec6c4bdf2ef06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primerQuest: {fileID: 0}
+  spillable: {fileID: 1606325441}
+  primerSpillingSpeed: 0.5
+  primerAmount: 10
+  leakTransform: {fileID: 8628378300175862976}
 --- !u!82 &2979111296163409038
 AudioSource:
   m_ObjectHideFlags: 0
@@ -286,6 +290,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPosition: {x: 2.875, y: 1.1515, z: 1.326}
   defaultRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &1606325441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2646892208176144594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e5f7d4f5dc4a64e851c30e2b40a1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spillEffect: {fileID: 8461861880920450276}
+  spillAudio: {fileID: 2979111296163409038}
+  maxDistance: 10
+  maxParticles: 10
 --- !u!1 &3036084000737370908
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +604,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4868469466006344229}
     m_Modifications:
+    - target: {fileID: 9032585821970968661, guid: 63c8a39c3d3585d41a39ab028dbdfb10, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032585821970968661, guid: 63c8a39c3d3585d41a39ab028dbdfb10, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032585821970968661, guid: 63c8a39c3d3585d41a39ab028dbdfb10, type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 9190309892509554801, guid: 63c8a39c3d3585d41a39ab028dbdfb10, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -634,6 +666,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c8a39c3d3585d41a39ab028dbdfb10, type: 3}
+--- !u!198 &8461861880920450276 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9032585821970968661, guid: 63c8a39c3d3585d41a39ab028dbdfb10, type: 3}
+  m_PrefabInstance: {fileID: 591276117292324017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8628378300175862976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9190309892509554801, guid: 63c8a39c3d3585d41a39ab028dbdfb10, type: 3}

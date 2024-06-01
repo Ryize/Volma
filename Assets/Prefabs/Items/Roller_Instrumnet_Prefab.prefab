@@ -443,6 +443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa67b1a2ead8bd45991f7344eb4d5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rollerBruchRender: {fileID: 7421272917147712199}
+  maxPrimerCount: 100
+  primerFlowTracker: {fileID: 6433694611484425132}
+  rollerRigidbody: {fileID: 7937337005652335899}
+  rollerAudioSource: {fileID: 1168621552}
 --- !u!114 &6433694611484425132
 MonoBehaviour:
   m_ObjectHideFlags: 0

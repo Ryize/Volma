@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Roller_Instrument_Script : MonoBehaviour
@@ -7,17 +8,23 @@ public class Roller_Instrument_Script : MonoBehaviour
      * Скрипт валика
      */
 
+    [SerializeField] private Renderer rollerBruchRender;
+    [SerializeField] private float maxPrimerCount;
+
     // Кол-во грунтовки на валике
-    private CounterTracker primerFlowTracker;
+    [SerializeField] private CounterTracker primerFlowTracker;
 
     // Компонент Rigidbody ролика (нужен для вычелсения скорости)
-    private Rigidbody rollerRigidbody;
+    [SerializeField] private Rigidbody rollerRigidbody;
+    
+    // Компонет AudioSource для валика
+    [SerializeField] private AudioSource rollerAudioSource;
 
     // Константа для минимальной грунтовки
     private const float MinPrimerThreshold = 0.1f;
+
+    private Cuvette_Instrument_Script cachedCuvette = null;
     
-    // Компонет AudioSource для валика
-    private AudioSource rollerAudioSource;
 
     private void Start()
     {
@@ -28,18 +35,25 @@ public class Roller_Instrument_Script : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Transform target = other.transform;
+        Paint(other.transform);
+    }
+
+    private void Paint(Transform target)
+    {
         string targetName = target.name.ToLower();
 
-        if (!rollerAudioSource.isPlaying)
+        if (targetName.Contains("primer"))
         {
-            rollerAudioSource.Play();
+            PlaySound();
         }
 
         if (targetName.Contains("primerpaint"))
         {
-            // Увеличивает кол-во грунтовки на валике с использованием Mathf.Clamp01
-            primerFlowTracker.tracker = Mathf.Clamp(primerFlowTracker.tracker + rollerRigidbody.velocity.magnitude * 0.5f, 0f, 100f);
+            UpdateRoller(rollerRigidbody.velocity.magnitude * 0.5f);
+            
+            if (!cachedCuvette) cachedCuvette = target.parent.GetComponent<Cuvette_Instrument_Script>();
+            cachedCuvette.primerVolume -= rollerRigidbody.velocity.magnitude * 0.005f;
+                
             return;
         }
 
@@ -53,8 +67,7 @@ public class Roller_Instrument_Script : MonoBehaviour
                 return;
             }
 
-            // Уменьшает кол-во грунтовки на валике с использованием Mathf.Clamp
-            primerFlowTracker.tracker = Mathf.Clamp(primerFlowTracker.tracker - rollerRigidbody.velocity.magnitude * 0.1f, 0f, 100f);
+            UpdateRoller(rollerRigidbody.velocity.magnitude * 0.1f);
 
             // Проверяем, достаточно ли грунтовки, чтобы намазать
             if (primerFlowTracker.tracker > MinPrimerThreshold && primerLineQuest != null)
@@ -64,11 +77,28 @@ public class Roller_Instrument_Script : MonoBehaviour
         }
     }
 
+    private void PlaySound(bool play = true)
+    {
+        if (play)
+        {
+            if (!rollerAudioSource.isPlaying) rollerAudioSource.Play();
+        }
+        else
+        {
+            if (rollerAudioSource.isPlaying) rollerAudioSource.Stop();
+        }
+    }
+
+    private void UpdateRoller(float rollerPaintCount = 0)
+    {
+        primerFlowTracker.tracker = Mathf.Clamp(primerFlowTracker.tracker - rollerPaintCount, 0f, maxPrimerCount);
+        float rollerColor = (255 - maxPrimerCount + primerFlowTracker.tracker) / 255;
+        Color materialColor = new Color(rollerColor, rollerColor, rollerColor, 1);
+        rollerBruchRender.material.color = materialColor;
+    }
+
     private void OnTriggerExit(Collider other)
     {
-        if (rollerAudioSource.isPlaying)
-        {
-            rollerAudioSource.Stop();
-        }
+        PlaySound(false);
     }
 }

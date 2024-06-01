@@ -1,73 +1,69 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Primer_Resource_Script : MonoBehaviour
 {
-    // Наполение кюветки
-    private CounterTracker cuvetteFillAmount;
-    
-    // Квест грунтовки
-    [SerializeField] private GameObject primerQuest;
-    
-    // Эффект грунтовки
-    private ParticleSystem primerLeak;
-    
-    //звук выливания из канистры
-    private AudioSource _bottleMovementSound;
+    [SerializeField] private Spillable spillable;
+    [SerializeField] private float primerSpillingSpeed;
+    [SerializeField] private float primerAmount;
+    [SerializeField] private Transform leakTransform;
 
-    private void Start()
+    private Cuvette_Instrument_Script cachedCuvette;
+
+    private void FixedUpdate()
     {
-        InvokeRepeating("Primer", 1f, 1f);
-        
-        _bottleMovementSound = GetComponent<AudioSource>();
-        primerLeak = transform.GetChild(0).GetComponent<ParticleSystem>();
-
-        primerLeak.maxParticles = 0;
+        Spill();
     }
 
-    void Primer() {
-        float cosX = Mathf.Cos(transform.rotation.eulerAngles.x * Mathf.Deg2Rad);
-        float cosZ = Mathf.Cos(transform.rotation.eulerAngles.z * Mathf.Deg2Rad);
-
-        if (cosX * cosZ <= -0.1f)
+    private void Spill() {
+        if (!spillable || !spillable.isSpilling)
         {
-            primerLeak.maxParticles = 10;
+            return;
+        }
+
+        if (primerAmount > 0.01f)
+        {
+            spillable.useEffect = true;
+
+            primerAmount = Mathf.Max(primerAmount - primerSpillingSpeed * Time.deltaTime, 0f);
             
-            // воспроизведение звука выливания из канистры
-            _bottleMovementSound.Play();
+            cachedCuvette = RaycastToCuvette();
+
+            if (cachedCuvette)
+            {
+                cachedCuvette.primerVolume += primerSpillingSpeed * Time.deltaTime;
+            }
         }
         else
         {
-            primerLeak.maxParticles = 0;
-            
-            _bottleMovementSound.Pause();
-            return;
+            spillable.useEffect = false;
         }
-        
-        
-        Vector3 origin = transform.position;
-        Vector3 direction = Vector3.down;
-        
-        float distance = 1f;
-        RaycastHit hit;
+    }
 
-        if (!Physics.Raycast(origin, direction, out hit, distance)) {
-            return;
-        }
-    
-        // Если объект не кюветка   
-        if (!hit.transform.name.ToLower().Contains("cuvette"))
+    private Cuvette_Instrument_Script RaycastToCuvette()
+    {
+        Vector3 origin = leakTransform.position;
+        Vector3 derection = Vector3.down;
+
+        float distance = 10f;
+
+        RaycastHit cuvette;
+
+        if (!Physics.Raycast(origin, derection, out cuvette, distance))
         {
-            return;
+            return null;
         }
 
-        Transform cuvette = hit.transform;
-
-        cuvetteFillAmount = cuvette.GetComponent<CounterTracker>();
-
-        if ((cuvetteFillAmount.tracker += 0.1f) >= 0.5f)
+        if (!cuvette.transform.name.ToLower().Contains("cuvette"))
         {
-            cuvette.GetChild(1).gameObject.SetActive(true);
-            primerQuest.SetActive(true);
+            return null;
         }
+
+        if (cachedCuvette && cachedCuvette.transform == cuvette.transform)
+            return cachedCuvette;
+        
+        return cuvette.transform.GetComponent<Cuvette_Instrument_Script>();
     }
 }
