@@ -10358,6 +10358,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e5f7d4f5dc4a64e851c30e2b40a1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spillEffect: {fileID: 0}
+  spillAudio: {fileID: 1141531316}
+  maxDistance: 10
+  maxParticles: 100
 --- !u!114 &1141531318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10371,7 +10375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spillable: {fileID: 1141531317}
-  spillingAudio: {fileID: 1141531316}
   maxVolume: 20
   _waterVolume: 0
   _sandVolume: 0

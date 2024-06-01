@@ -7,7 +7,6 @@ public class Bucket_Item_Script : MonoBehaviour
 {
     [Header("Spilling")]
     [SerializeField] private Spillable spillable;
-    [SerializeField] AudioSource spillingAudio;
 
     [Header("Bucket volume")]
     [SerializeField] private float maxVolume = 20;
@@ -28,7 +27,6 @@ public class Bucket_Item_Script : MonoBehaviour
     [SerializeField] private Material waterMaterial;
     [SerializeField] private Material glueMaterial;
     
-    [FormerlySerializedAs("minRadius")]
     [Header("Filler Const")]
     [SerializeField] float minFillerRadius;
     [SerializeField] float minFillerHeight;
@@ -48,17 +46,10 @@ public class Bucket_Item_Script : MonoBehaviour
     // Метод для виливания ведра
     private void Spill()
     {
-        if (!spillable) return;
-
-        if (spillable.IsSpilling)
+        if (spillable && spillable.isSpilling)
         {
             sandVolume = Mathf.Max(0, _sandVolume - Time.deltaTime * 2);
             waterVolume = Mathf.Max(0, _waterVolume - Time.deltaTime * 2);
-            if (!spillingAudio.isPlaying) spillingAudio.Play();
-        }
-        else
-        {
-            if (spillingAudio.isPlaying) spillingAudio.Stop();
         }
     }
 
@@ -94,6 +85,7 @@ public class Bucket_Item_Script : MonoBehaviour
             _waterVolume = Mathf.Min(maxVolume - _sandVolume, value);
             
             ChangeFiller();
+            ChangeEffect();
         }
 
         get { return _waterVolume; }
@@ -108,6 +100,7 @@ public class Bucket_Item_Script : MonoBehaviour
             _sandVolume = Mathf.Min(maxVolume - _waterVolume, value);
 
             ChangeFiller();
+            ChangeEffect();
         }
 
         get { return _sandVolume; }
@@ -129,13 +122,32 @@ public class Bucket_Item_Script : MonoBehaviour
             _isReadyMixture = value;
 
             if (value)
+            {
                 fillerRender.material = glueMaterial;
+                UpdateStatus();
+            }
+                
             else{
                 fillerRender.material = waterMaterial;
                 mixtureProcces.tracker = 0;
+                UpdateStatus();
             }
         }
         get { return _isReadyMixture; }
+    }
+
+    public float TakeGlue()
+    {
+        float totalVolume = sandVolume + waterVolume;
+        
+        if (isReadyMixture && totalVolume > 0.1f)
+        {
+            float glue = Mathf.Max(sandVolume, 0.25f) + Mathf.Max(waterVolume, 0.25f);
+            sandVolume -= 0.25f;
+            waterVolume -= 0.25f;
+        }
+
+        return 0f;
     }
 
     private void UpdateStatus()
@@ -148,5 +160,10 @@ public class Bucket_Item_Script : MonoBehaviour
         {
             status.SetText("смесь готова.");
         }
+    }
+
+    private void ChangeEffect()
+    {
+        spillable.useEffect = _waterVolume + _sandVolume > 0.01f;
     }
 }

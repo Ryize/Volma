@@ -11,13 +11,11 @@ public class Bag_Resource_Script : MonoBehaviour
 
     [SerializeField] private Spillable spillable;
 
-    [SerializeField] private ParticleSystem sandLeak;
-
-    [SerializeField] private AudioSource bagSpillingSound;
-
     [SerializeField] private Rigidbody bagRigidbody;
 
     [SerializeField] private float cementCount = 30;
+
+    [SerializeField] private Transform leakTransform;
     
     private Bucket_Item_Script cachedBucket = null;
 
@@ -29,15 +27,7 @@ public class Bag_Resource_Script : MonoBehaviour
     private void Spill()
     {
         // Песок должен высыпаться
-        if (spillable && spillable.IsSpilling)
-        {
-            sandLeak.maxParticles = 10;
-            if (!bagSpillingSound.isPlaying) bagSpillingSound.Play();
-        }
-        else
-        {
-            sandLeak.maxParticles = 0;
-            if (bagSpillingSound.isPlaying) bagSpillingSound.Stop();
+        if (!spillable.isSpilling) {
             return;
         }
 
@@ -45,6 +35,8 @@ public class Bag_Resource_Script : MonoBehaviour
 
         if (cementCount > 0)
         {
+            spillable.useEffect = true;
+            
             float cementSpilling = (bagRigidbody.velocity.magnitude * 3 + 3) * Time.deltaTime;
 
             stats.cement += cementSpilling;
@@ -56,11 +48,15 @@ public class Bag_Resource_Script : MonoBehaviour
 
             cementCount -= cementSpilling;
         }
+        else
+        {
+            spillable.useEffect = false;
+        }
     }
 
     private Bucket_Item_Script BucketRaycast()
     {
-        Vector3 origin = transform.position;
+        Vector3 origin = leakTransform.position;
         Vector3 derection = Vector3.down;
 
         // Максимальная дистанция для засыпания

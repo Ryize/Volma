@@ -371,10 +371,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   spillable: {fileID: 1235744624}
-  sandLeak: {fileID: 1646674796706823739}
-  bagSpillingSound: {fileID: -7468651005805439913}
   bagRigidbody: {fileID: 4036060762964706213}
   cementCount: 30
+  leakTransform: {fileID: 1444125877734020639}
 --- !u!114 &1235744621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,6 +400,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e5f7d4f5dc4a64e851c30e2b40a1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spillEffect: {fileID: 1646674796706823739}
+  spillAudio: {fileID: -7468651005805439913}
+  maxDistance: 10
+  maxParticles: 100
 --- !u!1 &8416272007918961125
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +494,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3451513124926443983}
     m_Modifications:
+    - target: {fileID: 9032585821970968661, guid: 180f7c31f386cd844ba6896f1ebf6325, type: 3}
+      propertyPath: ShapeModule.type
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032585821970968661, guid: 180f7c31f386cd844ba6896f1ebf6325, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032585821970968661, guid: 180f7c31f386cd844ba6896f1ebf6325, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032585821970968661, guid: 180f7c31f386cd844ba6896f1ebf6325, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032585821970968661, guid: 180f7c31f386cd844ba6896f1ebf6325, type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032585821970968661, guid: 180f7c31f386cd844ba6896f1ebf6325, type: 3}
+      propertyPath: TrailModule.sizeAffectsLifetime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032585821970968661, guid: 180f7c31f386cd844ba6896f1ebf6325, type: 3}
+      propertyPath: TrailModule.widthOverTrail.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 9032585821970968661, guid: 180f7c31f386cd844ba6896f1ebf6325, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 1
