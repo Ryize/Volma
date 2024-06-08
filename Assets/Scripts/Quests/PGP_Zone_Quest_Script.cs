@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
@@ -40,19 +39,19 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
             return;
         }
         
-        // Должно быть три ребенка (пгп, вертикальный и горизонтальный клей)
+        // Р”РѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‚СЂРё СЂРµР±РµРЅРєР° (РїРіРї, РІРµСЂС‚РёРєР°Р»СЊРЅС‹Р№ Рё РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹Р№ РєР»РµР№)
         if (!(glueV.activeSelf && glueH.activeSelf))
         {
             return;
         }
         
-        // Объектом должна быть пгп
+        // РћР±СЉРµРєС‚РѕРј РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РїРіРї
         if (!other.name.ToLower().Contains("pgp_item"))
         {
             return;
         }
         
-        // Активирует проекцию ПГП
+        // РђРєС‚РёРІРёСЂСѓРµС‚ РїСЂРѕРµРєС†РёСЋ РџР“Рџ
         PgpZone.SetActive(true);
 
         if (!other.transform.parent.GetComponent<Interactable>().attachedToHand)

@@ -1,15 +1,14 @@
-using UnityEngine;
 using System.Collections.Generic;
 
 public class PGP_Quest_Script : Quest
 {
-    // Счетчик ПГП
+    // РЎС‡РµС‚С‡РёРє РџР“Рџ
     private int pgpCounter;
 
-    // Менеджер объектов
+    // РњРµРЅРµРґР¶РµСЂ РѕР±СЉРµРєС‚РѕРІ
     public Item_Manager manager;
 
-    // Тип событий, который отслеживается 
+    // РўРёРї СЃРѕР±С‹С‚РёР№, РєРѕС‚РѕСЂС‹Р№ РѕС‚СЃР»РµР¶РёРІР°РµС‚СЃСЏ 
     public List<string> subTypes;
     
     private void Start()
