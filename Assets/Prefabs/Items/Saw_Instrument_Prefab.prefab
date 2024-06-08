@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4e55ce8de037f143a8b9e5b6b2a3685, type: 2}
+  - {fileID: 2100000, guid: f284035287d907c48a0f2967d9a2efe0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,9 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589e74575f50d634cbfc814e16b64700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CapMaterial: {fileID: 2100000, guid: 16733bc6e77b33a4ea7498167f986505, type: 2}
-  redQuestMaterial: {fileID: 2100000, guid: d6545057fdd6a5a4da012f8dbdb437e6, type: 2}
-  greenQuestMaterial: {fileID: 2100000, guid: a111a1b33c58e3d4aafec136d4257534, type: 2}
+  sawRigidbody: {fileID: 0}
 --- !u!1 &-516098083770646512
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +223,7 @@ GameObject:
   - component: {fileID: 456190713882711561}
   - component: {fileID: -5043964701347329404}
   - component: {fileID: 1301162080}
+  - component: {fileID: 1301162081}
   m_Layer: 0
   m_Name: Saw_Instrument_Prefab
   m_TagString: Item
@@ -413,6 +412,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPosition: {x: 0, y: 0, z: 0}
   defaultRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &1301162081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528838475190762311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589e74575f50d634cbfc814e16b64700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sawRigidbody: {fileID: -5650216492911095833}
 --- !u!1 &8416272007918961125
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +487,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4e55ce8de037f143a8b9e5b6b2a3685, type: 2}
+  - {fileID: 2100000, guid: f284035287d907c48a0f2967d9a2efe0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
