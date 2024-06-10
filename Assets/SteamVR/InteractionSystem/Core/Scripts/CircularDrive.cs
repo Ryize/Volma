@@ -158,7 +158,7 @@ namespace Valve.VR.InteractionSystem
 
 			if ( limited )
 			{
-				start = Quaternion.identity;
+				start = transform.rotation;
 				outAngle = transform.localEulerAngles[(int)axisOfRotation];
 
 				if ( forceStart )
