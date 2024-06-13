@@ -5,21 +5,20 @@ public class PGP_Zone_Quest_Script : MonoBehaviour
 {
     [SerializeField]
     private PositionKeeper standardPgpZone;
+    [SerializeField]
     private GameObject PgpZone;
     private bool pgpIsSetted;
     
     public Item_Repository repository;
 
+    [SerializeField]
     private GameObject PGP;
 
+    [SerializeField]
     private GameObject glueH, glueV;
 
     protected virtual void Start()
     {
-        PGP = transform.GetChild(0).gameObject;
-        glueV = transform.GetChild(3).gameObject;
-        glueH = transform.GetChild(4).gameObject;
-        PgpZone = transform.GetChild(5).gameObject;
         pgpIsSetted = false;
     }
 

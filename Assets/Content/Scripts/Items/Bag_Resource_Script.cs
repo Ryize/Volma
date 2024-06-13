@@ -28,6 +28,7 @@ public class Bag_Resource_Script : MonoBehaviour
     {
         // Песок должен высыпаться
         if (!spillable.isSpilling) {
+            spillable.useEffect = false;
             return;
         }
 

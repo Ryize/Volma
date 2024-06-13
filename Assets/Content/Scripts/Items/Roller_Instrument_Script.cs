@@ -49,7 +49,7 @@ public class Roller_Instrument_Script : MonoBehaviour
 
         if (targetName.Contains("primerpaint"))
         {
-            UpdateRoller(rollerRigidbody.velocity.magnitude * 0.5f);
+            UpdateRoller(-rollerRigidbody.velocity.magnitude * 0.5f);
             
             if (!cachedCuvette) cachedCuvette = target.parent.GetComponent<Cuvette_Instrument_Script>();
             cachedCuvette.primerVolume -= rollerRigidbody.velocity.magnitude * 0.005f;

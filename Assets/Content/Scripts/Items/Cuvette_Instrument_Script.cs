@@ -21,6 +21,11 @@ public class Cuvette_Instrument_Script : MonoBehaviour
         ChangeFiller();
     }
 
+    /*private void Update()
+    {
+        ChangeFiller();
+    }*/
+
     private void ChangeFiller()
     {
         float fillerPercentage = primerVolume / maxVolume;

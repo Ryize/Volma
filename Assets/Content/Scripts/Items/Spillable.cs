@@ -42,6 +42,7 @@ public class Spillable : MonoBehaviour
     {
         if (!useEffect)
         {
+            emissionModule.rateOverTime = 0;
             return;
         }
         
